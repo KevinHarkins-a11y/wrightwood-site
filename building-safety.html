@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Building Safety Services — Wrightwood Consulting</title>
+<meta name="description" content="Expert Building Safety Act 2022 compliance services. Gateway 2 submissions, cladding remediation, EWS1 certification and BSF funding support from Wrightwood Consulting.">
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --cream: #F7F5F0;
+    --warm-white: #FDFCFA;
+    --charcoal: #1C1C1A;
+    --mid: #5C5C58;
+    --light: #9A9A94;
+    --border: #E0DDD6;
+    --accent: #2A4A3A;
+    --accent-light: #EAF0EC;
+  }
+  html, body { min-height: 100vh; }
+  body { font-family: 'DM Sans', sans-serif; background: var(--charcoal); color: var(--charcoal); font-size: 16px; line-height: 1.7; }
+
+  .split { display: grid; grid-template-columns: 1fr 1fr; min-height: 100vh; }
+
+  .hero-side {
+    position: relative; display: flex; flex-direction: column;
+    justify-content: space-between; padding: 60px 56px;
+    background: var(--charcoal); overflow: hidden;
+  }
+  .hero-side::before {
+    content: ''; position: absolute; inset: 0;
+    background: linear-gradient(135deg, rgba(42,74,58,0.45) 0%, transparent 60%),
+      repeating-linear-gradient(0deg, transparent, transparent 60px, rgba(255,255,255,0.015) 60px, rgba(255,255,255,0.015) 61px),
+      repeating-linear-gradient(90deg, transparent, transparent 60px, rgba(255,255,255,0.015) 60px, rgba(255,255,255,0.015) 61px);
+    pointer-events: none;
+  }
+  .hero-circles { position: absolute; bottom: -120px; right: -120px; width: 480px; height: 480px; border-radius: 50%; border: 1px solid rgba(255,255,255,0.06); pointer-events: none; }
+  .hero-circles::before { content: ''; position: absolute; inset: 60px; border-radius: 50%; border: 1px solid rgba(255,255,255,0.06); }
+  .hero-circles::after { content: ''; position: absolute; inset: 120px; border-radius: 50%; border: 1px solid rgba(255,255,255,0.06); }
+  .hero-content { position: relative; z-index: 1; }
+  .hero-logo { font-family: 'EB Garamond', serif; font-size: 17px; font-weight: 500; color: rgba(255,255,255,0.5); letter-spacing: 0.02em; margin-bottom: 72px; display: block; text-decoration: none; }
+  .hero-eyebrow { font-size: 11px; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; color: #7aaa8a; margin-bottom: 24px; display: flex; align-items: center; gap: 10px; }
+  .hero-eyebrow::before { content: ''; display: block; width: 24px; height: 1px; background: #7aaa8a; }
+  .hero-heading { font-family: 'EB Garamond', serif; font-size: clamp(36px, 4.5vw, 58px); font-weight: 400; line-height: 1.08; color: #F7F5F0; margin-bottom: 24px; letter-spacing: -0.01em; }
+  .hero-heading em { font-style: italic; color: #7aaa8a; }
+  .hero-sub { font-size: 15px; color: rgba(247,245,240,0.55); font-weight: 300; line-height: 1.75; max-width: 400px; margin-bottom: 52px; }
+  .services-label { font-size: 11px; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(247,245,240,0.35); margin-bottom: 20px; }
+  .service-list { display: flex; flex-direction: column; gap: 12px; margin-bottom: 52px; }
+  .service-item { display: flex; align-items: flex-start; gap: 14px; }
+  .service-check { width: 20px; height: 20px; border-radius: 50%; background: rgba(42,74,58,0.5); border: 1px solid #7aaa8a; display: flex; align-items: center; justify-content: center; flex-shrink: 0; margin-top: 2px; }
+  .service-check svg { width: 9px; height: 9px; }
+  .service-name { font-size: 15px; font-weight: 400; color: #F7F5F0; line-height: 1.5; }
+  .trust-bar { display: flex; gap: 28px; align-items: center; padding-top: 36px; border-top: 1px solid rgba(255,255,255,0.08); }
+  .trust-item { display: flex; flex-direction: column; gap: 3px; }
+  .trust-number { font-family: 'EB Garamond', serif; font-size: 26px; color: #F7F5F0; line-height: 1; }
+  .trust-label { font-size: 11px; color: rgba(247,245,240,0.4); letter-spacing: 0.06em; text-transform: uppercase; }
+  .trust-divider { width: 1px; height: 40px; background: rgba(255,255,255,0.1); }
+
+  .form-side { background: var(--warm-white); display: flex; flex-direction: column; justify-content: center; padding: 60px 56px; overflow-y: auto; }
+  .form-heading { font-family: 'EB Garamond', serif; font-size: 32px; font-weight: 400; color: var(--charcoal); margin-bottom: 8px; line-height: 1.2; letter-spacing: -0.01em; }
+  .form-sub { font-size: 14px; color: var(--mid); font-weight: 300; margin-bottom: 36px; line-height: 1.6; }
+  .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 16px; }
+  .form-group { display: flex; flex-direction: column; gap: 6px; margin-bottom: 16px; }
+  label { font-size: 12px; font-weight: 500; color: var(--mid); letter-spacing: 0.04em; text-transform: uppercase; }
+  label .req { color: var(--accent); margin-left: 2px; }
+  input[type="text"], input[type="email"], input[type="tel"], textarea { width: 100%; padding: 11px 14px; border: 1px solid var(--border); border-radius: 4px; font-family: 'DM Sans', sans-serif; font-size: 14px; font-weight: 300; color: var(--charcoal); background: var(--warm-white); outline: none; transition: border-color 0.2s; -webkit-appearance: none; }
+  input:focus, textarea:focus { border-color: var(--accent); }
+  textarea { resize: vertical; min-height: 90px; line-height: 1.6; }
+  .checkboxes-label { font-size: 12px; font-weight: 500; color: var(--mid); letter-spacing: 0.04em; text-transform: uppercase; margin-bottom: 10px; display: block; }
+  .checkboxes-label .req { color: var(--accent); margin-left: 2px; }
+  .checkbox-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-bottom: 16px; }
+  .checkbox-item { display: flex; align-items: flex-start; gap: 10px; cursor: pointer; }
+  .checkbox-item input[type="checkbox"] { width: 16px; height: 16px; border: 1px solid var(--border); border-radius: 3px; accent-color: var(--accent); cursor: pointer; margin-top: 2px; flex-shrink: 0; padding: 0; }
+  .checkbox-item span { font-size: 13px; color: var(--mid); font-weight: 300; line-height: 1.5; }
+  .radio-row { display: flex; gap: 24px; margin-bottom: 16px; }
+  .radio-item { display: flex; align-items: center; gap: 8px; cursor: pointer; }
+  .radio-item input[type="radio"] { width: 16px; height: 16px; accent-color: var(--accent); cursor: pointer; padding: 0; }
+  .radio-item span { font-size: 14px; color: var(--mid); font-weight: 300; }
+  .privacy-note { font-size: 11px; color: var(--light); line-height: 1.6; margin: 16px 0 24px; }
+  .submit-btn { width: 100%; background: var(--accent); color: var(--warm-white); font-family: 'DM Sans', sans-serif; font-size: 15px; font-weight: 500; padding: 16px 32px; border: none; border-radius: 4px; cursor: pointer; letter-spacing: 0.02em; transition: opacity 0.2s; }
+  .submit-btn:hover { opacity: 0.85; }
+  .form-divider { height: 1px; background: var(--border); margin: 20px 0; }
+
+  @media (max-width: 800px) {
+    .split { grid-template-columns: 1fr; }
+    .hero-side { padding: 48px 32px; min-height: auto; }
+    .form-side { padding: 48px 32px; }
+    .hero-logo { margin-bottom: 40px; }
+    .form-row, .checkbox-grid { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<div class="split">
+  <div class="hero-side">
+    <div class="hero-circles"></div>
+    <div class="hero-content">
+      <a href="index.html" class="hero-logo">Wrightwood Consulting</a>
+      <div>
+        <p class="hero-eyebrow">Building Safety Act 2022</p>
+        <h1 class="hero-heading">Expert building safety <em>solutions</em></h1>
+        <p class="hero-sub">Confidently navigate the Building Safety Act 2022 with our end-to-end compliance, design management, and remediation services.</p>
+        <p class="services-label">Our services include</p>
+        <div class="service-list">
+          <div class="service-item"><div class="service-check"><svg viewBox="0 0 9 9" fill="none"><path d="M1.5 4.5l2 2 4-4" stroke="#7aaa8a" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></div><span class="service-name">Gateway 2 &amp; BSR Submissions</span></div>
+          <div class="service-item"><div class="service-check"><svg viewBox="0 0 9 9" fill="none"><path d="M1.5 4.5l2 2 4-4" stroke="#7aaa8a" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></div><span class="service-name">Building Safety Case Creation</span></div>
+          <div class="service-item"><div class="service-check"><svg viewBox="0 0 9 9" fill="none"><path d="M1.5 4.5l2 2 4-4" stroke="#7aaa8a" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></div><span class="service-name">Cladding Remediation Project Management</span></div>
+          <div class="service-item"><div class="service-check"><svg viewBox="0 0 9 9" fill="none"><path d="M1.5 4.5l2 2 4-4" stroke="#7aaa8a" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></div><span class="service-name">Golden Thread &amp; Compliance Tracking</span></div>
+          <div class="service-item"><div class="service-check"><svg viewBox="0 0 9 9" fill="none"><path d="M1.5 4.5l2 2 4-4" stroke="#7aaa8a" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></div><span class="service-name">BSF &amp; CSS Funding Applications</span></div>
+          <div class="service-item"><div class="service-check"><svg viewBox="0 0 9 9" fill="none"><path d="M1.5 4.5l2 2 4-4" stroke="#7aaa8a" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></div><span class="service-name">FRAEW &amp; EWS1 Certification</span></div>
+        </div>
+        <div class="trust-bar">
+          <div class="trust-item"><span class="trust-number">BSF</span><span class="trust-label">Stage 2 specialists</span></div>
+          <div class="trust-divider"></div>
+          <div class="trust-item"><span class="trust-number">HRB</span><span class="trust-label">High-rise experts</span></div>
+          <div class="trust-divider"></div>
+          <div class="trust-item"><span class="trust-number">Gateway</span><span class="trust-label">2 submissions</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="form-side">
+    <h2 class="form-heading">Get expert building safety support</h2>
+    <p class="form-sub">Tell us about your project and one of our specialists will be in touch within one working day.</p>
+    <div class="form-row">
+      <div class="form-group"><label>First name<span class="req">*</span></label><input type="text" placeholder="Jane"></div>
+      <div class="form-group"><label>Last name<span class="req">*</span></label><input type="text" placeholder="Smith"></div>
+    </div>
+    <div class="form-row">
+      <div class="form-group"><label>Email<span class="req">*</span></label><input type="email" placeholder="jane@company.co.uk"></div>
+      <div class="form-group"><label>Phone number</label><input type="tel" placeholder="+44 7700 000000"></div>
+    </div>
+    <div class="form-group"><label>Organisation</label><input type="text" placeholder="Company name"></div>
+    <div class="form-divider"></div>
+    <div class="form-group">
+      <span class="checkboxes-label">Which service(s) are you enquiring about?<span class="req">*</span></span>
+      <div class="checkbox-grid">
+        <label class="checkbox-item"><input type="checkbox"><span>Gateway 2 / BSR submission</span></label>
+        <label class="checkbox-item"><input type="checkbox"><span>Cladding remediation</span></label>
+        <label class="checkbox-item"><input type="checkbox"><span>Building Safety Case</span></label>
+        <label class="checkbox-item"><input type="checkbox"><span>BSF / CSS funding</span></label>
+        <label class="checkbox-item"><input type="checkbox"><span>Golden thread &amp; compliance</span></label>
+        <label class="checkbox-item"><input type="checkbox"><span>FRAEW / EWS1</span></label>
+      </div>
+    </div>
+    <div class="form-group"><label>How can we help?<span class="req">*</span></label><textarea placeholder="Brief description of your project or query…"></textarea></div>
+    <div class="form-group">
+      <label>Preferred contact method</label>
+      <div class="radio-row">
+        <label class="radio-item"><input type="radio" name="contact" value="email"><span>Email</span></label>
+        <label class="radio-item"><input type="radio" name="contact" value="phone"><span>Phone</span></label>
+        <label class="radio-item"><input type="radio" name="contact" value="either" checked><span>Either</span></label>
+      </div>
+    </div>
+    <p class="privacy-note">We will use your details to respond to your enquiry and may send you information about our services. You can unsubscribe at any time. See our Privacy Policy for details.</p>
+    <button class="submit-btn">Get started →</button>
+  </div>
+</div>
+
+</body>
+</html>

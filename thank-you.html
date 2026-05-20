@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Request Received — Wrightwood Consulting</title>
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --cream: #F7F5F0;
+    --warm-white: #FDFCFA;
+    --charcoal: #1C1C1A;
+    --mid: #5C5C58;
+    --light: #9A9A94;
+    --border: #E0DDD6;
+    --accent: #2A4A3A;
+    --accent-light: #EAF0EC;
+  }
+  body { font-family: 'DM Sans', sans-serif; background: var(--warm-white); color: var(--charcoal); font-size: 16px; line-height: 1.7; min-height: 100vh; display: flex; flex-direction: column; }
+
+  nav {
+    background: rgba(253,252,250,0.92);
+    border-bottom: 1px solid var(--border);
+    padding: 0 5%; display: flex; align-items: center; justify-content: space-between; height: 68px;
+  }
+  .nav-logo { font-family: 'EB Garamond', serif; font-size: 20px; font-weight: 500; color: var(--charcoal); letter-spacing: 0.01em; text-decoration: none; }
+
+  .page { flex: 1; display: flex; align-items: center; justify-content: center; padding: 80px 5%; }
+
+  .inner { max-width: 540px; text-align: center; }
+
+  .success-icon {
+    width: 72px; height: 72px;
+    background: var(--accent-light);
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    margin: 0 auto 36px;
+  }
+  .success-icon svg { width: 32px; height: 32px; }
+
+  .eyebrow { font-size: 11px; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent); margin-bottom: 16px; }
+
+  h1 { font-family: 'EB Garamond', serif; font-size: clamp(36px, 5vw, 52px); font-weight: 400; line-height: 1.1; color: var(--charcoal); margin-bottom: 20px; letter-spacing: -0.01em; }
+  h1 em { font-style: italic; color: var(--accent); }
+
+  .sub { font-size: 16px; color: var(--mid); font-weight: 300; line-height: 1.75; margin-bottom: 48px; }
+
+  .divider { height: 1px; background: var(--border); margin: 0 auto 48px; width: 60px; }
+
+  .what-next { background: var(--cream); border: 1px solid var(--border); padding: 32px 36px; text-align: left; margin-bottom: 40px; }
+  .what-next h3 { font-family: 'EB Garamond', serif; font-size: 20px; font-weight: 500; color: var(--charcoal); margin-bottom: 16px; }
+  .next-list { display: flex; flex-direction: column; gap: 12px; }
+  .next-item { display: flex; gap: 12px; align-items: flex-start; font-size: 14px; color: var(--mid); font-weight: 300; line-height: 1.5; }
+  .next-item::before { content: ''; display: block; width: 4px; height: 4px; border-radius: 50%; background: var(--accent); margin-top: 8px; flex-shrink: 0; }
+
+  .actions { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
+  .btn-primary { background: var(--accent); color: var(--warm-white); font-family: 'DM Sans', sans-serif; font-size: 14px; font-weight: 500; padding: 13px 28px; border-radius: 4px; text-decoration: none; letter-spacing: 0.02em; transition: opacity 0.2s; }
+  .btn-primary:hover { opacity: 0.85; }
+  .btn-secondary { font-size: 14px; font-weight: 400; color: var(--mid); text-decoration: none; padding: 13px 0; display: flex; align-items: center; gap: 6px; transition: color 0.2s; }
+  .btn-secondary:hover { color: var(--charcoal); }
+
+  footer { background: var(--charcoal); padding: 32px 5%; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 16px; }
+  .footer-logo { font-family: 'EB Garamond', serif; font-size: 18px; color: #F7F5F0; font-weight: 500; text-decoration: none; }
+  .footer-note { font-size: 12px; color: #555; }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="nav-logo">Wrightwood Consulting</a>
+</nav>
+
+<div class="page">
+  <div class="inner">
+
+    <div class="success-icon">
+      <svg viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="16" cy="16" r="15" stroke="#2A4A3A" stroke-width="1.5"/>
+        <path d="M9 16l5 5 9-9" stroke="#2A4A3A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+    </div>
+
+    <p class="eyebrow">Request received</p>
+    <h1>Thank you for your <em>enquiry</em></h1>
+    <p class="sub">We've received your remediation review request and will be in touch within one working day.</p>
+
+    <div class="divider"></div>
+
+    <div class="what-next">
+      <h3>What happens next</h3>
+      <div class="next-list">
+        <div class="next-item">A member of our team will review your submission and any documents you've uploaded.</div>
+        <div class="next-item">We'll be in touch within one working day to discuss your building and next steps.</div>
+        <div class="next-item">If your project requires urgent attention, please email us directly at <a href="mailto:info@wrightwoodconsulting.co.uk" style="color:var(--accent)">info@wrightwoodconsulting.co.uk</a>.</div>
+      </div>
+    </div>
+
+    <div class="actions">
+      <a href="index.html" class="btn-primary">Back to home</a>
+      <a href="index.html#services" class="btn-secondary">Our services →</a>
+    </div>
+
+  </div>
+</div>
+
+<footer>
+  <a href="index.html" class="footer-logo">Wrightwood Consulting</a>
+  <span class="footer-note">© 2026 Wrightwood Consulting. All rights reserved.</span>
+</footer>
+
+</body>
+</html>

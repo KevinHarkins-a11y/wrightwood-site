@@ -226,8 +226,8 @@
   </div>
 </div>
 
-<form id="reviewForm" name="remediation-review" method="POST" data-netlify="true" enctype="multipart/form-data">
-  <input type="hidden" name="form-name" value="remediation-review">
+<form id="reviewForm" name="building-review" method="POST" action="/thank-you.html" data-netlify="true" enctype="multipart/form-data">
+  <input type="hidden" name="form-name" value="building-review">
 
   <div class="form-wrapper">
 
@@ -552,34 +552,11 @@
     });
   });
 
-  // Form submit
-  document.getElementById('reviewForm').addEventListener('submit', async function(e) {
-    e.preventDefault();
-    const btn = this.querySelector('.submit-btn');
+  // On final submit, update button text then allow native POST to Netlify
+  document.getElementById('reviewForm').addEventListener('submit', function() {
+    const btn = this.querySelector('.btn-submit');
     btn.textContent = 'Submitting…';
     btn.disabled = true;
-
-    try {
-      const data = new FormData(this);
-      const response = await fetch('/', {
-        method: 'POST',
-        body: data
-      });
-      if (response.ok) {
-        document.querySelector('.form-wrapper').style.display = 'none';
-        document.getElementById('successScreen').style.display = 'block';
-        document.getElementById('progressFill').style.width = '100%';
-        window.scrollTo({ top: 0, behavior: 'smooth' });
-      } else {
-        btn.textContent = 'Submit review request →';
-        btn.disabled = false;
-        alert('Something went wrong. Please email us at info@wrightwoodconsulting.co.uk');
-      }
-    } catch {
-      btn.textContent = 'Submit review request →';
-      btn.disabled = false;
-      alert('Something went wrong. Please email us at info@wrightwoodconsulting.co.uk');
-    }
   });
 </script>
 

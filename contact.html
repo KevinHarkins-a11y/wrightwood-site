@@ -226,7 +226,7 @@
   </div>
 </div>
 
-<form id="reviewForm" name="building-review" method="POST" action="/thank-you.html" data-netlify="true" enctype="multipart/form-data">
+<form id="reviewForm" name="building-review" method="POST" data-netlify="true" enctype="multipart/form-data">
   <input type="hidden" name="form-name" value="building-review">
 
   <div class="form-wrapper">
@@ -552,12 +552,7 @@
     });
   });
 
-  // On final submit, update button text then allow native POST to Netlify
-  document.getElementById('reviewForm').addEventListener('submit', function() {
-    const btn = this.querySelector('.btn-submit');
-    btn.textContent = 'Submitting…';
-    btn.disabled = true;
-  });
+
 </script>
 
 </body>

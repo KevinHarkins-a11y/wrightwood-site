@@ -97,6 +97,7 @@
 
   label.field-label { font-size: 11px; font-weight: 500; color: var(--mid); letter-spacing: 0.08em; text-transform: uppercase; }
   label.field-label .req { color: var(--accent); margin-left: 2px; }
+  label.field-label .optional-tag { text-transform: none; font-weight: 300; letter-spacing: 0; color: var(--light); }
 
   input[type="text"],
   input[type="email"],
@@ -115,14 +116,6 @@
   input:focus, select:focus, textarea:focus { border-color: var(--accent); background: #fff; }
   textarea { resize: vertical; min-height: 100px; line-height: 1.6; }
 
-  select {
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%239A9A94' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
-    background-repeat: no-repeat;
-    background-position: right 14px center;
-    padding-right: 40px;
-    cursor: pointer;
-  }
-
   /* RADIO & CHECKBOX GROUPS */
   .option-group { display: flex; flex-direction: column; gap: 10px; }
   .option-group.two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
@@ -135,27 +128,17 @@
   .option-item:has(input:checked) { background: var(--accent-light); border-color: var(--accent); }
   .option-item:has(input:checked) span { color: var(--charcoal); }
 
-  /* FILE UPLOAD */
-  .upload-area {
-    border: 2px dashed var(--border);
-    border-radius: 4px;
-    padding: 40px 32px;
-    text-align: center;
-    cursor: pointer;
-    transition: border-color 0.2s, background 0.2s;
-    position: relative;
-  }
-  .upload-area:hover { border-color: var(--accent); background: var(--accent-light); }
-  .upload-area input[type="file"] { position: absolute; inset: 0; opacity: 0; cursor: pointer; width: 100%; height: 100%; }
-  .upload-icon { width: 40px; height: 40px; background: var(--accent-light); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 14px; }
-  .upload-icon svg { width: 18px; height: 18px; }
-  .upload-title { font-size: 14px; font-weight: 500; color: var(--charcoal); margin-bottom: 6px; }
-  .upload-sub { font-size: 12px; color: var(--light); line-height: 1.6; }
-  .upload-types { display: flex; flex-wrap: wrap; gap: 8px; justify-content: center; margin-top: 16px; }
-  .upload-type-tag { font-size: 11px; font-weight: 400; color: var(--mid); background: var(--cream); border: 1px solid var(--border); padding: 3px 10px; border-radius: 3px; }
-  .file-list { margin-top: 16px; display: flex; flex-direction: column; gap: 8px; }
+  /* COMPACT FILE ATTACH (deliberately low-emphasis — optional, not the focal point of the step) */
+  .upload-compact { display: inline-flex; align-items: center; gap: 8px; padding: 10px 18px; border: 1px solid var(--border); border-radius: 4px; font-size: 13px; font-weight: 400; color: var(--charcoal); cursor: pointer; transition: border-color 0.2s, background 0.2s; width: fit-content; }
+  .upload-compact:hover { border-color: var(--accent); background: var(--accent-light); }
+  .upload-compact svg { width: 14px; height: 14px; flex-shrink: 0; }
+  .upload-sub { font-size: 12px; color: var(--light); line-height: 1.6; margin-top: 8px; }
+  .file-list { margin-top: 14px; display: flex; flex-direction: column; gap: 8px; }
   .file-item { display: flex; align-items: center; gap: 10px; padding: 10px 14px; background: var(--cream); border: 1px solid var(--border); border-radius: 4px; font-size: 13px; color: var(--mid); }
   .file-item svg { width: 14px; height: 14px; flex-shrink: 0; }
+
+  /* HONEYPOT — hidden from sighted users; tabindex/aria-hidden keep it out of the way for keyboard & screen-reader users too */
+  .hp-field { position: absolute; left: -9999px; top: -9999px; }
 
   /* NAVIGATION BUTTONS */
   .form-nav { display: flex; justify-content: space-between; align-items: center; margin-top: 48px; padding-top: 32px; border-top: 1px solid var(--border); }
@@ -171,14 +154,6 @@
   /* PROGRESS BAR */
   .progress-bar { height: 3px; background: var(--border); position: fixed; top: 68px; left: 0; right: 0; z-index: 99; }
   .progress-fill { height: 100%; background: var(--accent); transition: width 0.3s ease; }
-
-  /* SUCCESS */
-  .success-screen { display: none; padding: 80px 60px; text-align: center; }
-  .success-icon { width: 64px; height: 64px; background: var(--accent-light); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 28px; }
-  .success-icon svg { width: 28px; height: 28px; }
-  .success-heading { font-family: 'EB Garamond', serif; font-size: 40px; font-weight: 400; color: var(--charcoal); margin-bottom: 16px; letter-spacing: -0.01em; }
-  .success-sub { font-size: 16px; color: var(--mid); font-weight: 300; max-width: 440px; margin: 0 auto 36px; line-height: 1.75; }
-  .success-back { font-size: 14px; color: var(--accent); text-decoration: none; font-weight: 400; }
 
   .privacy-note { font-size: 11px; color: var(--light); line-height: 1.6; margin-top: 16px; }
 
@@ -203,7 +178,7 @@
 </head>
 <body>
 
-<div class="progress-bar"><div class="progress-fill" id="progressFill" style="width:20%"></div></div>
+<div class="progress-bar"><div class="progress-fill" id="progressFill" style="width:33%"></div></div>
 
 <nav>
   <a href="index.html" class="nav-logo">Wrightwood Consulting</a>
@@ -226,275 +201,213 @@
   </div>
 </div>
 
-<form id="reviewForm" name="building-review" method="POST" action="/" data-netlify="true" enctype="multipart/form-data">
+<form id="reviewForm" name="building-review" method="POST" action="/thank-you.html" data-netlify="true" netlify-honeypot="bot-field" enctype="multipart/form-data">
   <input type="hidden" name="form-name" value="building-review">
+
+  <p class="hp-field" aria-hidden="true">
+    <label>Leave this field blank if you're human: <input type="text" name="bot-field" tabindex="-1" autocomplete="off"></label>
+  </p>
+
+  <input type="hidden" name="utm_source" id="utm_source" value="">
+  <input type="hidden" name="utm_medium" id="utm_medium" value="">
+  <input type="hidden" name="utm_campaign" id="utm_campaign" value="">
 
   <div class="form-wrapper">
 
     <!-- SIDEBAR -->
     <div class="form-sidebar">
-      <p class="sidebar-label">Your review</p>
+      <p class="sidebar-label">Your enquiry</p>
       <div class="steps-nav">
         <a class="step-link active" data-step="1" href="#">
           <div class="step-num-badge">1</div>
-          <span class="step-link-text">Building details</span>
+          <span class="step-link-text">About you &amp; building</span>
         </a>
         <a class="step-link" data-step="2" href="#">
           <div class="step-num-badge">2</div>
-          <span class="step-link-text">Cladding &amp; concerns</span>
+          <span class="step-link-text">Current status</span>
         </a>
         <a class="step-link" data-step="3" href="#">
           <div class="step-num-badge">3</div>
-          <span class="step-link-text">Assessments &amp; funding</span>
-        </a>
-        <a class="step-link" data-step="4" href="#">
-          <div class="step-num-badge">4</div>
-          <span class="step-link-text">Support needed</span>
-        </a>
-        <a class="step-link" data-step="5" href="#">
-          <div class="step-num-badge">5</div>
           <span class="step-link-text">Your details</span>
         </a>
       </div>
       <div class="sidebar-note">
-        <p><strong>Not sure about some answers?</strong> Leave fields blank or select "Unsure" — we can work through the details together once we're in touch.</p>
+        <p><strong>Not sure about some answers?</strong> Select "Not sure" — we can work through the details together once we're in touch.</p>
       </div>
     </div>
 
     <!-- FORM MAIN -->
     <div class="form-main">
 
-      <!-- STEP 1: BUILDING DETAILS -->
+      <!-- STEP 1: ABOUT YOU & THE BUILDING -->
       <div class="form-section active" id="step-1">
-        <h2 class="section-heading">About the building</h2>
-        <p class="section-sub">Tell us the basics so we can understand the scale and location of the project.</p>
+        <h2 class="section-heading">About you and the building</h2>
+        <p class="section-sub">A few quick basics so we understand who we're speaking with and the scale of the project.</p>
 
         <div class="form-group">
-          <label class="field-label" for="building-name">Building name or address<span class="req">*</span></label>
-          <input type="text" id="building-name" name="building_name" placeholder="e.g. Riverside Court, 12 High Street" required>
-        </div>
-
-        <div class="form-row">
-          <div class="form-group">
-            <label class="field-label" for="postcode">Postcode<span class="req">*</span></label>
-            <input type="text" id="postcode" name="postcode" placeholder="e.g. SW1A 1AA" required>
-          </div>
-          <div class="form-group">
-            <label class="field-label" for="storeys">Number of storeys</label>
-            <input type="number" id="storeys" name="storeys" placeholder="e.g. 14" min="1">
+          <label class="field-label">Your role<span class="req">*</span></label>
+          <div class="option-group two-col">
+            <label class="option-item"><input type="radio" name="role" value="Leaseholder / Resident" required><span>Leaseholder / Resident</span></label>
+            <label class="option-item"><input type="radio" name="role" value="RTM Company" required><span>RTM Company</span></label>
+            <label class="option-item"><input type="radio" name="role" value="Freeholder / Building Owner" required><span>Freeholder / Building Owner</span></label>
+            <label class="option-item"><input type="radio" name="role" value="Managing Agent" required><span>Managing Agent</span></label>
+            <label class="option-item"><input type="radio" name="role" value="Housing Association" required><span>Housing Association</span></label>
+            <label class="option-item"><input type="radio" name="role" value="Developer" required><span>Developer</span></label>
+            <label class="option-item"><input type="radio" name="role" value="Main Contractor" required><span>Main Contractor</span></label>
+            <label class="option-item"><input type="radio" name="role" value="Consultant / Other professional" required><span>Consultant / Other professional</span></label>
           </div>
         </div>
 
         <div class="form-group">
-          <label class="field-label">Is the building currently occupied?</label>
-          <div class="option-group" style="flex-direction:row; gap: 12px;">
-            <label class="option-item" style="flex:1">
-              <input type="radio" name="occupied" value="Yes">
-              <span>Yes</span>
-            </label>
-            <label class="option-item" style="flex:1">
-              <input type="radio" name="occupied" value="No">
-              <span>No</span>
-            </label>
-            <label class="option-item" style="flex:1">
-              <input type="radio" name="occupied" value="Partial">
-              <span>Partially</span>
-            </label>
+          <label class="field-label" for="building-address">Building name or postcode<span class="req">*</span></label>
+          <input type="text" id="building-address" name="building_address" placeholder="e.g. Riverside Court, SW1A 1AA" required>
+        </div>
+
+        <div class="form-group">
+          <label class="field-label">Approximate building height<span class="req">*</span></label>
+          <div class="option-group two-col">
+            <label class="option-item"><input type="radio" name="building_height" value="Under 11m" required><span>Under 11m</span></label>
+            <label class="option-item"><input type="radio" name="building_height" value="11–18m" required><span>11–18m</span></label>
+            <label class="option-item"><input type="radio" name="building_height" value="Over 18m" required><span>Over 18m</span></label>
+            <label class="option-item"><input type="radio" name="building_height" value="Not sure" required><span>Not sure</span></label>
           </div>
         </div>
 
         <div class="form-nav">
-          <span class="step-counter">Step 1 of 5</span>
-          <button type="button" class="btn-next" onclick="goToStep(2)">Next →</button>
+          <span class="step-counter">Step 1 of 3</span>
+          <button type="button" class="btn-next" onclick="nextStep(2)">Next →</button>
         </div>
       </div>
 
-      <!-- STEP 2: CLADDING & CONCERNS -->
+      <!-- STEP 2: CURRENT STATUS -->
       <div class="form-section" id="step-2">
-        <h2 class="section-heading">Cladding &amp; known concerns</h2>
-        <p class="section-sub">Help us understand the building's external wall system and any issues you're aware of.</p>
+        <h2 class="section-heading">Where things stand</h2>
+        <p class="section-sub">Help us understand the current status so we can prepare properly before we speak.</p>
 
         <div class="form-group">
-          <label class="field-label" for="cladding-type">Cladding type</label>
-          <select id="cladding-type" name="cladding_type">
-            <option value="" disabled selected>Select cladding type…</option>
-            <option value="Metal panels">Metal panels</option>
-            <option value="Timber cladding">Timber cladding</option>
-            <option value="Render system">Render system</option>
-            <option value="Brickwork">Brickwork</option>
-            <option value="Unknown">Unknown</option>
-            <option value="Other">Other</option>
-          </select>
+          <label class="field-label">Current stage<span class="req">*</span></label>
+          <div class="option-group">
+            <label class="option-item"><input type="radio" name="current_stage" value="Not yet assessed" required><span>Not yet assessed</span></label>
+            <label class="option-item"><input type="radio" name="current_stage" value="FRAEW or intrusive survey completed" required><span>FRAEW or intrusive survey completed</span></label>
+            <label class="option-item"><input type="radio" name="current_stage" value="Remediation scoped or in progress" required><span>Remediation scoped or in progress</span></label>
+            <label class="option-item"><input type="radio" name="current_stage" value="Works complete, awaiting EWS1" required><span>Works complete, awaiting EWS1</span></label>
+            <label class="option-item"><input type="radio" name="current_stage" value="Not sure" required><span>Not sure</span></label>
+          </div>
         </div>
 
         <div class="form-divider"></div>
 
         <div class="form-group">
-          <label class="field-label">Known concerns (select all that apply)</label>
+          <label class="field-label">Known concerns or triggers <span class="optional-tag">(optional)</span></label>
           <div class="option-group two-col">
-            <label class="option-item"><input type="checkbox" name="concerns" value="Cladding concerns"><span>Cladding concerns</span></label>
+            <label class="option-item"><input type="checkbox" name="concerns" value="Cladding / ACM concerns"><span>Cladding / ACM concerns</span></label>
             <label class="option-item"><input type="checkbox" name="concerns" value="Missing fire barriers"><span>Missing fire barriers</span></label>
-            <label class="option-item"><input type="checkbox" name="concerns" value="Balcony concerns"><span>Balcony concerns</span></label>
-            <label class="option-item"><input type="checkbox" name="concerns" value="Insulation concerns"><span>Insulation concerns</span></label>
-            <label class="option-item"><input type="checkbox" name="concerns" value="Water ingress"><span>Water ingress</span></label>
-            <label class="option-item"><input type="checkbox" name="concerns" value="Cracking / movement"><span>Cracking / movement</span></label>
-            <label class="option-item"><input type="checkbox" name="concerns" value="Unsure"><span>Unsure</span></label>
+            <label class="option-item"><input type="checkbox" name="concerns" value="Balcony construction"><span>Balcony construction</span></label>
+            <label class="option-item"><input type="checkbox" name="concerns" value="Insulation"><span>Insulation</span></label>
+            <label class="option-item"><input type="checkbox" name="concerns" value="EWS1 needed for sale/remortgage"><span>EWS1 needed for sale/remortgage</span></label>
+            <label class="option-item"><input type="checkbox" name="concerns" value="Received a fire safety notice"><span>Received a fire safety notice</span></label>
+            <label class="option-item"><input type="checkbox" name="concerns" value="Not sure / none identified"><span>Not sure / none identified</span></label>
+          </div>
+        </div>
+
+        <div class="form-divider"></div>
+
+        <div class="form-group">
+          <label class="field-label">Funding status<span class="req">*</span></label>
+          <div class="option-group">
+            <label class="option-item"><input type="radio" name="funding_status" value="Not yet applied" required><span>Not yet applied</span></label>
+            <label class="option-item"><input type="radio" name="funding_status" value="BSF applied or approved" required><span>BSF (Building Safety Fund) applied or approved</span></label>
+            <label class="option-item"><input type="radio" name="funding_status" value="CSS applied or approved" required><span>CSS (Cladding Safety Scheme) applied or approved</span></label>
+            <label class="option-item"><input type="radio" name="funding_status" value="Self-funded" required><span>Self-funded</span></label>
+            <label class="option-item"><input type="radio" name="funding_status" value="Not sure" required><span>Not sure</span></label>
+          </div>
+        </div>
+
+        <div class="form-divider"></div>
+
+        <div class="form-group">
+          <label class="field-label">Urgency<span class="req">*</span></label>
+          <div class="option-group">
+            <label class="option-item"><input type="radio" name="urgency" value="Urgent — safety concern or regulatory deadline" required><span>Urgent — safety concern or regulatory deadline</span></label>
+            <label class="option-item"><input type="radio" name="urgency" value="Time-sensitive — sale or remortgage pending" required><span>Time-sensitive — sale or remortgage pending</span></label>
+            <label class="option-item"><input type="radio" name="urgency" value="Planning ahead, no immediate deadline" required><span>Planning ahead, no immediate deadline</span></label>
           </div>
         </div>
 
         <div class="form-nav">
           <button type="button" class="btn-back" onclick="goToStep(1)">← Back</button>
-          <span class="step-counter">Step 2 of 5</span>
-          <button type="button" class="btn-next" onclick="goToStep(3)">Next →</button>
+          <span class="step-counter">Step 2 of 3</span>
+          <button type="button" class="btn-next" onclick="nextStep(3)">Next →</button>
         </div>
       </div>
 
-      <!-- STEP 3: ASSESSMENTS & FUNDING -->
+      <!-- STEP 3: YOUR DETAILS -->
       <div class="form-section" id="step-3">
-        <h2 class="section-heading">Assessments &amp; funding</h2>
-        <p class="section-sub">Let us know what assessments have been carried out and whether funding has been applied for.</p>
-
-        <div class="form-group">
-          <label class="field-label">Has the building had an EWS1 assessment?</label>
-          <div class="option-group">
-            <label class="option-item"><input type="radio" name="ews1" value="Yes"><span>Yes</span></label>
-            <label class="option-item"><input type="radio" name="ews1" value="No"><span>No</span></label>
-            <label class="option-item"><input type="radio" name="ews1" value="Unsure"><span>Unsure</span></label>
-          </div>
-        </div>
-
-        <div class="form-divider"></div>
-
-        <div class="form-group">
-          <label class="field-label">Has funding been applied for?</label>
-          <div class="option-group">
-            <label class="option-item"><input type="radio" name="funding" value="BSF applied"><span>BSF (Building Safety Fund) applied</span></label>
-            <label class="option-item"><input type="radio" name="funding" value="CSS applied"><span>CSS (Cladding Safety Scheme) applied</span></label>
-            <label class="option-item"><input type="radio" name="funding" value="No funding applied"><span>No funding applied</span></label>
-            <label class="option-item"><input type="radio" name="funding" value="Unsure"><span>Unsure</span></label>
-          </div>
-        </div>
-
-        <div class="form-nav">
-          <button type="button" class="btn-back" onclick="goToStep(2)">← Back</button>
-          <span class="step-counter">Step 3 of 5</span>
-          <button type="button" class="btn-next" onclick="goToStep(4)">Next →</button>
-        </div>
-      </div>
-
-      <!-- STEP 4: SUPPORT NEEDED -->
-      <div class="form-section" id="step-4">
-        <h2 class="section-heading">Your role &amp; support needed</h2>
-        <p class="section-sub">Tell us who you are and what kind of support you're looking for.</p>
-
-        <div class="form-group">
-          <label class="field-label">I am a<span class="req">*</span></label>
-          <div class="option-group two-col">
-            <label class="option-item"><input type="radio" name="enquiry_type" value="Resident"><span>Resident</span></label>
-            <label class="option-item"><input type="radio" name="enquiry_type" value="RTM company"><span>RTM company</span></label>
-            <label class="option-item"><input type="radio" name="enquiry_type" value="Freeholder"><span>Freeholder</span></label>
-            <label class="option-item"><input type="radio" name="enquiry_type" value="Managing agent"><span>Managing agent</span></label>
-            <label class="option-item"><input type="radio" name="enquiry_type" value="Housing association"><span>Housing association</span></label>
-            <label class="option-item"><input type="radio" name="enquiry_type" value="Developer"><span>Developer</span></label>
-            <label class="option-item"><input type="radio" name="enquiry_type" value="Contractor"><span>Contractor</span></label>
-            <label class="option-item"><input type="radio" name="enquiry_type" value="Consultant"><span>Consultant</span></label>
-          </div>
-        </div>
-
-        <div class="form-divider"></div>
-
-        <div class="form-group">
-          <label class="field-label">What support are you looking for? (select all that apply)</label>
-          <div class="option-group two-col">
-            <label class="option-item"><input type="checkbox" name="support" value="Cladding remediation"><span>Cladding remediation</span></label>
-            <label class="option-item"><input type="checkbox" name="support" value="Gateway 2 support"><span>Gateway 2 support</span></label>
-            <label class="option-item"><input type="checkbox" name="support" value="Funding advice"><span>Funding advice</span></label>
-            <label class="option-item"><input type="checkbox" name="support" value="EWS1 support"><span>EWS1 support</span></label>
-            <label class="option-item"><input type="checkbox" name="support" value="Design management"><span>Design management</span></label>
-            <label class="option-item"><input type="checkbox" name="support" value="Compliance review"><span>Compliance review</span></label>
-            <label class="option-item"><input type="checkbox" name="support" value="General advice"><span>General advice</span></label>
-          </div>
-        </div>
-
-        <div class="form-nav">
-          <button type="button" class="btn-back" onclick="goToStep(3)">← Back</button>
-          <span class="step-counter">Step 4 of 5</span>
-          <button type="button" class="btn-next" onclick="goToStep(5)">Next →</button>
-        </div>
-      </div>
-
-      <!-- STEP 5: CONTACT DETAILS & UPLOAD -->
-      <div class="form-section" id="step-5">
-        <h2 class="section-heading">Your contact details</h2>
-        <p class="section-sub">Almost done. Add your details and upload any relevant documents if you have them to hand.</p>
+        <h2 class="section-heading">Your details</h2>
+        <p class="section-sub">Almost done. Add your contact details and we'll be in touch within one working day.</p>
 
         <div class="form-row">
           <div class="form-group">
-            <label class="field-label" for="first-name">First name<span class="req">*</span></label>
-            <input type="text" id="first-name" name="first_name" placeholder="Jane" required>
+            <label class="field-label" for="full-name">Full name<span class="req">*</span></label>
+            <input type="text" id="full-name" name="full_name" placeholder="Jane Smith" required>
           </div>
           <div class="form-group">
-            <label class="field-label" for="last-name">Last name<span class="req">*</span></label>
-            <input type="text" id="last-name" name="last_name" placeholder="Smith" required>
+            <label class="field-label" for="email">Email address<span class="req">*</span></label>
+            <input type="email" id="email" name="email" placeholder="jane@company.co.uk" required>
           </div>
         </div>
 
         <div class="form-group">
-          <label class="field-label" for="email">Email address<span class="req">*</span></label>
-          <input type="email" id="email" name="email" placeholder="jane@company.co.uk" required>
+          <label class="field-label" for="phone">Phone number <span class="optional-tag">(optional — so we can call if it's urgent)</span></label>
+          <input type="tel" id="phone" name="phone" placeholder="+44 7700 000000">
         </div>
 
         <div class="form-group">
-          <label class="field-label" for="phone">Phone number</label>
-          <input type="tel" id="phone" name="phone" placeholder="+44 7700 000000">
+          <label class="field-label">Preferred contact method</label>
+          <div class="option-group" style="flex-direction:row; gap: 12px;">
+            <label class="option-item" style="flex:1"><input type="radio" name="preferred_contact" value="Email"><span>Email</span></label>
+            <label class="option-item" style="flex:1"><input type="radio" name="preferred_contact" value="Phone"><span>Phone</span></label>
+            <label class="option-item" style="flex:1"><input type="radio" name="preferred_contact" value="Either" checked><span>Either</span></label>
+          </div>
         </div>
 
         <div class="form-divider"></div>
 
         <div class="form-group">
-          <label class="field-label">Upload documents or photos (optional)</label>
-          <div class="upload-area" id="uploadArea">
-            <input type="file" name="files" multiple accept=".pdf,.doc,.docx,.jpg,.jpeg,.png,.heic" id="fileInput">
-            <div class="upload-icon">
-              <svg viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M9 12V3M9 3L6 6M9 3l3 3" stroke="#2A4A3A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                <path d="M3 13v1a1 1 0 001 1h10a1 1 0 001-1v-1" stroke="#2A4A3A" stroke-width="1.5" stroke-linecap="round"/>
-              </svg>
-            </div>
-            <p class="upload-title">Click to upload or drag and drop</p>
-            <p class="upload-sub">Max 10MB per file</p>
-            <div class="upload-types">
-              <span class="upload-type-tag">Fire reports</span>
-              <span class="upload-type-tag">EWS1</span>
-              <span class="upload-type-tag">Photos</span>
-              <span class="upload-type-tag">Notices</span>
-              <span class="upload-type-tag">FRAEW summaries</span>
-              <span class="upload-type-tag">Planning docs</span>
-            </div>
-          </div>
+          <label class="field-label" for="message">Anything else you'd like us to know? <span class="optional-tag">(optional)</span></label>
+          <textarea id="message" name="message" placeholder="Any extra context that would help us prepare for the call…"></textarea>
+        </div>
+
+        <div class="form-group">
+          <label class="field-label">Attach documents or photos <span class="optional-tag">(optional)</span></label>
+          <label class="upload-compact" for="fileInput">
+            <svg viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M9 12V3M9 3L6 6M9 3l3 3" stroke="#2A4A3A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M3 13v1a1 1 0 001 1h10a1 1 0 001-1v-1" stroke="#2A4A3A" stroke-width="1.5" stroke-linecap="round"/>
+            </svg>
+            <span>Attach files</span>
+          </label>
+          <input type="file" id="fileInput" name="files" multiple accept=".pdf,.doc,.docx,.jpg,.jpeg,.png,.heic" style="display:none">
+          <p class="upload-sub">FRAEW reports, EWS1, photos, notices — max 10MB per file</p>
           <div class="file-list" id="fileList"></div>
         </div>
 
-        <p class="privacy-note">We will use your details to respond to your enquiry and may send you relevant information about our services. You can unsubscribe at any time.</p>
+        <div class="form-divider"></div>
+
+        <div class="form-group">
+          <label class="option-item">
+            <input type="checkbox" name="consent" required>
+            <span>I agree to Wrightwood Consulting contacting me about my enquiry and processing my details in line with the <a href="privacy-policy.html" target="_blank" rel="noopener" style="color:var(--accent)">Privacy Policy</a>.<span class="req">*</span></span>
+          </label>
+        </div>
+
+        <p class="privacy-note">We'll only use your details to respond to this enquiry and, if you'd like, to send relevant updates about our services. You can unsubscribe at any time.</p>
 
         <div class="form-nav">
-          <button type="button" class="btn-back" onclick="goToStep(4)">← Back</button>
-          <span class="step-counter">Step 5 of 5</span>
-          <button type="submit" class="btn-submit">Submit review request →</button>
+          <button type="button" class="btn-back" onclick="goToStep(2)">← Back</button>
+          <span class="step-counter">Step 3 of 3</span>
+          <button type="submit" class="btn-submit">Get my free review →</button>
         </div>
-      </div>
-
-      <!-- SUCCESS -->
-      <div class="success-screen" id="successScreen">
-        <div class="success-icon">
-          <svg viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <circle cx="14" cy="14" r="13" stroke="#2A4A3A" stroke-width="1.5"/>
-            <path d="M8 14l4 4 8-8" stroke="#2A4A3A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-          </svg>
-        </div>
-        <h2 class="success-heading">Review request submitted</h2>
-        <p class="success-sub">Thank you. A member of our team will review your submission and be in touch within one working day.</p>
-        <a href="index.html" class="success-back">← Back to Wrightwood Consulting</a>
       </div>
 
     </div>
@@ -508,13 +421,14 @@
     <li><a href="index.html#fraew">FRAEW</a></li>
     <li><a href="contact.html">Contact</a></li>
     <li><a href="building-safety.html">Get a quote</a></li>
+    <li><a href="privacy-policy.html">Privacy Policy</a></li>
   </ul>
   <span class="footer-note">© 2026 Wrightwood Consulting. All rights reserved.</span>
 </footer>
 
 <script>
   let currentStep = 1;
-  const totalSteps = 5;
+  const totalSteps = 3;
 
   function goToStep(step) {
     document.getElementById('step-' + currentStep).classList.remove('active');
@@ -531,7 +445,26 @@
     window.scrollTo({ top: 0, behavior: 'smooth' });
   }
 
-  // Sidebar nav clicks
+  // Validate the current step's required fields before advancing, so a
+  // required radio left unanswered on an earlier step can't silently block
+  // submission later (hidden required fields can't show a validation message).
+  function validateStep(step) {
+    const section = document.getElementById('step-' + step);
+    const invalid = section.querySelector(':invalid');
+    if (invalid) {
+      invalid.reportValidity();
+      return false;
+    }
+    return true;
+  }
+
+  function nextStep(step) {
+    if (validateStep(currentStep)) {
+      goToStep(step);
+    }
+  }
+
+  // Sidebar nav clicks (only allow jumping to steps already reached)
   document.querySelectorAll('.step-link').forEach(link => {
     link.addEventListener('click', function(e) {
       e.preventDefault();
@@ -552,7 +485,13 @@
     });
   });
 
-
+  // Populate hidden UTM fields from the URL, if present, for marketing
+  // attribution — captured invisibly rather than asking the user directly.
+  const params = new URLSearchParams(window.location.search);
+  ['utm_source', 'utm_medium', 'utm_campaign'].forEach(function(key) {
+    const el = document.getElementById(key);
+    if (el && params.has(key)) el.value = params.get(key);
+  });
 </script>
 
 </body>

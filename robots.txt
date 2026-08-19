@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://wrightwoodconsultants.co.uk/sitemap.xml
+Sitemap: https://wrightwoodconsulting.co.uk/sitemap.xml

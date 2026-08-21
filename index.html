@@ -66,6 +66,20 @@
   .stat-number { font-family: 'EB Garamond', serif; font-size: 44px; font-weight: 400; color: var(--charcoal); line-height: 1; margin-bottom: 6px; }
   .stat-label { font-size: 12px; color: var(--light); letter-spacing: 0.06em; text-transform: uppercase; }
 
+  #under-11m-notice { background: var(--accent-light); border-bottom: 1px solid var(--border); padding: 48px 5%; }
+  .notice-inner { max-width: 1100px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; gap: 40px; flex-wrap: wrap; }
+  .notice-copy { max-width: 600px; }
+  .notice-heading { font-family: 'EB Garamond', serif; font-size: clamp(22px, 3vw, 30px); font-weight: 500; color: var(--charcoal); margin-bottom: 10px; letter-spacing: -0.01em; }
+  .notice-lead { font-size: 15px; color: var(--charcoal); font-weight: 400; line-height: 1.6; margin-bottom: 6px; }
+  .notice-sub { font-size: 14px; color: var(--mid); font-weight: 300; line-height: 1.6; }
+  .notice-action { display: flex; flex-direction: column; align-items: flex-start; gap: 14px; flex-shrink: 0; }
+  .notice-window-badge { display: inline-flex; align-items: center; font-size: 11px; font-weight: 500; letter-spacing: 0.06em; text-transform: uppercase; color: var(--accent); background: var(--warm-white); border: 1px solid var(--accent); padding: 7px 14px; border-radius: 3px; white-space: nowrap; }
+  @media (max-width: 700px) {
+    .notice-inner { flex-direction: column; align-items: flex-start; }
+    .notice-action { width: 100%; }
+    .notice-action .btn-primary { width: 100%; text-align: center; }
+  }
+
   section { padding: 100px 5%; }
   .section-label { font-size: 11px; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent); margin-bottom: 20px; display: flex; align-items: center; gap: 12px; }
   .section-label::before { content: ''; display: block; width: 24px; height: 1px; background: var(--accent); }
@@ -250,6 +264,20 @@
   <div class="stat"><div class="stat-number">Gateway</div><div class="stat-label">2 submissions</div></div>
 </div>
 
+<section id="under-11m-notice">
+  <div class="notice-inner">
+    <div class="notice-copy">
+      <h2 class="notice-heading">Is your residential building under 11 metres?</h2>
+      <p class="notice-lead"><strong>New Cladding Safety Scheme funding is now open for eligible buildings under 11 metres in England.</strong></p>
+      <p class="notice-sub">Applications opened on <strong>17 August 2026</strong> with a limited <strong>8-week application window</strong>.</p>
+    </div>
+    <div class="notice-action">
+      <span class="notice-window-badge">8-week application window</span>
+      <a href="cladding-safety-scheme-under-11-metres.html" class="btn-primary">Check Under 11m Funding Eligibility</a>
+    </div>
+  </div>
+</section>
+
 <section id="services">
   <p class="section-label">What we do</p>
   <h2 class="section-heading">Specialist services for complex remediation projects</h2>
@@ -408,6 +436,7 @@
 
 
     <li><a href="fraew-cladding-safety-scheme-faq.html">FRAEW &amp; Cladding FAQs</a></li>
+    <li><a href="cladding-safety-scheme-under-11-metres.html">Under 11m Funding</a></li>
     <li><a href="building-safety.html">Get a quote</a></li>
   </ul>
   <span class="footer-note">© 2026 Wrightwood Consulting. All rights reserved.</span>

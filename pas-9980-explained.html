@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PAS 9980 Explained: What It Is &amp; Why It Matters | Wrightwood Consulting</title>
+<meta name="description" content="A plain-English explanation of PAS 9980, its relationship with the FRAEW process, who uses it, and what a PAS 9980 appraisal actually considers.">
+<link rel="canonical" href="https://wrightwoodconsulting.co.uk/pas-9980-explained.html">
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --cream: #F7F5F0;
+    --warm-white: #FDFCFA;
+    --charcoal: #1C1C1A;
+    --mid: #5C5C58;
+    --light: #9A9A94;
+    --border: #E0DDD6;
+    --accent: #2A4A3A;
+    --accent-light: #EAF0EC;
+  }
+  html { scroll-behavior: smooth; }
+  body { font-family: 'DM Sans', sans-serif; background: var(--warm-white); color: var(--charcoal); font-size: 16px; line-height: 1.7; }
+
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    background: rgba(253,252,250,0.92); backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border);
+    padding: 0 5%; display: flex; align-items: center; justify-content: space-between; height: 68px;
+  }
+  .nav-logo { font-family: 'EB Garamond', serif; font-size: 20px; font-weight: 500; color: var(--charcoal); letter-spacing: 0.01em; text-decoration: none; }
+  .nav-links { display: flex; gap: 24px; list-style: none; }
+  .nav-links a { font-size: 12px; font-weight: 400; color: var(--mid); text-decoration: none; letter-spacing: 0.04em; text-transform: uppercase; transition: color 0.2s; }
+  .nav-links a:hover, .nav-links a.active { color: var(--charcoal); }
+  .nav-cta { font-size: 13px; font-weight: 500; color: var(--warm-white); background: var(--accent); padding: 10px 22px; border-radius: 4px; text-decoration: none; letter-spacing: 0.02em; transition: opacity 0.2s; white-space: nowrap; }
+  .nav-cta:hover { opacity: 0.85; }
+
+  .hero-eyebrow { font-size: 11px; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent); margin-bottom: 20px; display: flex; align-items: center; gap: 12px; }
+  .hero-eyebrow::before { content: ''; display: block; width: 32px; height: 1px; background: var(--accent); }
+
+  .article-hero { padding: 140px 5% 64px; background: var(--warm-white); border-bottom: 1px solid var(--border); }
+  .article-hero-inner { max-width: 760px; margin: 0 auto; }
+  .article-hero h1 { font-family: 'EB Garamond', serif; font-size: clamp(34px, 4.5vw, 54px); font-weight: 400; line-height: 1.15; color: var(--charcoal); margin-bottom: 20px; letter-spacing: -0.01em; }
+  .article-hero .lede { font-size: 17px; color: var(--mid); font-weight: 300; line-height: 1.75; max-width: 640px; }
+  .breadcrumb { font-size: 12px; color: var(--light); margin-bottom: 28px; }
+  .breadcrumb a { color: var(--light); text-decoration: none; }
+  .breadcrumb a:hover { color: var(--accent); }
+
+  .article-body { max-width: 760px; padding: 64px 5% 20px; }
+  .article-body h2 { font-family: 'EB Garamond', serif; font-size: clamp(26px, 3vw, 34px); font-weight: 500; color: var(--charcoal); margin: 56px 0 20px; line-height: 1.25; letter-spacing: -0.005em; }
+  .article-body > h2:first-child { margin-top: 0; }
+  .article-body h3 { font-family: 'EB Garamond', serif; font-size: 20px; font-weight: 500; color: var(--charcoal); margin: 32px 0 12px; }
+  .article-body p { font-size: 15.5px; color: var(--mid); font-weight: 300; line-height: 1.85; margin-bottom: 18px; }
+  .article-body ul, .article-body ol { margin: 0 0 20px; padding-left: 0; list-style: none; display: flex; flex-direction: column; gap: 10px; }
+  .article-body li { font-size: 15px; color: var(--mid); font-weight: 300; line-height: 1.7; padding-left: 22px; position: relative; }
+  .article-body ul li::before { content: ''; position: absolute; left: 0; top: 9px; width: 5px; height: 5px; border-radius: 50%; background: var(--accent); }
+  .article-body strong { color: var(--charcoal); font-weight: 500; }
+  .article-body a { color: var(--accent); text-decoration: underline; text-decoration-color: var(--border); text-underline-offset: 2px; }
+  .article-body a:hover { text-decoration-color: var(--accent); }
+
+  .callout { margin: 32px 0; padding: 28px 32px; border-left: 2px solid var(--accent); background: var(--accent-light); }
+  .callout h3 { font-family: 'EB Garamond', serif; font-size: 17px; color: var(--charcoal); margin-bottom: 10px; font-weight: 500; }
+  .callout p { font-size: 14px; margin: 0 0 10px; }
+  .callout p:last-child { margin-bottom: 0; }
+
+  .faq-block { margin-top: 12px; display: flex; flex-direction: column; gap: 1px; background: var(--border); border: 1px solid var(--border); }
+  .faq-item { background: var(--warm-white); padding: 26px 28px; }
+  .faq-q { font-family: 'EB Garamond', serif; font-size: 17px; font-weight: 500; color: var(--charcoal); margin-bottom: 8px; }
+  .faq-a { font-size: 14px; color: var(--mid); font-weight: 300; line-height: 1.75; margin: 0; }
+
+  .article-cta { background: var(--charcoal); margin-top: 80px; padding: 64px 5%; text-align: center; }
+  .article-cta-inner { max-width: 560px; margin: 0 auto; }
+  .article-cta h2 { font-family: 'EB Garamond', serif; font-size: clamp(26px, 3vw, 36px); font-weight: 400; color: #F7F5F0; margin-bottom: 16px; }
+  .article-cta p { font-size: 15px; color: #9A9A94; font-weight: 300; line-height: 1.75; margin-bottom: 32px; }
+  .btn-primary { background: var(--accent); color: var(--warm-white); font-family: 'DM Sans', sans-serif; font-size: 14px; font-weight: 500; padding: 14px 32px; border-radius: 4px; text-decoration: none; letter-spacing: 0.02em; transition: opacity 0.2s; display: inline-block; }
+  .btn-primary:hover { opacity: 0.85; }
+
+  .related-links { max-width: 760px; padding: 0 5% 80px; }
+  .related-links h2 { font-family: 'EB Garamond', serif; font-size: 22px; font-weight: 500; color: var(--charcoal); margin-bottom: 20px; }
+  .related-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1px; background: var(--border); border: 1px solid var(--border); }
+  .related-card { background: var(--warm-white); padding: 24px 26px; text-decoration: none; display: block; transition: background 0.2s; }
+  .related-card:hover { background: var(--cream); }
+  .related-card-label { font-size: 11px; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; color: var(--accent); margin-bottom: 8px; }
+  .related-card-title { font-family: 'EB Garamond', serif; font-size: 17px; font-weight: 500; color: var(--charcoal); line-height: 1.35; }
+
+  footer { background: #141412; padding: 32px 5%; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 16px; border-top: 1px solid #2e2e2c; }
+  .footer-logo { font-family: 'EB Garamond', serif; font-size: 18px; color: #F7F5F0; font-weight: 500; text-decoration: none; }
+  .footer-links { display: flex; gap: 28px; list-style: none; flex-wrap: wrap; }
+  .footer-links a { font-size: 12px; color: #555; text-decoration: none; letter-spacing: 0.04em; text-transform: uppercase; transition: color 0.2s; }
+  .footer-links a:hover { color: #9A9A94; }
+  .footer-note { font-size: 12px; color: #444; }
+
+  @media (max-width: 700px) {
+    .nav-links { display: none; }
+    .article-body { padding: 48px 6% 10px; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="nav-logo">Wrightwood Consulting</a>
+  <ul class="nav-links">
+    <li><a href="index.html#services">Services</a></li>
+    <li><a href="index.html#fraew">FRAEW</a></li>
+    <li><a href="index.html#design">Design &amp; compliance</a></li>
+    <li><a href="index.html#explainer">For residents</a></li>
+    <li><a href="index.html#ten-steps">The process</a></li>
+    <li><a href="contact.html">Contact</a></li>
+  </ul>
+  <a href="contact.html" class="nav-cta">Get a remediation review</a>
+</nav>
+
+<header class="article-hero">
+  <div class="article-hero-inner">
+    <p class="breadcrumb"><a href="index.html">Home</a> / PAS 9980 explained</p>
+    <p class="hero-eyebrow">FRAEW &amp; PAS 9980</p>
+    <h1>PAS 9980 Explained</h1>
+    <p class="lede">PAS 9980 is referenced constantly in cladding and fire safety conversations, but it's rarely explained in plain English. Here's what it actually is, why it exists, and how it relates to the FRAEW your building may need.</p>
+  </div>
+</header>
+
+<main class="article-body">
+
+<h2>What is PAS 9980?</h2>
+
+<p>PAS 9980:2022 is a Publicly Available Specification (PAS) published by the British Standards Institution (BSI). Its full title is "Fire risk appraisal of external wall construction and cladding of existing blocks of flats — Code of practice." In plain terms, it's the official rulebook for how a fire risk appraisal of external walls should be carried out in the UK.</p>
+
+<p>Before PAS 9980 existed, there was no single, consistent method for assessing external wall fire risk. Different assessors approached the task in different ways, which made it difficult for leaseholders, lenders and building owners to have confidence that two assessments meant the same thing. PAS 9980 was developed to close that gap.</p>
+
+<h2>Why does PAS 9980 exist?</h2>
+
+<p>PAS 9980 was developed following widespread concern about the fire safety of external wall systems on existing residential blocks, and the recognition that assessments needed a consistent, defensible methodology rather than being carried out on an ad hoc basis. It sets out how a competent assessor should gather evidence, evaluate risk, and reach a proportionate conclusion — one that takes into account the building as a whole, not just the presence of a single material.</p>
+
+<p>A key principle within PAS 9980 is proportionality: not every building with combustible material somewhere in its external wall automatically requires full remediation. The standard is designed to help assessors distinguish between genuine, significant fire risk and lower-risk situations where the existing safety measures across the building are sufficient.</p>
+
+<h2>How does PAS 9980 relate to a FRAEW?</h2>
+
+<p>A FRAEW — Fire Risk Appraisal of External Walls — is the assessment itself. PAS 9980 is the methodology that assessment should follow. When a fire engineer or facade consultant carries out a FRAEW "in accordance with PAS 9980," they are applying the structured process the standard sets out: reviewing available evidence, inspecting the building, evaluating risk factors, and documenting their findings and recommendations in a consistent format.</p>
+
+<p>For a deeper look at how the FRAEW process works in practice, and what tends to influence how long it takes and what it costs, see our guide to <a href="fraew-cost.html">FRAEW costs</a>.</p>
+
+<h2>Who uses PAS 9980?</h2>
+
+<ul>
+<li><strong>Fire engineers and facade consultants</strong> use it as the methodology for carrying out FRAEWs.</li>
+<li><strong>Managing agents, freeholders and RTM companies</strong> rely on it as the recognised standard when commissioning an assessment, so they know what a competent process should look like.</li>
+<li><strong>Lenders and valuers</strong> increasingly expect that any external wall assessment referenced in an EWS1 form has been carried out with reference to PAS 9980, giving them confidence in its rigour.</li>
+<li><strong>Funding schemes</strong>, including the Building Safety Fund and Cladding Safety Scheme, generally expect assessments submitted in support of an application to reflect current recognised practice.</li>
+</ul>
+
+<h2>What does a PAS 9980 appraisal consider?</h2>
+
+<p>A PAS 9980 appraisal takes a holistic view of a building's external wall system rather than focusing on a single material in isolation. Broadly, it considers:</p>
+
+<ul>
+<li>The overall build-up and construction of the external wall system, including insulation and cavity barriers.</li>
+<li>The presence and behaviour of specific cladding and insulation materials in the event of fire.</li>
+<li>Balconies and how they interact with the wall behind them.</li>
+<li>The building's height, layout and means of escape, since risk is assessed in the context of the whole building, not the wall in isolation.</li>
+<li>Existing fire safety measures already in place, such as compartmentation and fire detection.</li>
+<li>The quality and reliability of available evidence, including drawings, specifications and any previous investigation.</li>
+</ul>
+
+<p>The result is a risk-rated report rather than a simple pass or fail. Some findings may warrant no further action; others may point towards interim safety measures or full remediation, depending on the level of risk identified.</p>
+
+<div class="callout">
+<h3>Where Wrightwood fits in</h3>
+<p>Wrightwood Consulting does not carry out PAS 9980 appraisals ourselves. Our role is to help building owners and managing agents appoint a suitably qualified fire engineer or facade consultant, brief them properly on the building, and coordinate what happens next once the appraisal is complete.</p>
+</div>
+
+<h2>Frequently asked questions</h2>
+
+<div class="faq-block">
+  <div class="faq-item"><p class="faq-q">Is PAS 9980 a legal requirement?</p><p class="faq-a">PAS 9980 is a code of practice rather than legislation, but it is now the widely recognised standard for external wall fire risk appraisals in the UK, and assessments carried out without reference to it may be viewed less favourably by lenders, insurers and funding schemes.</p></div>
+  <div class="faq-item"><p class="faq-q">Does PAS 9980 apply to all buildings?</p><p class="faq-a">PAS 9980 is specifically aimed at existing blocks of flats. It is not intended for new-build design, which is covered by other standards and Building Regulations guidance.</p></div>
+  <div class="faq-item"><p class="faq-q">Do I need a new assessment if my building already has an older report?</p><p class="faq-a">It depends on when the previous assessment was carried out and what methodology it followed. A suitably qualified assessor can advise whether an existing report remains adequate or whether an updated appraisal in line with PAS 9980 is advisable.</p></div>
+</div>
+
+</main>
+
+<div class="article-cta">
+  <div class="article-cta-inner">
+    <h2>Not sure where your building stands?</h2>
+    <p>If you're trying to work out whether your building needs a PAS 9980 appraisal, or what to do with a report you've already received, we can help you make sense of it.</p>
+    <a href="contact.html" class="btn-primary">Speak to Wrightwood Consulting</a>
+  </div>
+</div>
+
+<div class="related-links">
+  <h2>Related guides</h2>
+  <div class="related-grid">
+    <a class="related-card" href="fraew-cost.html"><p class="related-card-label">Guide</p><p class="related-card-title">How much does a FRAEW cost?</p></a>
+    <a class="related-card" href="do-i-need-a-fraew.html"><p class="related-card-label">Guide</p><p class="related-card-title">Do I need a FRAEW?</p></a>
+    <a class="related-card" href="fraew-vs-ews1.html"><p class="related-card-label">Guide</p><p class="related-card-title">FRAEW vs EWS1</p></a>
+  </div>
+</div>
+
+<footer>
+  <a href="index.html" class="footer-logo">Wrightwood Consulting</a>
+  <ul class="footer-links">
+    <li><a href="index.html#services">Services</a></li>
+    <li><a href="fraew-cost.html">FRAEW cost guide</a></li>
+    <li><a href="do-i-need-a-fraew.html">Do I need a FRAEW?</a></li>
+    <li><a href="contact.html">Contact</a></li>
+    <li><a href="building-safety.html">Get a quote</a></li>
+  </ul>
+  <span class="footer-note">© 2026 Wrightwood Consulting. All rights reserved.</span>
+</footer>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Is PAS 9980 a legal requirement?",
+      "acceptedAnswer": { "@type": "Answer", "text": "PAS 9980 is a code of practice rather than legislation, but it is now the widely recognised standard for external wall fire risk appraisals in the UK, and assessments carried out without reference to it may be viewed less favourably by lenders, insurers and funding schemes." }
+    },
+    {
+      "@type": "Question",
+      "name": "Does PAS 9980 apply to all buildings?",
+      "acceptedAnswer": { "@type": "Answer", "text": "PAS 9980 is specifically aimed at existing blocks of flats. It is not intended for new-build design, which is covered by other standards and Building Regulations guidance." }
+    },
+    {
+      "@type": "Question",
+      "name": "Do I need a new assessment if my building already has an older report?",
+      "acceptedAnswer": { "@type": "Answer", "text": "It depends on when the previous assessment was carried out and what methodology it followed. A suitably qualified assessor can advise whether an existing report remains adequate or whether an updated appraisal in line with PAS 9980 is advisable." }
+    }
+  ]
+}
+</script>
+
+</body>
+</html>

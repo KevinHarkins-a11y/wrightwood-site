@@ -1,0 +1,6 @@
+# Canonical URL fix: /cladding-safety-scheme-under-11-metres.html and the clean
+# extensionless URL were both resolving (200) and getting indexed separately by
+# Google. The clean URL is canonical; force a 301 from the .html path to it.
+# The "!" forces this redirect even though a static file exists at the .html path
+# (Netlify skips _redirects for exact static-file matches unless forced).
+/cladding-safety-scheme-under-11-metres.html   /cladding-safety-scheme-under-11-metres   301!

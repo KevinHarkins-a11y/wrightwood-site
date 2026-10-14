@@ -1,26 +1,72 @@
 <!DOCTYPE html>
 <html lang="en-GB">
 <head>
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-NT1H3P8FXB"></script>
+<!-- Google tag (gtag.js) with Basic Consent Mode: tag is not loaded or fired at all until consent is granted -->
 <script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+  (function () {
+    var CONSENT_KEY = 'wrightwood_analytics_consent';
+    var MEASUREMENT_ID = 'G-NT1H3P8FXB';
 
-  gtag('config', 'G-NT1H3P8FXB');
+    function showBanner() {
+      var banner = document.getElementById('cookie-consent-banner');
+      if (!banner) return;
+      banner.style.display = 'block';
+      document.body.style.paddingBottom = banner.offsetHeight + 'px';
+    }
+    function hideBanner() {
+      var banner = document.getElementById('cookie-consent-banner');
+      if (!banner) return;
+      banner.style.display = 'none';
+      document.body.style.paddingBottom = '';
+    }
+    window.addEventListener('resize', function () {
+      var banner = document.getElementById('cookie-consent-banner');
+      if (banner && banner.style.display === 'block') {
+        document.body.style.paddingBottom = banner.offsetHeight + 'px';
+      }
+    });
+
+    function loadAnalytics() {
+      if (window.wrightwoodAnalyticsLoaded) return;
+      window.wrightwoodAnalyticsLoaded = true;
+      window.dataLayer = window.dataLayer || [];
+      window.gtag = window.gtag || function () { window.dataLayer.push(arguments); };
+      gtag('js', new Date());
+      gtag('config', MEASUREMENT_ID);
+      var s = document.createElement('script');
+      s.async = true;
+      s.src = 'https://www.googletagmanager.com/gtag/js?id=' + MEASUREMENT_ID;
+      document.head.appendChild(s);
+    }
+
+    var saved = null;
+    try { saved = localStorage.getItem(CONSENT_KEY); } catch (e) {}
+    if (saved === 'granted') {
+      loadAnalytics();
+    } else if (saved !== 'denied') {
+      document.addEventListener('DOMContentLoaded', showBanner);
+    }
+    window.wrightwoodSetConsent = function (value) {
+      try { localStorage.setItem(CONSENT_KEY, value); } catch (e) {}
+      if (value === 'granted') loadAnalytics();
+      hideBanner();
+    };
+    window.wrightwoodShowCookieBanner = showBanner;
+  })();
 </script>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Cladding Safety Scheme Funding Under 11m | 2026 Guide</title>
-<meta name="description" content="Cladding Safety Scheme funding for buildings under 11 metres opened 17 Aug 2026, 8-week window. FRAEW/PAS 9980 guidance and application support from Wrightwood.">
+<title>Cladding Safety Scheme Funding Under 11m | Window Closed — What Next</title>
+<meta name="description" content="The under-11m Cladding Safety Scheme window ran 17 Aug–9 Oct 2026 and is now closed. What this means if you applied, if you missed it, and how to prepare for a future round.">
 <link rel="canonical" href="https://wrightwoodconsulting.co.uk/cladding-safety-scheme-under-11-metres">
 <meta property="og:type" content="article">
 <meta property="og:site_name" content="Wrightwood Consulting">
-<meta property="og:title" content="Cladding Safety Scheme Funding Under 11m | 2026 Guide">
-<meta property="og:description" content="Applications opened 17 August 2026, with an 8-week window. A practical guide to eligibility, FRAEW/PAS 9980 evidence, the Responsible Entity, and how to apply.">
+<meta property="og:title" content="Cladding Safety Scheme Funding Under 11m | Window Closed — What Next">
+<meta property="og:description" content="The under-11m application window closed 9 October 2026. A practical guide to what happens now, eligibility, FRAEW/PAS 9980 evidence, and preparing for any future round.">
 <meta property="og:url" content="https://wrightwoodconsulting.co.uk/cladding-safety-scheme-under-11-metres">
 <meta property="og:locale" content="en_GB">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -186,6 +232,17 @@
 </head>
 <body>
 
+<div id="cookie-consent-banner" role="region" aria-label="Cookie consent" style="display:none; position:fixed; left:0; right:0; bottom:0; z-index:9999; background:#1C1C1A; color:#FDFCFA; padding:18px 5%; box-shadow:0 -2px 16px rgba(0,0,0,0.18); font-family:'DM Sans', sans-serif;">
+  <div style="max-width:1100px; margin:0 auto; display:flex; flex-wrap:wrap; align-items:center; justify-content:space-between; gap:16px;">
+    <p style="font-size:13.5px; line-height:1.6; color:rgba(253,252,250,0.85); margin:0; flex:1; min-width:220px; font-weight:300;">We use analytics cookies to understand how visitors use this site. These are not set unless you accept. See our <a href="privacy-policy.html" style="color:#8fc0a2; text-decoration:underline;">Privacy Policy</a> for details, or change your choice there at any time.</p>
+    <div style="display:flex; gap:10px; flex-shrink:0;">
+      <button type="button" onclick="wrightwoodSetConsent('denied')" style="background:none; border:1px solid rgba(253,252,250,0.3); color:#FDFCFA; font-family:'DM Sans', sans-serif; font-size:13px; font-weight:500; padding:10px 18px; border-radius:4px; cursor:pointer;">Decline</button>
+      <button type="button" onclick="wrightwoodSetConsent('granted')" style="background:#2A4A3A; border:1px solid #2A4A3A; color:#FDFCFA; font-family:'DM Sans', sans-serif; font-size:13px; font-weight:500; padding:10px 18px; border-radius:4px; cursor:pointer;">Accept analytics</button>
+    </div>
+  </div>
+</div>
+
+
 <nav>
   <a href="index.html" class="nav-logo">Wrightwood Consulting</a>
   <ul class="nav-links">
@@ -204,8 +261,8 @@
     <p class="breadcrumb"><a href="index.html">Home</a> / Cladding Safety Scheme under 11 metres</p>
     <p class="hero-eyebrow">Cladding Safety Scheme 2026</p>
     <h1>Cladding Safety Scheme Funding for Buildings Under 11 Metres</h1>
-    <p class="deadline-alert"><span><strong>Applications opened 17 August 2026</strong> — an 8-week application window, expected to run to around <strong>12 October 2026</strong>.</span></p>
-    <p class="lede">Eligible residential buildings under 11 metres in England can now apply for Cladding Safety Scheme funding where the external wall or cladding presents a serious life-safety fire risk. This guide explains who may qualify, what evidence you need, and what to do before the window closes.</p>
+    <p class="deadline-alert"><span><strong>This application window is now closed.</strong> It ran from 17 August to 9 October 2026. No further round has yet been announced.</span></p>
+    <p class="lede">Homes England opened a one-off Cladding Safety Scheme window for eligible residential buildings under 11 metres in England, for buildings where the external wall or cladding presented a serious life-safety fire risk. That window closed on 9 October 2026. This guide explains what happens to applications already submitted, what to do if your building missed the window, and how the eligibility criteria worked in case a further round is opened.</p>
   </div>
 </header>
 
@@ -213,7 +270,7 @@
   <div class="convert-box-inner">
     <div class="convert-box-text">
       <h2>Building under 11 metres with cladding concerns?</h2>
-      <p>Send us the basic facts about your building and any existing fire or external wall reports. We'll review what's in place, flag any gaps, and help you work out whether the under-11m funding route is worth pursuing before the window closes.</p>
+      <p>Send us the basic facts about your building and any existing fire or external wall reports. We'll review what's in place, flag any gaps, and help you get your evidence in order so you're ready to move quickly if a further funding round is announced.</p>
     </div>
     <a href="contact.html" class="btn-primary">Request an Initial Review</a>
   </div>
@@ -271,14 +328,14 @@
 
 <h2 id="application-window">The Application Window</h2>
 
-<p>Applications for the under-11m funding route opened on <strong>17 August 2026</strong>. The window is time-limited to <strong>8 weeks</strong>, which — based on the published opening date — is expected to run to around <strong>12 October 2026</strong>. Responsible Entities should always confirm the exact closing date on GOV.UK or via Homes England's Building Remediation Hub before relying on it.</p>
+<p>Applications for the under-11m funding route opened on <strong>17 August 2026</strong> and closed on <strong>9 October 2026</strong>, confirmed in Homes England's updated guidance published 10 October 2026. This was a one-off window rather than a rolling scheme, and new applications are no longer being accepted through the Building Remediation Hub. As of the last update to this page, no further window has been announced — Responsible Entities should check GOV.UK or Homes England's Building Remediation Hub for the current position before acting.</p>
 
 <div class="callout">
-<h3>Funding is prioritised by risk</h3>
-<p>Within the application window, funding is prioritised according to cladding fire safety risk, with buildings presenting a higher life-critical fire safety risk prioritised over lower-risk cases. A short window and risk-based prioritisation both mean that buildings with reasonable evidence already in place are in a materially stronger position than buildings starting from scratch.</p>
+<h3>What happens to applications already submitted</h3>
+<p>Homes England has confirmed that applications submitted before the 9 October 2026 deadline will continue to be assessed. Funding within that pool is prioritised according to cladding fire safety risk, with buildings presenting a higher life-critical fire safety risk considered first.</p>
 </div>
 
-<p>Because assembling a credible application — particularly where a new FRAEW is required — takes time, <a href="fraew-cladding-safety-scheme-faq.html#who-is-the-responsible-entity">Responsible Entities</a> who think their building may have an unsafe external wall or cladding system should establish the building's position as early as possible within the window, rather than waiting until the closing weeks.</p>
+<p>If your building missed this window, the practical priority now is to get a credible <a href="fraew-cladding-safety-scheme-faq.html#who-is-the-responsible-entity">Responsible Entity</a> position and FRAEW evidence in place so you are ready to apply quickly if and when a further round opens, rather than starting from nothing if one is announced.</p>
 
 <h2 id="eligibility">Who May Qualify</h2>
 
@@ -324,7 +381,7 @@
 
 <h2 id="do-now">What Owners and RTMs Should Do Now</h2>
 
-<p>With a limited window, the buildings best placed to apply are the ones that start organising their information immediately rather than waiting for full certainty. In broad terms, the sequence looks like this:</p>
+<p>With the current window closed, the buildings best placed to act quickly if a further round opens are the ones that organise their information now rather than waiting for the next announcement. In broad terms, the sequence looks like this:</p>
 
 <div class="process-steps">
   <div class="process-step"><div class="step-num">01</div><div class="step-content"><h4 class="step-title">Establish who the Responsible Entity is</h4><p class="step-desc">Confirm the freeholder, RTM company, RMC or other party with legal responsibility for the building and its remediation.</p></div></div>
@@ -415,9 +472,9 @@
 
 <section id="apply-now">
   <div class="apply-now-inner">
-    <p class="section-label">Act within the application window</p>
-    <h2>The under-11m application window is open for a limited time</h2>
-    <p class="intro">Applications opened on 17 August 2026 and are only being accepted for an 8-week window. If you're responsible for a residential building under 11 metres with potential cladding or external wall fire safety concerns, get in touch to discuss the building and the information you already have.</p>
+    <p class="section-label">Window closed — plan your next move</p>
+    <h2>The under-11m application window has closed. Here's what to do next</h2>
+    <p class="intro">The under-11m window ran from 17 August to 9 October 2026 and is no longer accepting new applications. If you're responsible for a residential building under 11 metres with potential cladding or external wall fire safety concerns — whether you already applied, missed the window, or are only now looking into it — get in touch to discuss the building and the information you already have.</p>
     <a href="contact.html" class="btn-primary">Discuss Your Building</a>
   </div>
 </section>
@@ -431,7 +488,7 @@
     <div>
       <h3 class="faq-question" id="u11-css-funding-available">Can buildings under 11 metres get government cladding funding?</h3>
       <div class="faq-answer">
-        <p>Yes. Eligible residential buildings under 11 metres in England can now apply for Cladding Safety Scheme funding where a FRAEW identifies a qualifying external wall fire risk.</p>
+        <p>A one-off Cladding Safety Scheme window for eligible residential buildings under 11 metres in England ran from 17 August to 9 October 2026 and is now closed. Applications submitted before the deadline are still being assessed. No further window has yet been announced, so there is no route to apply right now — but the scheme establishes that buildings under 11 metres with a qualifying FRAEW finding can, in principle, be funded if a future round opens.</p>
       </div>
     </div>
   </div>
@@ -573,12 +630,12 @@
   "@context": "https://schema.org",
   "@type": "WebPage",
   "name": "Cladding Safety Scheme Funding for Buildings Under 11 Metres",
-  "description": "Cladding Safety Scheme funding opened 17 August 2026 for eligible buildings under 11 metres, with an 8-week window. What FRAEW/PAS 9980 evidence you need, who can apply, and how Wrightwood supports your application.",
+  "description": "The Cladding Safety Scheme window for buildings under 11 metres ran 17 August to 9 October 2026 and is now closed. What happens to applications already submitted, what to do if you missed it, and how Wrightwood supports your building.",
   "url": "https://wrightwoodconsulting.co.uk/cladding-safety-scheme-under-11-metres",
   "inLanguage": "en-GB",
   "publisher": { "@type": "Organization", "name": "Wrightwood Consulting" },
   "datePublished": "2026-08-21",
-  "dateModified": "2026-09-22"
+  "dateModified": "2026-10-14"
 }
 </script>
 <script type="application/ld+json">
@@ -591,7 +648,7 @@
       "name": "Can buildings under 11 metres get government cladding funding?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Yes. Eligible residential buildings under 11 metres in England can now apply for Cladding Safety Scheme funding where a FRAEW identifies a qualifying external wall fire risk."
+        "text": "A one-off Cladding Safety Scheme window for eligible buildings under 11 metres in England ran from 17 August to 9 October 2026 and is now closed. Applications submitted before the deadline are still being assessed, and no further window has yet been announced."
       }
     },
     {

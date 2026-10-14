@@ -1,19 +1,72 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-NT1H3P8FXB"></script>
+<!-- Google tag (gtag.js) with Basic Consent Mode: tag is not loaded or fired at all until consent is granted -->
 <script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+  (function () {
+    var CONSENT_KEY = 'wrightwood_analytics_consent';
+    var MEASUREMENT_ID = 'G-NT1H3P8FXB';
 
-  gtag('config', 'G-NT1H3P8FXB');
+    function showBanner() {
+      var banner = document.getElementById('cookie-consent-banner');
+      if (!banner) return;
+      banner.style.display = 'block';
+      document.body.style.paddingBottom = banner.offsetHeight + 'px';
+    }
+    function hideBanner() {
+      var banner = document.getElementById('cookie-consent-banner');
+      if (!banner) return;
+      banner.style.display = 'none';
+      document.body.style.paddingBottom = '';
+    }
+    window.addEventListener('resize', function () {
+      var banner = document.getElementById('cookie-consent-banner');
+      if (banner && banner.style.display === 'block') {
+        document.body.style.paddingBottom = banner.offsetHeight + 'px';
+      }
+    });
+
+    function loadAnalytics() {
+      if (window.wrightwoodAnalyticsLoaded) return;
+      window.wrightwoodAnalyticsLoaded = true;
+      window.dataLayer = window.dataLayer || [];
+      window.gtag = window.gtag || function () { window.dataLayer.push(arguments); };
+      gtag('js', new Date());
+      gtag('config', MEASUREMENT_ID);
+      var s = document.createElement('script');
+      s.async = true;
+      s.src = 'https://www.googletagmanager.com/gtag/js?id=' + MEASUREMENT_ID;
+      document.head.appendChild(s);
+    }
+
+    var saved = null;
+    try { saved = localStorage.getItem(CONSENT_KEY); } catch (e) {}
+    if (saved === 'granted') {
+      loadAnalytics();
+    } else if (saved !== 'denied') {
+      document.addEventListener('DOMContentLoaded', showBanner);
+    }
+    window.wrightwoodSetConsent = function (value) {
+      try { localStorage.setItem(CONSENT_KEY, value); } catch (e) {}
+      if (value === 'granted') loadAnalytics();
+      hideBanner();
+    };
+    window.wrightwoodShowCookieBanner = showBanner;
+  })();
 </script>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Wrightwood Consulting — Building Safety &amp; Cladding Remediation Specialists</title>
 <meta name="description" content="Wrightwood Consulting guides clients through the BSF Stage 2 funding approval process, cladding remediation, EWS1 certification, and Building Safety Act compliance.">
+<link rel="canonical" href="https://wrightwoodconsulting.co.uk/index.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Wrightwood Consulting">
+<meta property="og:title" content="Wrightwood Consulting — Building Safety &amp; Cladding Remediation Specialists">
+<meta property="og:description" content="Wrightwood Consulting guides clients through the BSF Stage 2 funding approval process, cladding remediation, EWS1 certification, and Building Safety Act compliance.">
+<meta property="og:url" content="https://wrightwoodconsulting.co.uk/index.html">
+<meta property="og:locale" content="en_GB">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -64,6 +117,16 @@
   .btn-secondary { font-size: 14px; font-weight: 400; color: rgba(247,245,240,0.85); text-decoration: none; display: flex; align-items: center; gap: 8px; transition: color 0.2s; }
   .btn-secondary:hover { color: #F7F5F0; }
   .btn-secondary::after { content: '→'; }
+
+  #who-we-help { background: var(--warm-white); padding-bottom: 80px; }
+  .who-help-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: var(--border); border: 1px solid var(--border); }
+  .who-help-card { background: var(--warm-white); padding: 36px 32px; text-decoration: none; display: block; transition: background 0.2s; }
+  .who-help-card:hover { background: var(--cream); }
+  .who-help-tag { font-size: 11px; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; color: var(--accent); margin-bottom: 14px; }
+  .who-help-title { font-family: 'EB Garamond', serif; font-size: 21px; font-weight: 500; color: var(--charcoal); margin-bottom: 12px; line-height: 1.3; }
+  .who-help-desc { font-size: 13.5px; color: var(--mid); line-height: 1.7; font-weight: 300; margin-bottom: 20px; }
+  .who-help-link { font-size: 13px; font-weight: 500; color: var(--accent); }
+  @media (max-width: 700px) { .who-help-grid { grid-template-columns: 1fr; } }
 
   .stats-bar { background: var(--cream); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); padding: 40px 5%; display: flex; }
   .stat { flex: 1; padding: 0 40px; border-right: 1px solid var(--border); }
@@ -244,9 +307,21 @@
 </head>
 <body>
 
+<div id="cookie-consent-banner" role="region" aria-label="Cookie consent" style="display:none; position:fixed; left:0; right:0; bottom:0; z-index:9999; background:#1C1C1A; color:#FDFCFA; padding:18px 5%; box-shadow:0 -2px 16px rgba(0,0,0,0.18); font-family:'DM Sans', sans-serif;">
+  <div style="max-width:1100px; margin:0 auto; display:flex; flex-wrap:wrap; align-items:center; justify-content:space-between; gap:16px;">
+    <p style="font-size:13.5px; line-height:1.6; color:rgba(253,252,250,0.85); margin:0; flex:1; min-width:220px; font-weight:300;">We use analytics cookies to understand how visitors use this site. These are not set unless you accept. See our <a href="privacy-policy.html" style="color:#8fc0a2; text-decoration:underline;">Privacy Policy</a> for details, or change your choice there at any time.</p>
+    <div style="display:flex; gap:10px; flex-shrink:0;">
+      <button type="button" onclick="wrightwoodSetConsent('denied')" style="background:none; border:1px solid rgba(253,252,250,0.3); color:#FDFCFA; font-family:'DM Sans', sans-serif; font-size:13px; font-weight:500; padding:10px 18px; border-radius:4px; cursor:pointer;">Decline</button>
+      <button type="button" onclick="wrightwoodSetConsent('granted')" style="background:#2A4A3A; border:1px solid #2A4A3A; color:#FDFCFA; font-family:'DM Sans', sans-serif; font-size:13px; font-weight:500; padding:10px 18px; border-radius:4px; cursor:pointer;">Accept analytics</button>
+    </div>
+  </div>
+</div>
+
+
 <nav>
   <a href="index.html" class="nav-logo">Wrightwood Consulting</a>
   <ul class="nav-links">
+    <li><a href="#who-we-help">Who we help</a></li>
     <li><a href="#services">Services</a></li>
     <li><a href="#fraew">FRAEW</a></li>
     <li><a href="#design">Design &amp; compliance</a></li>
@@ -268,11 +343,37 @@
   <div class="hero-inner">
     <p class="hero-eyebrow">Cladding Remediation &amp; Building Safety Consultants</p>
     <h1>Cladding Remediation &amp; <em>Building Safety</em> Consultants</h1>
-    <p class="hero-desc">Wrightwood Consulting supports building owners and managing agents through cladding remediation, FRAEW coordination, Cladding Safety Scheme funding and Building Safety Act compliance — from initial assessment through to remediation and sign-off.</p>
+    <p class="hero-desc">Wrightwood Consulting supports RTM companies, resident management companies, managing agents and freeholders through cladding remediation, FRAEW coordination, Cladding Safety Scheme funding and Building Safety Act compliance — from initial assessment through to remediation and sign-off.</p>
     <div class="hero-actions">
       <a href="#contact" class="btn-primary">Speak to our team</a>
-      <a href="#services" class="btn-secondary">Our services</a>
+      <a href="#who-we-help" class="btn-secondary">Who we help</a>
     </div>
+  </div>
+</section>
+
+<section id="who-we-help">
+  <p class="section-label">Who we help</p>
+  <h2 class="section-heading">Built for the people who have to actually deal with this</h2>
+  <p class="section-intro">Whoever holds the responsibility for your building, we work as an extension of your team — appointing and coordinating the specialists, and managing the process so you don't have to become a building-safety expert yourself.</p>
+  <div class="who-help-grid">
+    <a class="who-help-card" href="rtm-companies-building-safety.html">
+      <p class="who-help-tag">RTM companies</p>
+      <h3 class="who-help-title">Right to Manage companies</h3>
+      <p class="who-help-desc">Volunteer directors who've found an external wall or cladding problem on their watch and need someone to carry the technical and project load.</p>
+      <span class="who-help-link">Support for RTM companies →</span>
+    </a>
+    <a class="who-help-card" href="managing-agents-cladding-remediation.html">
+      <p class="who-help-tag">Managing agents</p>
+      <h3 class="who-help-title">Residential managing agents</h3>
+      <p class="who-help-desc">A specialist delivery partner you can bring in for a block on your books, without taking the remediation project in-house or stretching your own team thin.</p>
+      <span class="who-help-link">Support for managing agents →</span>
+    </a>
+    <a class="who-help-card" href="cladding-remediation-project-management.html">
+      <p class="who-help-tag">Freeholders &amp; RMCs</p>
+      <h3 class="who-help-title">Freeholders, RMCs &amp; asset managers</h3>
+      <p class="who-help-desc">Client-side project management from initial assessment through to completion — one point of accountability instead of juggling consultants, funders and contractors yourself.</p>
+      <span class="who-help-link">Our project management service →</span>
+    </a>
   </div>
 </section>
 
@@ -287,12 +388,12 @@
   <div class="notice-inner">
     <div class="notice-copy">
       <h2 class="notice-heading">Is your residential building under 11 metres?</h2>
-      <p class="notice-lead"><strong>New Cladding Safety Scheme funding is now open for eligible buildings under 11 metres in England.</strong></p>
-      <p class="notice-sub">Applications opened on <strong>17 August 2026</strong> with a limited <strong>8-week application window</strong>.</p>
+      <p class="notice-lead"><strong>The first Cladding Safety Scheme application window for buildings under 11 metres has now closed.</strong></p>
+      <p class="notice-sub">The window ran from <strong>17 August to 9 October 2026</strong>. No further round has yet been announced — if your building missed this window, now is the time to get your evidence in order.</p>
     </div>
     <div class="notice-action">
-      <span class="notice-window-badge">8-week application window</span>
-      <a href="cladding-safety-scheme-under-11-metres" class="btn-primary">Check Under 11m Funding Eligibility</a>
+      <span class="notice-window-badge">Application window closed 9 Oct 2026</span>
+      <a href="cladding-safety-scheme-under-11-metres" class="btn-primary">Find Out What To Do Next</a>
     </div>
   </div>
 </section>
@@ -303,7 +404,7 @@
   <p class="section-intro">From initial assessment through to certification, we assemble and lead the specialist teams required to identify, manage, and deliver all eligible works.</p>
   <div class="services-grid">
     <div class="service-card"><p class="service-num">01</p><h3 class="service-title">BSF Stage 2 Funding Support</h3><p class="service-desc">Full guidance through the Building Safety Fund Stage 2 approval process, from negotiating the PCSA to managing project delivery — particularly valuable for clients with limited prior exposure to projects of this scale.</p></div>
-    <div class="service-card"><p class="service-num">02</p><h3 class="service-title">Cladding Remediation</h3><p class="service-desc">Expert insight into safe, compliant alternative materials and coordination with trusted suppliers. We ensure <a href="fraew-cladding-safety-scheme-faq.html#who-manages-remediation-project-after-fraew">every stage of the remediation process</a> is handled with confidence, care, and full regulatory compliance.</p></div>
+    <div class="service-card"><p class="service-num">02</p><h3 class="service-title">Cladding Remediation</h3><p class="service-desc">Expert insight into safe, compliant alternative materials and coordination with trusted suppliers. We provide <a href="cladding-remediation-project-management.html">client-side project management across every stage of the remediation process</a>, handled with confidence, care, and full regulatory compliance.</p></div>
     <div class="service-card"><p class="service-num">03</p><h3 class="service-title">Design Management &amp; BSA Compliance</h3><p class="service-desc">Specialist design management and compliance support for contractors and developers delivering complex refurbishment and remediation schemes under the Building Safety Act.</p></div>
     <div class="service-card"><p class="service-num">04</p><h3 class="service-title">EWS1 &amp; Programme Management</h3><p class="service-desc">Management of EWS1 certification alongside robust programme and budget oversight — ensuring delivery stays on track and all stakeholders are kept fully informed at every stage.</p></div>
     <div class="service-card"><p class="service-num">05</p><h3 class="service-title">Window &amp; Balcony Fall-Safety Survey &amp; Remediation</h3><p class="service-desc">Coordinated <a href="window-balcony-fall-safety-survey-remediation.html">window and balcony fall-safety surveys</a>, digital risk reporting and remedial works — from initial audit through to supply, installation and photographic sign-off.</p></div>
@@ -397,14 +498,14 @@
   </div>
   <div class="explainer-note">
     <div class="explainer-note-icon"><svg width="10" height="10" viewBox="0 0 10 10" fill="none"><circle cx="5" cy="5" r="4.5" stroke="#2A4A3A" stroke-width="1"/><rect x="4.5" y="4" width="1" height="3.5" fill="#2A4A3A" rx="0.5"/><rect x="4.5" y="2" width="1" height="1.2" fill="#2A4A3A" rx="0.5"/></svg></div>
-    <p class="explainer-note-text"><strong>A note on timescales:</strong> BSR approval for high-rise buildings currently takes up to 10 months on average. Wrightwood works proactively at every stage to minimise delays and keep all parties fully informed.</p>
+    <p class="explainer-note-text"><strong>A note on timescales:</strong> Building Safety Regulator approval for external wall remediation projects currently has a median approval time of around 34 weeks nationally (Building Safety Regulator data, May–July 2026), though applications submitted in 2026 are progressing faster, at a median of around 21 weeks. Wrightwood works proactively at every stage to minimise delays and keep all parties fully informed.</p>
   </div>
 </section>
 
 <section id="ten-steps">
   <p class="section-label">End-to-end process</p>
   <h2 class="section-heading">The 10 stages of cladding remediation</h2>
-  <p class="section-intro">A detailed breakdown of every stage — from initial assessment through to EWS1 certification — and how Wrightwood supports your project at each one.</p>
+  <p class="section-intro">A detailed breakdown of every stage — from initial assessment through to EWS1 certification — and how Wrightwood supports your project at each one. For more on how we structure and lead this as a single coordinated service, see our guide to <a href="cladding-remediation-project-management.html" style="color:#7aaa8a">client-side cladding remediation project management</a>.</p>
   <div class="ten-steps-grid">
     <div class="ten-step"><p class="ten-step-num">01</p><h3 class="ten-step-title">Fire engineer assessment</h3><p class="ten-step-desc">An independent fire engineer carries out a <a href="fraew-cladding-safety-scheme-faq.html">FRAEW</a>. Where necessary, an intrusive survey is conducted to understand the wall's construction in detail.</p><div class="ten-step-wrightwood"><p><strong>Wrightwood's role:</strong> We appoint and manage qualified chartered fire engineers to carry out all assessments to the highest professional standards.</p></div></div>
     <div class="ten-step"><p class="ten-step-num">02</p><h3 class="ten-step-title">Assessment report issued</h3><p class="ten-step-desc">The fire engineer issues a formal report. If no <a href="fraew-cladding-safety-scheme-faq.html#fraew-remediation-required-next-steps">remediation is needed</a>, an EWS1 form is issued immediately. If works are required, interim measures may be recommended.</p><div class="ten-step-wrightwood"><p><strong>Wrightwood's role:</strong> We review findings with clients, explain the implications clearly, and advise on next steps and any interim safety measures required.</p></div></div>
@@ -459,6 +560,9 @@
 <footer>
   <a href="index.html" class="footer-logo">Wrightwood Consulting</a>
   <ul class="footer-links">
+    <li><a href="rtm-companies-building-safety.html">RTM Companies</a></li>
+    <li><a href="managing-agents-cladding-remediation.html">Managing Agents</a></li>
+    <li><a href="cladding-remediation-project-management.html">Project Management</a></li>
     <li><a href="fraew-cost.html">FRAEW cost guide</a></li>
     <li><a href="pas-9980-explained.html">PAS 9980 explained</a></li>
     <li><a href="do-i-need-a-fraew.html">Do I need a FRAEW?</a></li>
@@ -471,6 +575,34 @@
   </ul>
   <span class="footer-note">© 2026 Wrightwood Consulting. All rights reserved.</span>
 </footer>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "ProfessionalService",
+  "name": "Wrightwood Consulting",
+  "description": "Client-side building safety and cladding remediation consultancy. Wrightwood appoints and coordinates specialist fire engineers, surveyors and contractors on behalf of RTM companies, resident management companies, managing agents and building owners, through FRAEW coordination, PAS 9980 assessment coordination, Cladding Safety Scheme and Building Safety Fund support, Building Safety Act compliance and Gateway 2/3 coordination.",
+  "url": "https://wrightwoodconsulting.co.uk/index.html",
+  "email": "info@wrightwoodconsulting.co.uk",
+  "areaServed": [
+    { "@type": "AdministrativeArea", "name": "London" },
+    { "@type": "AdministrativeArea", "name": "Surrey" },
+    { "@type": "AdministrativeArea", "name": "South East England" },
+    { "@type": "Country", "name": "England" }
+  ],
+  "serviceType": [
+    "Cladding remediation project management",
+    "FRAEW procurement and coordination",
+    "PAS 9980 external wall assessment coordination",
+    "Cladding Safety Scheme funding support",
+    "Building Safety Fund support",
+    "Building Safety Act advisory",
+    "Gateway 2 and Gateway 3 coordination",
+    "Window and balcony fall-safety survey coordination"
+  ],
+  "knowsAbout": ["FRAEW", "PAS 9980", "EWS1", "Cladding Safety Scheme", "Building Safety Fund", "Building Safety Act 2022", "Gateway 2", "Gateway 3", "Golden thread"]
+}
+</script>
 
 </body>
 </html>

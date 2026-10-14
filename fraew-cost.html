@@ -1,14 +1,58 @@
 <!DOCTYPE html>
 <html lang="en-GB">
 <head>
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-NT1H3P8FXB"></script>
+<!-- Google tag (gtag.js) with Basic Consent Mode: tag is not loaded or fired at all until consent is granted -->
 <script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+  (function () {
+    var CONSENT_KEY = 'wrightwood_analytics_consent';
+    var MEASUREMENT_ID = 'G-NT1H3P8FXB';
 
-  gtag('config', 'G-NT1H3P8FXB');
+    function showBanner() {
+      var banner = document.getElementById('cookie-consent-banner');
+      if (!banner) return;
+      banner.style.display = 'block';
+      document.body.style.paddingBottom = banner.offsetHeight + 'px';
+    }
+    function hideBanner() {
+      var banner = document.getElementById('cookie-consent-banner');
+      if (!banner) return;
+      banner.style.display = 'none';
+      document.body.style.paddingBottom = '';
+    }
+    window.addEventListener('resize', function () {
+      var banner = document.getElementById('cookie-consent-banner');
+      if (banner && banner.style.display === 'block') {
+        document.body.style.paddingBottom = banner.offsetHeight + 'px';
+      }
+    });
+
+    function loadAnalytics() {
+      if (window.wrightwoodAnalyticsLoaded) return;
+      window.wrightwoodAnalyticsLoaded = true;
+      window.dataLayer = window.dataLayer || [];
+      window.gtag = window.gtag || function () { window.dataLayer.push(arguments); };
+      gtag('js', new Date());
+      gtag('config', MEASUREMENT_ID);
+      var s = document.createElement('script');
+      s.async = true;
+      s.src = 'https://www.googletagmanager.com/gtag/js?id=' + MEASUREMENT_ID;
+      document.head.appendChild(s);
+    }
+
+    var saved = null;
+    try { saved = localStorage.getItem(CONSENT_KEY); } catch (e) {}
+    if (saved === 'granted') {
+      loadAnalytics();
+    } else if (saved !== 'denied') {
+      document.addEventListener('DOMContentLoaded', showBanner);
+    }
+    window.wrightwoodSetConsent = function (value) {
+      try { localStorage.setItem(CONSENT_KEY, value); } catch (e) {}
+      if (value === 'granted') loadAnalytics();
+      hideBanner();
+    };
+    window.wrightwoodShowCookieBanner = showBanner;
+  })();
 </script>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -21,6 +65,8 @@
 <meta property="og:description" content="What does a FRAEW cost in the UK, who pays for it, and can the Cladding Safety Scheme cover it? A practical FRAEW assessment cost guide from Wrightwood.">
 <meta property="og:url" content="https://wrightwoodconsulting.co.uk/fraew-cost.html">
 <meta property="og:locale" content="en_GB">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -127,6 +173,17 @@
 </head>
 <body>
 
+<div id="cookie-consent-banner" role="region" aria-label="Cookie consent" style="display:none; position:fixed; left:0; right:0; bottom:0; z-index:9999; background:#1C1C1A; color:#FDFCFA; padding:18px 5%; box-shadow:0 -2px 16px rgba(0,0,0,0.18); font-family:'DM Sans', sans-serif;">
+  <div style="max-width:1100px; margin:0 auto; display:flex; flex-wrap:wrap; align-items:center; justify-content:space-between; gap:16px;">
+    <p style="font-size:13.5px; line-height:1.6; color:rgba(253,252,250,0.85); margin:0; flex:1; min-width:220px; font-weight:300;">We use analytics cookies to understand how visitors use this site. These are not set unless you accept. See our <a href="privacy-policy.html" style="color:#8fc0a2; text-decoration:underline;">Privacy Policy</a> for details, or change your choice there at any time.</p>
+    <div style="display:flex; gap:10px; flex-shrink:0;">
+      <button type="button" onclick="wrightwoodSetConsent('denied')" style="background:none; border:1px solid rgba(253,252,250,0.3); color:#FDFCFA; font-family:'DM Sans', sans-serif; font-size:13px; font-weight:500; padding:10px 18px; border-radius:4px; cursor:pointer;">Decline</button>
+      <button type="button" onclick="wrightwoodSetConsent('granted')" style="background:#2A4A3A; border:1px solid #2A4A3A; color:#FDFCFA; font-family:'DM Sans', sans-serif; font-size:13px; font-weight:500; padding:10px 18px; border-radius:4px; cursor:pointer;">Accept analytics</button>
+    </div>
+  </div>
+</div>
+
+
 <nav>
   <a href="index.html" class="nav-logo">Wrightwood Consulting</a>
   <ul class="nav-links">
@@ -172,7 +229,7 @@
 
 <p>A FRAEW — Fire Risk Appraisal of External Walls — is a structured assessment of a building's external wall construction, carried out to identify whether it presents an unacceptable risk to life safety in the event of fire. It looks at the materials used in the wall build-up, insulation, cavity barriers, balconies, and other features that can affect how fire and smoke might spread up or across a building's facade.</p>
 
-<p>In the UK, FRAEWs are now generally carried out in line with <strong>PAS 9980:2022</strong>, a code of practice published by the British Standards Institution. PAS 9980 sets out a consistent methodology for assessing external wall fire risk on existing blocks of flats, rather than leaving each assessor to invent their own approach. In practice, "a FRAEW" and "a PAS 9980 appraisal" are usually the same exercise — the FRAEW is the appraisal itself, and PAS 9980 is the recognised standard it should be assessed against.</p>
+<p>In the UK, FRAEWs are now generally carried out in line with <strong>PAS 9980</strong>, a code of practice published by the British Standards Institution (originally published in 2022, with an updated second edition, PAS 9980:2026, in effect from 30 September 2026 — see our <a href="pas-9980-explained.html">PAS 9980 guide</a> for what changed). PAS 9980 sets out a consistent methodology for assessing external wall fire risk on existing blocks of flats, rather than leaving each assessor to invent their own approach. In practice, "a FRAEW" and "a PAS 9980 appraisal" are usually the same exercise — the FRAEW is the appraisal itself, and PAS 9980 is the recognised standard it should be assessed against.</p>
 
 <p>The output is a written report that sets out the findings, assigns a risk rating to different aspects of the external wall system, and — where relevant — recommends further investigation, interim safety measures, or remediation works.</p>
 

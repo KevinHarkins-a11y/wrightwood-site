@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+<!-- Google tag (gtag.js) with Basic Consent Mode: tag is not loaded or fired at all until consent is granted -->
+<script>
+  (function () {
+    var CONSENT_KEY = 'wrightwood_analytics_consent';
+    var MEASUREMENT_ID = 'G-NT1H3P8FXB';
+
+    function showBanner() {
+      var banner = document.getElementById('cookie-consent-banner');
+      if (!banner) return;
+      banner.style.display = 'block';
+      document.body.style.paddingBottom = banner.offsetHeight + 'px';
+    }
+    function hideBanner() {
+      var banner = document.getElementById('cookie-consent-banner');
+      if (!banner) return;
+      banner.style.display = 'none';
+      document.body.style.paddingBottom = '';
+    }
+    window.addEventListener('resize', function () {
+      var banner = document.getElementById('cookie-consent-banner');
+      if (banner && banner.style.display === 'block') {
+        document.body.style.paddingBottom = banner.offsetHeight + 'px';
+      }
+    });
+
+    function loadAnalytics() {
+      if (window.wrightwoodAnalyticsLoaded) return;
+      window.wrightwoodAnalyticsLoaded = true;
+      window.dataLayer = window.dataLayer || [];
+      window.gtag = window.gtag || function () { window.dataLayer.push(arguments); };
+      gtag('js', new Date());
+      gtag('config', MEASUREMENT_ID);
+      var s = document.createElement('script');
+      s.async = true;
+      s.src = 'https://www.googletagmanager.com/gtag/js?id=' + MEASUREMENT_ID;
+      document.head.appendChild(s);
+    }
+
+    var saved = null;
+    try { saved = localStorage.getItem(CONSENT_KEY); } catch (e) {}
+    if (saved === 'granted') {
+      loadAnalytics();
+    } else if (saved !== 'denied') {
+      document.addEventListener('DOMContentLoaded', showBanner);
+    }
+    window.wrightwoodSetConsent = function (value) {
+      try { localStorage.setItem(CONSENT_KEY, value); } catch (e) {}
+      if (value === 'granted') loadAnalytics();
+      hideBanner();
+    };
+    window.wrightwoodShowCookieBanner = showBanner;
+  })();
+</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Client-Side Cladding Remediation Project Management</title>
+<meta name="description" content="Client-side project management for cladding remediation — one point of accountability from initial assessment through design, procurement, construction and completion.">
+<link rel="canonical" href="https://wrightwoodconsulting.co.uk/cladding-remediation-project-management.html">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Wrightwood Consulting">
+<meta property="og:title" content="Client-Side Cladding Remediation Project Management">
+<meta property="og:description" content="One point of accountability from initial assessment through design, procurement, construction and completion — client-side project management for cladding remediation.">
+<meta property="og:url" content="https://wrightwoodconsulting.co.uk/cladding-remediation-project-management.html">
+<meta property="og:locale" content="en_GB">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --cream: #F7F5F0;
+    --warm-white: #FDFCFA;
+    --charcoal: #1C1C1A;
+    --mid: #5C5C58;
+    --light: #9A9A94;
+    --border: #E0DDD6;
+    --accent: #2A4A3A;
+    --accent-light: #EAF0EC;
+  }
+  html { scroll-behavior: smooth; }
+  body { font-family: 'DM Sans', sans-serif; background: var(--warm-white); color: var(--charcoal); font-size: 16px; line-height: 1.7; }
+
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    background: rgba(253,252,250,0.92); backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border);
+    padding: 0 5%; display: flex; align-items: center; justify-content: space-between; height: 68px;
+  }
+  .nav-logo { font-family: 'EB Garamond', serif; font-size: 20px; font-weight: 500; color: var(--charcoal); letter-spacing: 0.01em; text-decoration: none; }
+  .nav-links { display: flex; gap: 24px; list-style: none; }
+  .nav-links a { font-size: 12px; font-weight: 400; color: var(--mid); text-decoration: none; letter-spacing: 0.04em; text-transform: uppercase; transition: color 0.2s; }
+  .nav-links a:hover, .nav-links a.active { color: var(--charcoal); }
+  .nav-cta { font-size: 13px; font-weight: 500; color: var(--warm-white); background: var(--accent); padding: 10px 22px; border-radius: 4px; text-decoration: none; letter-spacing: 0.02em; transition: opacity 0.2s; white-space: nowrap; }
+  .nav-cta:hover { opacity: 0.85; }
+
+  .hero-eyebrow { font-size: 11px; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent); margin-bottom: 20px; display: flex; align-items: center; gap: 12px; }
+  .hero-eyebrow::before { content: ''; display: block; width: 32px; height: 1px; background: var(--accent); }
+
+  .article-hero { padding: 140px 5% 40px; background: var(--warm-white); border-bottom: 1px solid var(--border); }
+  .article-hero-inner { max-width: 760px; margin: 0 auto; }
+  .article-hero h1 { font-family: 'EB Garamond', serif; font-size: clamp(32px, 4.4vw, 50px); font-weight: 400; line-height: 1.12; color: var(--charcoal); margin-bottom: 20px; letter-spacing: -0.01em; }
+  .article-hero .lede { font-size: 17px; color: var(--mid); font-weight: 300; line-height: 1.75; max-width: 640px; margin-bottom: 24px; }
+  .breadcrumb { font-size: 12px; color: var(--light); margin-bottom: 28px; }
+  .breadcrumb a { color: var(--light); text-decoration: none; }
+  .breadcrumb a:hover { color: var(--accent); }
+
+  .article-body { max-width: 760px; padding: 40px 5% 20px; margin: 0 auto; }
+  .article-body h2 { font-family: 'EB Garamond', serif; font-size: clamp(25px, 2.8vw, 32px); font-weight: 500; color: var(--charcoal); margin: 52px 0 18px; line-height: 1.25; letter-spacing: -0.005em; scroll-margin-top: 90px; }
+  .article-body > h2:first-child { margin-top: 0; }
+  .article-body h3 { font-family: 'EB Garamond', serif; font-size: 19px; font-weight: 500; color: var(--charcoal); margin: 30px 0 12px; scroll-margin-top: 90px; }
+  .article-body p { font-size: 15.5px; color: var(--mid); font-weight: 300; line-height: 1.85; margin-bottom: 18px; }
+  .article-body ul, .article-body ol { margin: 0 0 20px; padding-left: 0; list-style: none; display: flex; flex-direction: column; gap: 10px; }
+  .article-body li { font-size: 15px; color: var(--mid); font-weight: 300; line-height: 1.7; padding-left: 22px; position: relative; }
+  .article-body ul li::before { content: ''; position: absolute; left: 0; top: 9px; width: 5px; height: 5px; border-radius: 50%; background: var(--accent); }
+  .article-body ol { counter-reset: step; }
+  .article-body ol li { counter-increment: step; padding-left: 28px; }
+  .article-body ol li::before { content: counter(step) '.'; position: absolute; left: 0; top: 0; font-family: 'EB Garamond', serif; font-size: 14px; color: var(--accent); font-weight: 500; }
+  .article-body strong { color: var(--charcoal); font-weight: 500; }
+  .article-body a { color: var(--accent); text-decoration: underline; text-decoration-color: var(--border); text-underline-offset: 2px; }
+  .article-body a:hover { text-decoration-color: var(--accent); }
+
+  .callout { margin: 8px 0 32px; padding: 28px 32px; border-left: 2px solid var(--accent); background: var(--accent-light); }
+  .callout h3 { font-family: 'EB Garamond', serif; font-size: 17px; color: var(--charcoal); margin: 0 0 10px; font-weight: 500; }
+  .callout p { font-size: 14px; margin: 0 0 10px; }
+  .callout p:last-child { margin-bottom: 0; }
+
+  .convert-box { margin: 8px auto 0; max-width: 760px; padding: 0 5%; }
+  .convert-box-inner { border: 1px solid var(--border); background: var(--cream); padding: 32px 36px; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 24px; }
+  .convert-box-text h2 { font-family: 'EB Garamond', serif; font-size: 22px; font-weight: 500; color: var(--charcoal); margin-bottom: 8px; }
+  .convert-box-text p { font-size: 14.5px; color: var(--mid); font-weight: 300; line-height: 1.7; max-width: 480px; margin: 0; }
+  .btn-primary { background: var(--accent); color: var(--warm-white); font-family: 'DM Sans', sans-serif; font-size: 14px; font-weight: 500; padding: 14px 30px; border-radius: 4px; text-decoration: none; letter-spacing: 0.02em; transition: opacity 0.2s; display: inline-block; white-space: nowrap; }
+  .btn-primary:hover { opacity: 0.85; }
+
+  .jump-nav { max-width: 760px; margin: 40px auto 0; padding: 0 5%; }
+  .jump-nav-box { background: var(--cream); border: 1px solid var(--border); padding: 28px 32px; }
+  .jump-nav-label { font-size: 11px; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: var(--accent); margin-bottom: 16px; display: flex; align-items: center; gap: 10px; }
+  .jump-nav-label::before { content: ''; display: block; width: 16px; height: 1px; background: var(--accent); }
+  .jump-list { display: grid; grid-template-columns: 1fr 1fr; gap: 0 32px; list-style: none; }
+  .jump-list li { border-bottom: 1px solid var(--border); }
+  .jump-list li:nth-last-child(-n+1) { border-bottom: none; }
+  .jump-list a { display: flex; gap: 10px; padding: 9px 0; font-size: 13px; color: var(--mid); text-decoration: none; line-height: 1.4; transition: color 0.2s; }
+  .jump-list a:hover { color: var(--charcoal); }
+  .jump-list .jump-num { font-family: 'EB Garamond', serif; color: var(--light); flex-shrink: 0; }
+
+  .scope-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1px; background: var(--border); border: 1px solid var(--border); margin: 8px 0 32px; }
+  .scope-card { background: var(--warm-white); padding: 26px 28px; }
+  .scope-card h4 { font-family: 'EB Garamond', serif; font-size: 16px; font-weight: 500; color: var(--charcoal); margin-bottom: 10px; }
+  .scope-card ul { margin: 0; gap: 6px; }
+  .scope-card li { font-size: 13.5px; padding-left: 18px; }
+  .scope-card li::before { width: 4px; height: 4px; top: 8px; }
+
+  .process-steps { border: 1px solid var(--border); margin: 24px 0 20px; }
+  .process-step { display: flex; border-bottom: 1px solid var(--border); }
+  .process-step:last-child { border-bottom: none; }
+  .step-num { font-family: 'EB Garamond', serif; font-size: 13px; color: var(--light); padding: 22px 26px; border-right: 1px solid var(--border); min-width: 70px; display: flex; align-items: flex-start; flex-shrink: 0; }
+  .step-content { padding: 22px 26px; }
+  .step-title { font-family: 'EB Garamond', serif; font-size: 16px; font-weight: 500; color: var(--charcoal); margin-bottom: 5px; }
+  .step-desc { font-size: 14px; color: var(--mid); font-weight: 300; line-height: 1.75; margin: 0; }
+
+  #apply-now { background: var(--charcoal); padding: 80px 5%; margin-top: 40px; }
+  .apply-now-inner { max-width: 700px; margin: 0 auto; }
+  #apply-now .section-label { font-size: 11px; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; color: #7aaa8a; margin-bottom: 20px; display: flex; align-items: center; gap: 12px; }
+  #apply-now .section-label::before { content: ''; display: block; width: 24px; height: 1px; background: #7aaa8a; }
+  #apply-now h2 { font-family: 'EB Garamond', serif; font-size: clamp(27px, 3.4vw, 36px); font-weight: 400; line-height: 1.18; color: #F7F5F0; margin-bottom: 18px; letter-spacing: -0.01em; }
+  #apply-now p.intro { font-size: 15.5px; color: #9A9A94; font-weight: 300; line-height: 1.8; margin-bottom: 32px; max-width: 600px; }
+
+  .faq-section { max-width: 760px; margin: 0 auto; padding: 20px 5% 0; }
+  .faq-section > .faq-h2 { font-family: 'EB Garamond', serif; font-size: clamp(25px, 2.8vw, 32px); font-weight: 500; color: var(--charcoal); margin: 0 0 8px; }
+  .faq-section > .faq-intro-p { font-size: 14.5px; color: var(--mid); font-weight: 300; margin-bottom: 28px; }
+  .faq-item { display: flex; gap: 26px; padding: 28px 0; border-bottom: 1px solid var(--border); }
+  .faq-item:first-of-type { padding-top: 0; }
+  .faq-item:last-child { border-bottom: none; }
+  .faq-num { font-family: 'EB Garamond', serif; font-size: 14px; color: var(--light); flex-shrink: 0; min-width: 28px; padding-top: 3px; }
+  .faq-question { font-family: 'EB Garamond', serif; font-size: 18px; font-weight: 500; color: var(--charcoal); line-height: 1.35; margin-bottom: 9px; scroll-margin-top: 90px; }
+  .faq-answer p { font-size: 14.5px; color: var(--mid); font-weight: 300; line-height: 1.8; margin-bottom: 10px; }
+  .faq-answer p:last-child { margin-bottom: 0; }
+  .faq-answer a { color: var(--accent); text-decoration: underline; text-underline-offset: 2px; }
+  .faq-answer a:hover { color: var(--charcoal); }
+
+  .related-links { max-width: 760px; margin: 0 auto; padding: 56px 5% 80px; }
+  .related-links h2 { font-family: 'EB Garamond', serif; font-size: 22px; font-weight: 500; color: var(--charcoal); margin-bottom: 20px; }
+  .related-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1px; background: var(--border); border: 1px solid var(--border); }
+  .related-card { background: var(--warm-white); padding: 24px 26px; text-decoration: none; display: block; transition: background 0.2s; }
+  .related-card:hover { background: var(--cream); }
+  .related-card-label { font-size: 11px; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; color: var(--accent); margin-bottom: 8px; }
+  .related-card-title { font-family: 'EB Garamond', serif; font-size: 17px; font-weight: 500; color: var(--charcoal); line-height: 1.35; }
+
+  footer { background: #141412; padding: 32px 5%; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 16px; border-top: 1px solid #2e2e2c; }
+  .footer-logo { font-family: 'EB Garamond', serif; font-size: 18px; color: #F7F5F0; font-weight: 500; text-decoration: none; }
+  .footer-links { display: flex; gap: 28px; list-style: none; flex-wrap: wrap; }
+  .footer-links a { font-size: 12px; color: #555; text-decoration: none; letter-spacing: 0.04em; text-transform: uppercase; transition: color 0.2s; }
+  .footer-links a:hover { color: #9A9A94; }
+  .footer-note { font-size: 12px; color: #444; }
+
+  @media (max-width: 700px) {
+    .nav-links { display: none; }
+    .article-hero { padding: 116px 6% 32px; }
+    .article-body { padding: 32px 6% 10px; }
+    .scope-grid { grid-template-columns: 1fr; }
+    .process-step { flex-direction: column; }
+    .step-num { border-right: none; border-bottom: 1px solid var(--border); min-width: 0; padding: 14px 22px 6px; }
+    .step-content { padding: 12px 22px 20px; }
+    .jump-list { grid-template-columns: 1fr; }
+    .faq-item { flex-direction: column; gap: 8px; }
+    .faq-num { min-width: 0; padding-top: 0; }
+    .convert-box-inner { padding: 26px 24px; }
+    #apply-now { padding: 56px 6%; }
+  }
+</style>
+</head>
+<body>
+
+<div id="cookie-consent-banner" role="region" aria-label="Cookie consent" style="display:none; position:fixed; left:0; right:0; bottom:0; z-index:9999; background:#1C1C1A; color:#FDFCFA; padding:18px 5%; box-shadow:0 -2px 16px rgba(0,0,0,0.18); font-family:'DM Sans', sans-serif;">
+  <div style="max-width:1100px; margin:0 auto; display:flex; flex-wrap:wrap; align-items:center; justify-content:space-between; gap:16px;">
+    <p style="font-size:13.5px; line-height:1.6; color:rgba(253,252,250,0.85); margin:0; flex:1; min-width:220px; font-weight:300;">We use analytics cookies to understand how visitors use this site. These are not set unless you accept. See our <a href="privacy-policy.html" style="color:#8fc0a2; text-decoration:underline;">Privacy Policy</a> for details, or change your choice there at any time.</p>
+    <div style="display:flex; gap:10px; flex-shrink:0;">
+      <button type="button" onclick="wrightwoodSetConsent('denied')" style="background:none; border:1px solid rgba(253,252,250,0.3); color:#FDFCFA; font-family:'DM Sans', sans-serif; font-size:13px; font-weight:500; padding:10px 18px; border-radius:4px; cursor:pointer;">Decline</button>
+      <button type="button" onclick="wrightwoodSetConsent('granted')" style="background:#2A4A3A; border:1px solid #2A4A3A; color:#FDFCFA; font-family:'DM Sans', sans-serif; font-size:13px; font-weight:500; padding:10px 18px; border-radius:4px; cursor:pointer;">Accept analytics</button>
+    </div>
+  </div>
+</div>
+
+
+<nav>
+  <a href="index.html" class="nav-logo">Wrightwood Consulting</a>
+  <ul class="nav-links">
+    <li><a href="index.html#who-we-help">Who we help</a></li>
+    <li><a href="index.html#services">Services</a></li>
+    <li><a href="index.html#ten-steps">The process</a></li>
+    <li><a href="contact.html">Contact</a></li>
+  </ul>
+  <a href="contact.html" class="nav-cta">Get a remediation review</a>
+</nav>
+
+<header class="article-hero">
+  <div class="article-hero-inner">
+    <p class="breadcrumb"><a href="index.html">Home</a> / Project Management</p>
+    <p class="hero-eyebrow">Our Service</p>
+    <h1>Client-Side Cladding Remediation Project Management</h1>
+    <p class="lede">A remediation project touches a fire engineer, a design team, a contractor, a funding body and your residents — usually all at once, and usually for a building owner who's never run a project like this before. Client-side project management means one team is accountable for making all of that work together.</p>
+  </div>
+</header>
+
+<div class="convert-box">
+  <div class="convert-box-inner">
+    <div class="convert-box-text">
+      <h2>Considering project management for your building?</h2>
+      <p>Tell us where your project stands — from a FRAEW just landed to works already underway — and we'll explain how our project management service could help.</p>
+    </div>
+    <a href="contact.html" class="btn-primary">Discuss Your Project</a>
+  </div>
+</div>
+
+<div class="jump-nav" aria-label="On this page">
+  <div class="jump-nav-box">
+    <p class="jump-nav-label">On this page</p>
+    <ul class="jump-list">
+      <li><a href="#what-it-means"><span class="jump-num">01</span><span>What client-side PM means</span></a></li>
+      <li><a href="#why-it-matters"><span class="jump-num">02</span><span>Why a single point of accountability matters</span></a></li>
+      <li><a href="#scope"><span class="jump-num">03</span><span>What our project management covers</span></a></li>
+      <li><a href="#who-for"><span class="jump-num">04</span><span>Who this service is for</span></a></li>
+      <li><a href="#how-we-structure"><span class="jump-num">05</span><span>How we structure a project</span></a></li>
+      <li><a href="#faq"><span class="jump-num">06</span><span>Frequently asked questions</span></a></li>
+    </ul>
+  </div>
+</div>
+
+<main class="article-body">
+
+<h2 id="what-it-means">What Client-Side Project Management Actually Means</h2>
+
+<p>"Client-side" means we work for you — the building owner, RTM company, RMC or managing agent — rather than for a contractor or a design firm with their own commercial interest in the job. Our role is to represent your interests throughout the project: appointing and managing the design team, running the procurement process, administering the contract once a contractor is appointed, and controlling cost and programme on your behalf.</p>
+
+<p>It's a different relationship from simply hiring a contractor directly, or instructing a fire engineer for a single report. Client-side project management sits above all of the individual appointments, making sure they add up to one coherent project rather than a collection of separate instructions you're trying to manage yourself.</p>
+
+<h2 id="why-it-matters">Why a Single Point of Accountability Matters</h2>
+
+<p>Most building owners and boards who end up running a remediation project themselves aren't short on commitment — they're short on the specific experience of coordinating a multi-specialist construction project, which is a different skill from managing a building day-to-day. Without a single party holding the whole picture, it's easy for gaps to open up between specialists: a design assumption the contractor wasn't told about, a funding deadline nobody was tracking against the design programme, a cost increase nobody flagged until it had already happened.</p>
+
+<p>Client-side project management exists to close those gaps — one team tracking the whole project, so decisions in one area are made with the rest of the project in view, and so you have a single point of contact who can answer "where are we, and what happens next?" at any point.</p>
+
+<h2 id="scope">What Our Project Management Covers</h2>
+
+<div class="scope-grid">
+  <div class="scope-card">
+    <h4>Design &amp; specialist team</h4>
+    <ul>
+      <li>Identifying the specialists a project needs</li>
+      <li>Appointing and briefing fire engineers, architects, structural engineers and principal designers</li>
+      <li>Coordinating design development and buildability review</li>
+    </ul>
+  </div>
+  <div class="scope-card">
+    <h4>Procurement &amp; contract</h4>
+    <ul>
+      <li>Selecting an appropriate procurement route</li>
+      <li>Running contractor tendering and evaluation</li>
+      <li>Negotiating and administering the building contract</li>
+    </ul>
+  </div>
+  <div class="scope-card">
+    <h4>Cost &amp; programme control</h4>
+    <ul>
+      <li>Budget oversight and cost reporting throughout</li>
+      <li>Programme management and tracking against milestones</li>
+      <li>Aligning the delivery programme with any funding conditions</li>
+    </ul>
+  </div>
+  <div class="scope-card">
+    <h4>Delivery &amp; handover</h4>
+    <ul>
+      <li>On-site quality assurance and progress monitoring</li>
+      <li>Resident communication throughout construction</li>
+      <li>Completion documentation, sign-off and certification, including EWS1 where relevant</li>
+    </ul>
+  </div>
+</div>
+
+<h2 id="who-for">Who This Service Is For</h2>
+
+<p>This service is typically most valuable for freeholders, resident management companies, RTM companies and asset or portfolio managers who need a remediation project delivered properly but don't have in-house construction project management capability. If you're specifically an <a href="rtm-companies-building-safety.html">RTM company</a> working out where to start, or a <a href="managing-agents-cladding-remediation.html">managing agent</a> looking to bring in a delivery partner for a client's building, those pages cover the audience-specific detail — this page focuses on the project management service itself, which sits at the centre of what we do for all of them.</p>
+
+<h2 id="how-we-structure">How We Structure a Project</h2>
+
+<div class="process-steps">
+  <div class="process-step"><div class="step-num">01</div><div class="step-content"><h4 class="step-title">Mobilisation &amp; assessment</h4><p class="step-desc">Reviewing existing information, appointing a FRAEW specialist where needed, and establishing a clear baseline for the building.</p></div></div>
+  <div class="process-step"><div class="step-num">02</div><div class="step-content"><h4 class="step-title">Scope &amp; funding</h4><p class="step-desc">Developing a costed scope of works from the assessment findings, and pursuing any available funding route in parallel.</p></div></div>
+  <div class="process-step"><div class="step-num">03</div><div class="step-content"><h4 class="step-title">Design &amp; procurement</h4><p class="step-desc">Appointing the design team, developing the design, and running contractor procurement and tendering.</p></div></div>
+  <div class="process-step"><div class="step-num">04</div><div class="step-content"><h4 class="step-title">Regulatory approval</h4><p class="step-desc">Preparing and submitting any required Building Safety Regulator or local authority building control applications.</p></div></div>
+  <div class="process-step"><div class="step-num">05</div><div class="step-content"><h4 class="step-title">Construction delivery</h4><p class="step-desc">Managing the contractor on site, controlling cost and programme, and keeping residents informed throughout.</p></div></div>
+  <div class="process-step"><div class="step-num">06</div><div class="step-content"><h4 class="step-title">Completion &amp; handover</h4><p class="step-desc">Managing sign-off, certification and any EWS1 documentation, and handing over a complete project record.</p></div></div>
+</div>
+
+<div class="callout">
+<h3>We coordinate — we don't carry out assessments ourselves</h3>
+<p>Wrightwood is not the fire engineer, architect or contractor. We appoint and manage suitably qualified, independent specialists at each stage, and hold the project together as a single, coordinated service on your behalf.</p>
+</div>
+
+</main>
+
+<section id="apply-now">
+  <div class="apply-now-inner">
+    <p class="section-label">Get in touch</p>
+    <h2>Tell us about your project</h2>
+    <p class="intro">Whatever stage you're at — pre-FRAEW, post-report, or mid-remediation with another party — we can explain how client-side project management would work for your building.</p>
+    <a href="contact.html" class="btn-primary">Discuss Your Project</a>
+  </div>
+</section>
+
+<section class="faq-section" id="faq">
+  <h2 class="faq-h2">Frequently Asked Questions</h2>
+  <p class="faq-intro-p">Common questions about client-side cladding remediation project management.</p>
+
+  <div class="faq-item">
+    <p class="faq-num">01</p>
+    <div>
+      <h3 class="faq-question" id="pm-what-means">What does "client-side" project management mean?</h3>
+      <div class="faq-answer"><p>It means the project manager works exclusively for you, the building owner or Responsible Entity, rather than for a contractor or design firm with their own commercial stake in the outcome — representing your interests throughout design, procurement and construction.</p></div>
+    </div>
+  </div>
+  <div class="faq-item">
+    <p class="faq-num">02</p>
+    <div>
+      <h3 class="faq-question" id="pm-vs-contractor">How is this different from hiring a main contractor directly?</h3>
+      <div class="faq-answer"><p>A main contractor is responsible for delivering the construction works to the agreed design and contract. A client-side project manager sits above that relationship, appointing the contractor in the first place, administering the contract, and protecting your interests on cost, programme and quality throughout — rather than you relying solely on the contractor to manage itself.</p></div>
+    </div>
+  </div>
+  <div class="faq-item">
+    <p class="faq-num">03</p>
+    <div>
+      <h3 class="faq-question" id="pm-do-fraew">Do you carry out the FRAEW or PAS 9980 assessment yourselves?</h3>
+      <div class="faq-answer"><p>No. We appoint and coordinate a suitably qualified, independent fire engineer or facade consultant to carry out the assessment, and use the findings to inform the wider project. See our guide to <a href="pas-9980-explained.html">PAS 9980</a> for more on the assessment itself.</p></div>
+    </div>
+  </div>
+  <div class="faq-item">
+    <p class="faq-num">04</p>
+    <div>
+      <h3 class="faq-question" id="pm-involvement">How involved do we need to be day-to-day?</h3>
+      <div class="faq-answer"><p>As little or as much as you want. We manage the day-to-day coordination and bring key decisions to you at the right points, rather than needing the board or agent involved in every individual specialist conversation.</p></div>
+    </div>
+  </div>
+  <div class="faq-item">
+    <p class="faq-num">05</p>
+    <div>
+      <h3 class="faq-question" id="pm-what-size">What size of project do you manage?</h3>
+      <div class="faq-answer"><p>We work across buildings of different heights and scales, from single blocks under 11 metres to higher-risk buildings requiring Building Safety Regulator submissions. <a href="contact.html">Get in touch</a> with your building's details and we'll give you an honest view of fit.</p></div>
+    </div>
+  </div>
+</section>
+
+<div class="related-links">
+  <h2>Related guides</h2>
+  <div class="related-grid">
+    <a class="related-card" href="rtm-companies-building-safety.html"><p class="related-card-label">Audience</p><p class="related-card-title">Support for RTM companies</p></a>
+    <a class="related-card" href="managing-agents-cladding-remediation.html"><p class="related-card-label">Audience</p><p class="related-card-title">Support for managing agents</p></a>
+    <a class="related-card" href="what-happens-after-a-fraew.html"><p class="related-card-label">Guide</p><p class="related-card-title">What happens after a FRAEW?</p></a>
+    <a class="related-card" href="fraew-cladding-safety-scheme-faq.html"><p class="related-card-label">FAQ</p><p class="related-card-title">FRAEW &amp; Cladding Safety Scheme FAQ</p></a>
+    <a class="related-card" href="contact.html"><p class="related-card-label">Get in touch</p><p class="related-card-title">Request an initial review</p></a>
+  </div>
+</div>
+
+<footer>
+  <a href="index.html" class="footer-logo">Wrightwood Consulting</a>
+  <ul class="footer-links">
+    <li><a href="index.html#services">Services</a></li>
+    <li><a href="rtm-companies-building-safety.html">RTM Companies</a></li>
+    <li><a href="managing-agents-cladding-remediation.html">Managing Agents</a></li>
+    <li><a href="fraew-cladding-safety-scheme-faq.html">FRAEW &amp; CSS FAQ</a></li>
+    <li><a href="contact.html">Contact</a></li>
+    <li><a href="privacy-policy.html">Privacy Policy</a></li>
+  </ul>
+  <span class="footer-note">© 2026 Wrightwood Consulting. All rights reserved.</span>
+</footer>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "serviceType": "Client-side cladding remediation project management",
+  "name": "Client-Side Cladding Remediation Project Management",
+  "description": "One point of accountability from initial assessment through design, procurement, construction and completion — client-side project management for cladding remediation.",
+  "provider": { "@type": "ProfessionalService", "name": "Wrightwood Consulting", "url": "https://wrightwoodconsulting.co.uk/index.html" },
+  "areaServed": [
+    { "@type": "AdministrativeArea", "name": "London" },
+    { "@type": "AdministrativeArea", "name": "Surrey" },
+    { "@type": "AdministrativeArea", "name": "South East England" }
+  ],
+  "url": "https://wrightwoodconsulting.co.uk/cladding-remediation-project-management.html"
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    { "@type": "Question", "name": "What does \"client-side\" project management mean?", "acceptedAnswer": { "@type": "Answer", "text": "It means the project manager works exclusively for the building owner or Responsible Entity, rather than for a contractor or design firm, representing the client's interests throughout design, procurement and construction." } },
+    { "@type": "Question", "name": "How is this different from hiring a main contractor directly?", "acceptedAnswer": { "@type": "Answer", "text": "A main contractor delivers the construction works to the agreed design and contract. A client-side project manager sits above that relationship, appointing the contractor, administering the contract, and protecting the client's interests on cost, programme and quality throughout." } },
+    { "@type": "Question", "name": "Do you carry out the FRAEW or PAS 9980 assessment yourselves?", "acceptedAnswer": { "@type": "Answer", "text": "No. Wrightwood appoints and coordinates a suitably qualified, independent fire engineer or facade consultant to carry out the assessment, and uses the findings to inform the wider project." } },
+    { "@type": "Question", "name": "How involved do we need to be day-to-day?", "acceptedAnswer": { "@type": "Answer", "text": "As little or as much as the client wants. Wrightwood manages day-to-day coordination and brings key decisions to the client at the right points." } },
+    { "@type": "Question", "name": "What size of project do you manage?", "acceptedAnswer": { "@type": "Answer", "text": "Wrightwood works across buildings of different heights and scales, from single blocks under 11 metres to higher-risk buildings requiring Building Safety Regulator submissions." } }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://wrightwoodconsulting.co.uk/index.html" },
+    { "@type": "ListItem", "position": 2, "name": "Project Management", "item": "https://wrightwoodconsulting.co.uk/cladding-remediation-project-management.html" }
+  ]
+}
+</script>
+
+</body>
+</html>

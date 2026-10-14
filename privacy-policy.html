@@ -1,24 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<!-- Google tag (gtag.js) with Consent Mode v2 -->
+<!-- Google tag (gtag.js) with Basic Consent Mode: tag is not loaded or fired at all until consent is granted -->
 <script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('consent', 'default', {
-    'ad_storage': 'denied',
-    'ad_user_data': 'denied',
-    'ad_personalization': 'denied',
-    'analytics_storage': 'denied'
-  });
-</script>
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-NT1H3P8FXB"></script>
-<script>
-  gtag('js', new Date());
-  gtag('config', 'G-NT1H3P8FXB');
-
   (function () {
     var CONSENT_KEY = 'wrightwood_analytics_consent';
+    var MEASUREMENT_ID = 'G-NT1H3P8FXB';
+
     function showBanner() {
       var banner = document.getElementById('cookie-consent-banner');
       if (!banner) return;
@@ -37,16 +25,30 @@
         document.body.style.paddingBottom = banner.offsetHeight + 'px';
       }
     });
+
+    function loadAnalytics() {
+      if (window.wrightwoodAnalyticsLoaded) return;
+      window.wrightwoodAnalyticsLoaded = true;
+      window.dataLayer = window.dataLayer || [];
+      window.gtag = window.gtag || function () { window.dataLayer.push(arguments); };
+      gtag('js', new Date());
+      gtag('config', MEASUREMENT_ID);
+      var s = document.createElement('script');
+      s.async = true;
+      s.src = 'https://www.googletagmanager.com/gtag/js?id=' + MEASUREMENT_ID;
+      document.head.appendChild(s);
+    }
+
     var saved = null;
     try { saved = localStorage.getItem(CONSENT_KEY); } catch (e) {}
     if (saved === 'granted') {
-      gtag('consent', 'update', { 'analytics_storage': 'granted' });
+      loadAnalytics();
     } else if (saved !== 'denied') {
       document.addEventListener('DOMContentLoaded', showBanner);
     }
     window.wrightwoodSetConsent = function (value) {
       try { localStorage.setItem(CONSENT_KEY, value); } catch (e) {}
-      gtag('consent', 'update', { 'analytics_storage': value === 'granted' ? 'granted' : 'denied' });
+      if (value === 'granted') loadAnalytics();
       hideBanner();
     };
     window.wrightwoodShowCookieBanner = showBanner;
@@ -150,7 +152,7 @@
     <li>Any additional information you include in the free-text section of the form</li>
   </ul>
   <h2>Cookies</h2>
-  <p>We do not use advertising cookies on this site. We use Google Analytics (GA4) to understand how visitors use the site, which sets cookies that identify your browser across pages and visits. These analytics cookies are <strong>not set until you choose to accept them</strong> via the cookie banner shown on your first visit — if you decline, or don't respond, no analytics cookies are set and no analytics data is recorded about your visit.</p>
+  <p>We do not use advertising cookies on this site. We use Google Analytics (GA4) to understand how visitors use the site, which sets cookies that identify your browser across pages and visits. The Google Analytics script itself is <strong>not loaded at all until you choose to accept it</strong> via the cookie banner shown on your first visit — if you decline, or don't respond, the script never runs, no analytics cookies are set, and no analytics data is recorded about your visit.</p>
   <p>If you accept, Google Analytics may set cookies such as <code>_ga</code> and <code>_ga_*</code>, typically lasting up to 2 years, to distinguish your browser from others. You can withdraw your consent at any time using the button below, which will stop future analytics cookies being set (it does not delete cookies already placed in your browser — you can also clear these via your browser settings).</p>
   <p><button type="button" onclick="window.wrightwoodShowCookieBanner && window.wrightwoodShowCookieBanner()" style="background:var(--accent); color:var(--warm-white); font-family:'DM Sans', sans-serif; font-size:14px; font-weight:500; padding:12px 24px; border:none; border-radius:4px; cursor:pointer;">Manage cookie preferences</button></p>
   <p>Loading our web fonts involves your browser making a request to Google's servers to download font files, regardless of your cookie choice.</p>

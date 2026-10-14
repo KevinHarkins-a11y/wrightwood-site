@@ -1,24 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<!-- Google tag (gtag.js) with Consent Mode v2 -->
+<!-- Google tag (gtag.js) with Basic Consent Mode: tag is not loaded or fired at all until consent is granted -->
 <script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('consent', 'default', {
-    'ad_storage': 'denied',
-    'ad_user_data': 'denied',
-    'ad_personalization': 'denied',
-    'analytics_storage': 'denied'
-  });
-</script>
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-NT1H3P8FXB"></script>
-<script>
-  gtag('js', new Date());
-  gtag('config', 'G-NT1H3P8FXB');
-
   (function () {
     var CONSENT_KEY = 'wrightwood_analytics_consent';
+    var MEASUREMENT_ID = 'G-NT1H3P8FXB';
+
     function showBanner() {
       var banner = document.getElementById('cookie-consent-banner');
       if (!banner) return;
@@ -37,16 +25,30 @@
         document.body.style.paddingBottom = banner.offsetHeight + 'px';
       }
     });
+
+    function loadAnalytics() {
+      if (window.wrightwoodAnalyticsLoaded) return;
+      window.wrightwoodAnalyticsLoaded = true;
+      window.dataLayer = window.dataLayer || [];
+      window.gtag = window.gtag || function () { window.dataLayer.push(arguments); };
+      gtag('js', new Date());
+      gtag('config', MEASUREMENT_ID);
+      var s = document.createElement('script');
+      s.async = true;
+      s.src = 'https://www.googletagmanager.com/gtag/js?id=' + MEASUREMENT_ID;
+      document.head.appendChild(s);
+    }
+
     var saved = null;
     try { saved = localStorage.getItem(CONSENT_KEY); } catch (e) {}
     if (saved === 'granted') {
-      gtag('consent', 'update', { 'analytics_storage': 'granted' });
+      loadAnalytics();
     } else if (saved !== 'denied') {
       document.addEventListener('DOMContentLoaded', showBanner);
     }
     window.wrightwoodSetConsent = function (value) {
       try { localStorage.setItem(CONSENT_KEY, value); } catch (e) {}
-      gtag('consent', 'update', { 'analytics_storage': value === 'granted' ? 'granted' : 'denied' });
+      if (value === 'granted') loadAnalytics();
       hideBanner();
     };
     window.wrightwoodShowCookieBanner = showBanner;

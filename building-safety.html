@@ -198,7 +198,7 @@
   <div class="form-side">
     <h2 class="form-heading">Get expert building safety support</h2>
     <p class="form-sub">Tell us about your project and one of our specialists will be in touch within one working day.</p>
-    <form name="building-safety-quote" method="POST" action="/thank-you.html" data-netlify="true" netlify-honeypot="bs-bot-field">
+    <form id="buildingSafetyForm" name="building-safety-quote" method="POST" action="/thank-you.html" data-netlify="true" netlify-honeypot="bs-bot-field">
       <input type="hidden" name="form-name" value="building-safety-quote">
       <p style="position:absolute;left:-9999px;top:-9999px;" aria-hidden="true">
         <label>Leave this field blank if you're human: <input type="text" name="bs-bot-field" tabindex="-1" autocomplete="off"></label>
@@ -238,6 +238,17 @@
     </form>
   </div>
 </div>
+
+<script>
+  // GA4 enquiry conversion: fires only on genuine form submission, not on
+  // the thank-you page load, and only if consent has been granted (gtag
+  // is never defined until the visitor accepts the cookie banner).
+  document.getElementById('buildingSafetyForm').addEventListener('submit', function() {
+    if (typeof gtag === 'function') {
+      gtag('event', 'generate_lead', { form_name: 'building_safety_page' });
+    }
+  });
+</script>
 
 </body>
 </html>

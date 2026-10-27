@@ -4,3 +4,10 @@
 # The "!" forces this redirect even though a static file exists at the .html path
 # (Netlify skips _redirects for exact static-file matches unless forced).
 /cladding-safety-scheme-under-11-metres.html   /cladding-safety-scheme-under-11-metres   301!
+
+# Canonical URL fix: /index.html and / were both resolving (200) and getting
+# indexed as near-duplicates by Google, and every internal link on the site
+# pointed at /index.html rather than the root. Canonical tags, the sitemap and
+# internal links now all point at /; force a 301 from /index.html to / so only
+# one URL is ever served with 200.
+/index.html   /   301!

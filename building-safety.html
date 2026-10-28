@@ -118,6 +118,11 @@
   .form-side { background: var(--warm-white); display: flex; flex-direction: column; justify-content: center; padding: 60px 56px; overflow-y: auto; }
   .form-heading { font-family: 'EB Garamond', serif; font-size: 32px; font-weight: 400; color: var(--charcoal); margin-bottom: 8px; line-height: 1.2; letter-spacing: -0.01em; }
   .form-sub { font-size: 14px; color: var(--mid); font-weight: 300; margin-bottom: 36px; line-height: 1.6; }
+  .email-alt { margin: -20px 0 28px; padding-bottom: 20px; border-bottom: 1px solid var(--border); }
+  .email-alt-label { font-size: 13px; font-weight: 500; color: var(--charcoal); margin: 0 0 4px; }
+  .email-alt-text { font-size: 14px; color: var(--mid); font-weight: 300; margin: 0; line-height: 1.6; }
+  .email-alt-text a { color: var(--accent); font-weight: 500; text-decoration: underline; text-decoration-color: var(--border); text-underline-offset: 2px; word-break: break-word; }
+  .email-alt-text a:hover { text-decoration-color: var(--accent); }
   .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 16px; }
   .form-group { display: flex; flex-direction: column; gap: 6px; margin-bottom: 16px; }
   label { font-size: 12px; font-weight: 500; color: var(--mid); letter-spacing: 0.04em; text-transform: uppercase; }
@@ -198,6 +203,10 @@
   <div class="form-side">
     <h2 class="form-heading">Get expert building safety support</h2>
     <p class="form-sub">Tell us about your project and one of our specialists will be in touch within one working day.</p>
+    <div class="email-alt">
+      <p class="email-alt-label">Prefer to email us directly?</p>
+      <p class="email-alt-text">Email us at <a href="mailto:info@wrightwoodconsulting.co.uk">info@wrightwoodconsulting.co.uk</a></p>
+    </div>
     <form id="buildingSafetyForm" name="building-safety-quote" method="POST" action="/thank-you.html" data-netlify="true" netlify-honeypot="bs-bot-field">
       <input type="hidden" name="form-name" value="building-safety-quote">
       <p style="position:absolute;left:-9999px;top:-9999px;" aria-hidden="true">

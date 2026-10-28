@@ -114,7 +114,8 @@
   .article-body a:hover { text-decoration-color: var(--accent); }
 
   .article-image { margin: 0 0 40px; border: 1px solid var(--border); overflow: hidden; }
-  .article-image img { display: block; width: 100%; height: auto; aspect-ratio: 1150 / 767; object-fit: cover; }
+  .article-image img { display: block; width: 100%; height: auto; aspect-ratio: var(--img-ratio, 1150 / 767); object-fit: cover; }
+  .article-image-caption { font-size: 13px; color: var(--mid); font-weight: 300; padding: 12px 16px; background: var(--cream); margin: 0; border-top: 1px solid var(--border); }
 
   .callout { margin: 32px 0; padding: 28px 32px; border-left: 2px solid var(--accent); background: var(--accent-light); }
   .callout h3 { font-family: 'EB Garamond', serif; font-size: 17px; color: var(--charcoal); margin-bottom: 10px; font-weight: 500; }
@@ -242,6 +243,14 @@
 <li>Existing fire safety measures already in place, such as compartmentation and fire detection.</li>
 <li>The quality and reliability of available evidence, including drawings, specifications and any previous investigation.</li>
 </ul>
+
+<div class="article-image" style="--img-ratio: 1100 / 985">
+  <picture>
+    <source type="image/webp" srcset="images/non-combustible-cladding-panel-certification-detail.webp">
+    <img src="images/non-combustible-cladding-panel-certification-detail.jpg" width="1100" height="985" alt="Close-up of non-combustible external wall cladding panels during installation, showing manufacturer certification labelling" loading="lazy">
+  </picture>
+  <p class="article-image-caption">The specific cladding and insulation materials used in a wall build-up, including their certification, are exactly the kind of evidence a PAS 9980 appraisal needs to evaluate.</p>
+</div>
 
 <p>The result is a risk-rated report rather than a simple pass or fail. Some findings may warrant no further action; others may point towards interim safety measures or full remediation, depending on the level of risk identified.</p>
 

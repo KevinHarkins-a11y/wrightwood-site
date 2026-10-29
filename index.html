@@ -267,6 +267,17 @@
   .step-title { font-family: 'EB Garamond', serif; font-size: 22px; font-weight: 500; color: var(--charcoal); margin-bottom: 10px; line-height: 1.3; }
   .step-desc { font-size: 14px; color: var(--mid); line-height: 1.75; font-weight: 300; }
 
+  #insights-teaser { background: var(--warm-white); padding: 90px 5%; }
+  .insights-teaser-inner { max-width: 1100px; margin: 0 auto; }
+  .insights-teaser-card { display: grid; grid-template-columns: 340px 1fr; gap: 40px; text-decoration: none; align-items: center; }
+  .insights-teaser-image { border: 1px solid var(--border); overflow: hidden; }
+  .insights-teaser-image img { display: block; width: 100%; height: 100%; aspect-ratio: 4/3; object-fit: cover; }
+  .insights-teaser-eyebrow { font-size: 11px; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; color: var(--accent); margin-bottom: 12px; }
+  .insights-teaser-title { font-family: 'EB Garamond', serif; font-size: clamp(22px, 2.6vw, 28px); font-weight: 500; color: var(--charcoal); line-height: 1.3; margin-bottom: 12px; }
+  .insights-teaser-desc { font-size: 15px; color: var(--mid); font-weight: 300; line-height: 1.75; max-width: 560px; margin-bottom: 16px; }
+  .insights-teaser-link { font-size: 13.5px; font-weight: 500; color: var(--accent); }
+  .insights-teaser-card:hover .insights-teaser-title { color: var(--accent); }
+
   #contact { background: var(--charcoal); text-align: center; padding: 100px 5%; }
   .cta-inner { max-width: 600px; margin: 0 auto; }
   .cta-inner .section-label { justify-content: center; color: #7aaa8a; }
@@ -302,6 +313,8 @@
     .step-num { min-width: 60px; padding: 28px 20px; }
     .step-content { padding: 28px 24px; }
     .contact-details { flex-direction: column; gap: 32px; }
+    .insights-teaser-card { grid-template-columns: 1fr; gap: 20px; }
+    .insights-teaser-image img { aspect-ratio: 16/9; }
   }
 </style>
 </head>
@@ -327,6 +340,7 @@
     <li><a href="#design">Design &amp; compliance</a></li>
     <li><a href="#explainer">For residents</a></li>
     <li><a href="#ten-steps">The process</a></li>
+    <li><a href="insights/">Insights</a></li>
     <li><a href="contact.html">Contact</a></li>
   </ul>
   <a href="contact.html" class="nav-cta">Get a remediation review</a>
@@ -544,6 +558,26 @@
   </div>
 </section>
 
+<section id="insights-teaser">
+  <div class="insights-teaser-inner">
+    <p class="section-label">Latest insight</p>
+    <a class="insights-teaser-card" href="insights/remediation-bill-2026-building-safety/">
+      <div class="insights-teaser-image">
+        <picture>
+          <source type="image/webp" srcset="images/high-rise-residential-tower-exterior-cladding.webp">
+          <img src="images/high-rise-residential-tower-exterior-cladding.jpg" alt="Tall residential tower block with vertical cladding panels" loading="lazy">
+        </picture>
+      </div>
+      <div class="insights-teaser-body">
+        <p class="insights-teaser-eyebrow">Building Safety Legislation</p>
+        <h2 class="insights-teaser-title">The Remediation Bill 2026: What RTM Companies, Managing Agents and Building Owners Need to Know</h2>
+        <p class="insights-teaser-desc">A new Bill before Parliament proposes a legal duty to assess and fix unsafe external walls, a new medium-rise building register and tougher enforcement powers. What's proposed, what's already law, and what to do now.</p>
+        <span class="insights-teaser-link">Read the guide →</span>
+      </div>
+    </a>
+  </div>
+</section>
+
 <section id="contact">
   <div class="cta-inner">
     <p class="section-label">Get in touch</p>
@@ -560,6 +594,7 @@
 <footer>
   <a href="/" class="footer-logo">Wrightwood Consulting</a>
   <ul class="footer-links">
+    <li><a href="insights/">Insights</a></li>
     <li><a href="rtm-companies-building-safety.html">RTM Companies</a></li>
     <li><a href="managing-agents-cladding-remediation.html">Managing Agents</a></li>
     <li><a href="cladding-remediation-project-management.html">Project Management</a></li>

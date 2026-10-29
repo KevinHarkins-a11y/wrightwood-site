@@ -1,0 +1,572 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+<!-- Google tag (gtag.js) with Basic Consent Mode: tag is not loaded or fired at all until consent is granted -->
+<script>
+  (function () {
+    var CONSENT_KEY = 'wrightwood_analytics_consent';
+    var MEASUREMENT_ID = 'G-NT1H3P8FXB';
+
+    function showBanner() {
+      var banner = document.getElementById('cookie-consent-banner');
+      if (!banner) return;
+      banner.style.display = 'block';
+      document.body.style.paddingBottom = banner.offsetHeight + 'px';
+    }
+    function hideBanner() {
+      var banner = document.getElementById('cookie-consent-banner');
+      if (!banner) return;
+      banner.style.display = 'none';
+      document.body.style.paddingBottom = '';
+    }
+    window.addEventListener('resize', function () {
+      var banner = document.getElementById('cookie-consent-banner');
+      if (banner && banner.style.display === 'block') {
+        document.body.style.paddingBottom = banner.offsetHeight + 'px';
+      }
+    });
+
+    function loadAnalytics() {
+      if (window.wrightwoodAnalyticsLoaded) return;
+      window.wrightwoodAnalyticsLoaded = true;
+      window.dataLayer = window.dataLayer || [];
+      window.gtag = window.gtag || function () { window.dataLayer.push(arguments); };
+      gtag('js', new Date());
+      gtag('config', MEASUREMENT_ID);
+      var s = document.createElement('script');
+      s.async = true;
+      s.src = 'https://www.googletagmanager.com/gtag/js?id=' + MEASUREMENT_ID;
+      document.head.appendChild(s);
+    }
+
+    var saved = null;
+    try { saved = localStorage.getItem(CONSENT_KEY); } catch (e) {}
+    if (saved === 'granted') {
+      loadAnalytics();
+    } else if (saved !== 'denied') {
+      document.addEventListener('DOMContentLoaded', showBanner);
+    }
+    window.wrightwoodSetConsent = function (value) {
+      try { localStorage.setItem(CONSENT_KEY, value); } catch (e) {}
+      if (value === 'granted') loadAnalytics();
+      hideBanner();
+    };
+    window.wrightwoodShowCookieBanner = showBanner;
+  })();
+</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Remediation Bill 2026: What It Means for Building Safety</title>
+<meta name="description" content="The Remediation Bill 2026 proposes a duty to assess and fix unsafe cladding. What it means now for RTM companies, managing agents and freeholders in England.">
+<link rel="canonical" href="https://wrightwoodconsulting.co.uk/insights/remediation-bill-2026-building-safety/">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Wrightwood Consulting">
+<meta property="og:title" content="Remediation Bill 2026: What It Means for Building Safety">
+<meta property="og:description" content="The Remediation Bill 2026 proposes a duty to assess and fix unsafe cladding. What it means now for RTM companies, managing agents and freeholders in England.">
+<meta property="og:url" content="https://wrightwoodconsulting.co.uk/insights/remediation-bill-2026-building-safety/">
+<meta property="og:image" content="https://wrightwoodconsulting.co.uk/images/high-rise-residential-tower-exterior-cladding.jpg">
+<meta property="og:locale" content="en_GB">
+<meta property="article:published_time" content="2026-10-29">
+<meta property="article:modified_time" content="2026-10-29">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --cream: #F7F5F0;
+    --warm-white: #FDFCFA;
+    --charcoal: #1C1C1A;
+    --mid: #5C5C58;
+    --light: #9A9A94;
+    --border: #E0DDD6;
+    --accent: #2A4A3A;
+    --accent-light: #EAF0EC;
+  }
+  html { scroll-behavior: smooth; }
+  body { font-family: 'DM Sans', sans-serif; background: var(--warm-white); color: var(--charcoal); font-size: 16px; line-height: 1.7; }
+
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    background: rgba(253,252,250,0.92); backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border);
+    padding: 0 5%; display: flex; align-items: center; justify-content: space-between; height: 68px;
+  }
+  .nav-logo { font-family: 'EB Garamond', serif; font-size: 20px; font-weight: 500; color: var(--charcoal); letter-spacing: 0.01em; text-decoration: none; }
+  .nav-links { display: flex; gap: 24px; list-style: none; }
+  .nav-links a { font-size: 12px; font-weight: 400; color: var(--mid); text-decoration: none; letter-spacing: 0.04em; text-transform: uppercase; transition: color 0.2s; }
+  .nav-links a:hover, .nav-links a.active { color: var(--charcoal); }
+  .nav-cta { font-size: 13px; font-weight: 500; color: var(--warm-white); background: var(--accent); padding: 10px 22px; border-radius: 4px; text-decoration: none; letter-spacing: 0.02em; transition: opacity 0.2s; white-space: nowrap; }
+  .nav-cta:hover { opacity: 0.85; }
+
+  .hero-eyebrow { font-size: 11px; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent); margin-bottom: 20px; display: flex; align-items: center; gap: 12px; }
+  .hero-eyebrow::before { content: ''; display: block; width: 32px; height: 1px; background: var(--accent); }
+
+  .article-hero { padding: 140px 5% 40px; background: var(--warm-white); border-bottom: 1px solid var(--border); }
+  .article-hero-inner { max-width: 760px; margin: 0 auto; }
+  .article-hero h1 { font-family: 'EB Garamond', serif; font-size: clamp(30px, 4.2vw, 46px); font-weight: 400; line-height: 1.16; color: var(--charcoal); margin-bottom: 20px; letter-spacing: -0.01em; }
+  .article-hero .lede { font-size: 17px; color: var(--mid); font-weight: 300; line-height: 1.75; max-width: 660px; margin-bottom: 20px; }
+  .breadcrumb { font-size: 12px; color: var(--light); margin-bottom: 28px; }
+  .breadcrumb a { color: var(--light); text-decoration: none; }
+  .breadcrumb a:hover { color: var(--accent); }
+  .updated-badge { display: inline-flex; align-items: center; font-size: 11px; font-weight: 500; letter-spacing: 0.06em; text-transform: uppercase; color: var(--accent); background: var(--accent-light); padding: 7px 14px; border-radius: 3px; }
+
+  .article-body { max-width: 760px; padding: 32px 5% 20px; margin: 0 auto; }
+  .article-body h2 { font-family: 'EB Garamond', serif; font-size: clamp(25px, 2.8vw, 32px); font-weight: 500; color: var(--charcoal); margin: 52px 0 18px; line-height: 1.25; letter-spacing: -0.005em; scroll-margin-top: 90px; }
+  .article-body > h2:first-child { margin-top: 0; }
+  .article-body h3 { font-family: 'EB Garamond', serif; font-size: 19px; font-weight: 500; color: var(--charcoal); margin: 30px 0 12px; scroll-margin-top: 90px; }
+  .article-body p { font-size: 15.5px; color: var(--mid); font-weight: 300; line-height: 1.85; margin-bottom: 18px; }
+  .article-body ul, .article-body ol { margin: 0 0 20px; padding-left: 0; list-style: none; display: flex; flex-direction: column; gap: 10px; }
+  .article-body li { font-size: 15px; color: var(--mid); font-weight: 300; line-height: 1.7; padding-left: 22px; position: relative; }
+  .article-body ul li::before { content: ''; position: absolute; left: 0; top: 9px; width: 5px; height: 5px; border-radius: 50%; background: var(--accent); }
+  .article-body ol { counter-reset: step; }
+  .article-body ol li { counter-increment: step; padding-left: 28px; }
+  .article-body ol li::before { content: counter(step) '.'; position: absolute; left: 0; top: 0; font-family: 'EB Garamond', serif; font-size: 14px; color: var(--accent); font-weight: 500; }
+  .article-body strong { color: var(--charcoal); font-weight: 500; }
+  .article-body a { color: var(--accent); text-decoration: underline; text-decoration-color: var(--border); text-underline-offset: 2px; }
+  .article-body a:hover { text-decoration-color: var(--accent); }
+
+  .callout { margin: 8px 0 32px; padding: 28px 32px; border-left: 2px solid var(--accent); background: var(--accent-light); }
+  .callout h3 { font-family: 'EB Garamond', serif; font-size: 17px; color: var(--charcoal); margin: 0 0 10px; font-weight: 500; }
+  .callout p { font-size: 14px; margin: 0 0 10px; }
+  .callout p:last-child { margin-bottom: 0; }
+
+  .article-image { margin: 24px 0 32px; border: 1px solid var(--border); overflow: hidden; }
+  .article-image img { display: block; width: 100%; height: auto; aspect-ratio: var(--img-ratio, 4 / 3); object-fit: cover; }
+  .article-image-caption { font-size: 13px; color: var(--mid); font-weight: 300; padding: 12px 16px; background: var(--cream); margin: 0; border-top: 1px solid var(--border); }
+
+  .convert-box { margin: 8px auto 0; max-width: 760px; padding: 0 5%; }
+  .convert-box-inner { border: 1px solid var(--border); background: var(--cream); padding: 32px 36px; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 24px; }
+  .convert-box-text h2 { font-family: 'EB Garamond', serif; font-size: 22px; font-weight: 500; color: var(--charcoal); margin-bottom: 8px; }
+  .convert-box-text p { font-size: 14.5px; color: var(--mid); font-weight: 300; line-height: 1.7; max-width: 480px; margin: 0; }
+  .btn-primary { background: var(--accent); color: var(--warm-white); font-family: 'DM Sans', sans-serif; font-size: 14px; font-weight: 500; padding: 14px 30px; border-radius: 4px; text-decoration: none; letter-spacing: 0.02em; transition: opacity 0.2s; display: inline-block; white-space: nowrap; }
+  .btn-primary:hover { opacity: 0.85; }
+  .btn-secondary { border: 1px solid var(--accent); color: var(--accent); font-family: 'DM Sans', sans-serif; font-size: 14px; font-weight: 500; padding: 13px 28px; border-radius: 4px; text-decoration: none; letter-spacing: 0.02em; transition: background 0.2s, color 0.2s; display: inline-block; white-space: nowrap; }
+  .btn-secondary:hover { background: var(--accent); color: var(--warm-white); }
+
+  .jump-nav { max-width: 760px; margin: 40px auto 0; padding: 0 5%; }
+  .jump-nav-box { background: var(--cream); border: 1px solid var(--border); padding: 28px 32px; }
+  .jump-nav-label { font-size: 11px; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: var(--accent); margin-bottom: 16px; display: flex; align-items: center; gap: 10px; }
+  .jump-nav-label::before { content: ''; display: block; width: 16px; height: 1px; background: var(--accent); }
+  .jump-list { display: grid; grid-template-columns: 1fr 1fr; gap: 0 32px; list-style: none; }
+  .jump-list li { border-bottom: 1px solid var(--border); }
+  .jump-list a { display: flex; gap: 10px; padding: 9px 0; font-size: 13px; color: var(--mid); text-decoration: none; line-height: 1.4; transition: color 0.2s; }
+  .jump-list a:hover { color: var(--charcoal); }
+  .jump-list .jump-num { font-family: 'EB Garamond', serif; color: var(--light); flex-shrink: 0; }
+
+  .scenario-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1px; background: var(--border); border: 1px solid var(--border); margin: 8px 0 32px; }
+  .scenario-card { background: var(--warm-white); padding: 24px 26px; }
+  .scenario-card p { font-size: 14px; color: var(--mid); font-weight: 300; line-height: 1.7; margin: 0; }
+  .scenario-card p strong { display: block; color: var(--charcoal); font-weight: 500; margin-bottom: 6px; font-size: 14.5px; }
+
+  .process-steps { border: 1px solid var(--border); margin: 24px 0 20px; }
+  .process-step { display: flex; border-bottom: 1px solid var(--border); }
+  .process-step:last-child { border-bottom: none; }
+  .step-num { font-family: 'EB Garamond', serif; font-size: 13px; color: var(--light); padding: 22px 26px; border-right: 1px solid var(--border); min-width: 70px; display: flex; align-items: flex-start; flex-shrink: 0; }
+  .step-content { padding: 22px 26px; }
+  .step-title { font-family: 'EB Garamond', serif; font-size: 16px; font-weight: 500; color: var(--charcoal); margin-bottom: 5px; }
+  .step-desc { font-size: 14px; color: var(--mid); font-weight: 300; line-height: 1.75; margin: 0; }
+
+  .sources-box { border: 1px solid var(--border); padding: 24px 28px; margin: 8px 0 32px; background: var(--cream); }
+  .sources-box h3 { font-family: 'EB Garamond', serif; font-size: 16px; font-weight: 500; margin-bottom: 10px; }
+  .sources-box ul { gap: 6px; margin-bottom: 0; }
+  .sources-box li { font-size: 13.5px; padding-left: 18px; }
+  .sources-box li::before { top: 8px; width: 4px; height: 4px; }
+
+  #apply-now { background: var(--charcoal); padding: 80px 5%; margin-top: 40px; }
+  .apply-now-inner { max-width: 700px; margin: 0 auto; }
+  #apply-now .section-label { font-size: 11px; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; color: #7aaa8a; margin-bottom: 20px; display: flex; align-items: center; gap: 12px; }
+  #apply-now .section-label::before { content: ''; display: block; width: 24px; height: 1px; background: #7aaa8a; }
+  #apply-now h2 { font-family: 'EB Garamond', serif; font-size: clamp(27px, 3.4vw, 36px); font-weight: 400; line-height: 1.18; color: #F7F5F0; margin-bottom: 18px; letter-spacing: -0.01em; }
+  #apply-now p.intro { font-size: 15.5px; color: #9A9A94; font-weight: 300; line-height: 1.8; margin-bottom: 32px; max-width: 600px; }
+  #apply-now .cta-row { display: flex; flex-wrap: wrap; gap: 14px; margin-bottom: 28px; }
+  #apply-now .secondary-note { font-size: 13.5px; color: #7a7a76; max-width: 560px; }
+  #apply-now .btn-secondary { border-color: #7aaa8a; color: #cfe3d6; }
+  #apply-now .btn-secondary:hover { background: #7aaa8a; color: #141412; }
+
+  .faq-section { max-width: 760px; margin: 0 auto; padding: 20px 5% 0; }
+  .faq-section > .faq-h2 { font-family: 'EB Garamond', serif; font-size: clamp(25px, 2.8vw, 32px); font-weight: 500; color: var(--charcoal); margin: 0 0 8px; }
+  .faq-section > .faq-intro-p { font-size: 14.5px; color: var(--mid); font-weight: 300; margin-bottom: 28px; }
+  .faq-item { display: flex; gap: 26px; padding: 28px 0; border-bottom: 1px solid var(--border); }
+  .faq-item:first-of-type { padding-top: 0; }
+  .faq-item:last-child { border-bottom: none; }
+  .faq-num { font-family: 'EB Garamond', serif; font-size: 14px; color: var(--light); flex-shrink: 0; min-width: 28px; padding-top: 3px; }
+  .faq-question { font-family: 'EB Garamond', serif; font-size: 18px; font-weight: 500; color: var(--charcoal); line-height: 1.35; margin-bottom: 9px; scroll-margin-top: 90px; }
+  .faq-answer p { font-size: 14.5px; color: var(--mid); font-weight: 300; line-height: 1.8; margin-bottom: 10px; }
+  .faq-answer p:last-child { margin-bottom: 0; }
+  .faq-answer a { color: var(--accent); text-decoration: underline; text-underline-offset: 2px; }
+  .faq-answer a:hover { color: var(--charcoal); }
+
+  .related-links { max-width: 760px; margin: 0 auto; padding: 56px 5% 80px; }
+  .related-links h2 { font-family: 'EB Garamond', serif; font-size: 22px; font-weight: 500; color: var(--charcoal); margin-bottom: 20px; }
+  .related-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1px; background: var(--border); border: 1px solid var(--border); }
+  .related-card { background: var(--warm-white); padding: 24px 26px; text-decoration: none; display: block; transition: background 0.2s; }
+  .related-card:hover { background: var(--cream); }
+  .related-card-label { font-size: 11px; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; color: var(--accent); margin-bottom: 8px; }
+  .related-card-title { font-family: 'EB Garamond', serif; font-size: 17px; font-weight: 500; color: var(--charcoal); line-height: 1.35; }
+
+  footer { background: #141412; padding: 32px 5%; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 16px; border-top: 1px solid #2e2e2c; }
+  .footer-logo { font-family: 'EB Garamond', serif; font-size: 18px; color: #F7F5F0; font-weight: 500; text-decoration: none; }
+  .footer-links { display: flex; gap: 28px; list-style: none; flex-wrap: wrap; }
+  .footer-links a { font-size: 12px; color: #555; text-decoration: none; letter-spacing: 0.04em; text-transform: uppercase; transition: color 0.2s; }
+  .footer-links a:hover { color: #9A9A94; }
+  .footer-note { font-size: 12px; color: #444; }
+
+  @media (max-width: 700px) {
+    .nav-links { display: none; }
+    .article-hero { padding: 116px 6% 32px; }
+    .article-body { padding: 28px 6% 10px; }
+    .scenario-grid { grid-template-columns: 1fr; }
+    .process-step { flex-direction: column; }
+    .step-num { border-right: none; border-bottom: 1px solid var(--border); min-width: 0; padding: 14px 22px 6px; }
+    .step-content { padding: 12px 22px 20px; }
+    .jump-list { grid-template-columns: 1fr; }
+    .faq-item { flex-direction: column; gap: 8px; }
+    .faq-num { min-width: 0; padding-top: 0; }
+    .convert-box-inner { padding: 26px 24px; }
+    #apply-now { padding: 56px 6%; }
+    #apply-now .cta-row { flex-direction: column; }
+  }
+</style>
+</head>
+<body>
+
+<div id="cookie-consent-banner" role="region" aria-label="Cookie consent" style="display:none; position:fixed; left:0; right:0; bottom:0; z-index:9999; background:#1C1C1A; color:#FDFCFA; padding:18px 5%; box-shadow:0 -2px 16px rgba(0,0,0,0.18); font-family:'DM Sans', sans-serif;">
+  <div style="max-width:1100px; margin:0 auto; display:flex; flex-wrap:wrap; align-items:center; justify-content:space-between; gap:16px;">
+    <p style="font-size:13.5px; line-height:1.6; color:rgba(253,252,250,0.85); margin:0; flex:1; min-width:220px; font-weight:300;">We use analytics cookies to understand how visitors use this site. These are not set unless you accept. See our <a href="/privacy-policy.html" style="color:#8fc0a2; text-decoration:underline;">Privacy Policy</a> for details, or change your choice there at any time.</p>
+    <div style="display:flex; gap:10px; flex-shrink:0;">
+      <button type="button" onclick="wrightwoodSetConsent('denied')" style="background:none; border:1px solid rgba(253,252,250,0.3); color:#FDFCFA; font-family:'DM Sans', sans-serif; font-size:13px; font-weight:500; padding:10px 18px; border-radius:4px; cursor:pointer;">Decline</button>
+      <button type="button" onclick="wrightwoodSetConsent('granted')" style="background:#2A4A3A; border:1px solid #2A4A3A; color:#FDFCFA; font-family:'DM Sans', sans-serif; font-size:13px; font-weight:500; padding:10px 18px; border-radius:4px; cursor:pointer;">Accept analytics</button>
+    </div>
+  </div>
+</div>
+
+<nav>
+  <a href="/" class="nav-logo">Wrightwood Consulting</a>
+  <ul class="nav-links">
+    <li><a href="/#who-we-help">Who we help</a></li>
+    <li><a href="/#services">Services</a></li>
+    <li><a href="/#fraew">FRAEW</a></li>
+    <li><a href="/insights/" class="active">Insights</a></li>
+    <li><a href="/contact.html">Contact</a></li>
+  </ul>
+  <a href="/contact.html" class="nav-cta">Get a remediation review</a>
+</nav>
+
+<header class="article-hero">
+  <div class="article-hero-inner">
+    <p class="breadcrumb"><a href="/">Home</a> / <a href="/insights/">Insights</a> / Remediation Bill 2026</p>
+    <p class="hero-eyebrow">Building Safety Legislation</p>
+    <h1>The Remediation Bill 2026: What RTM Companies, Managing Agents and Building Owners Need to Know</h1>
+    <p class="lede">A new Bill before Parliament proposes a direct legal duty to assess and fix unsafe external walls on medium and high-rise buildings, backed by a new building register and stronger enforcement powers. Here's what it says, what's still only a proposal, and what to do now.</p>
+    <span class="updated-badge">Last reviewed: 29 October 2026</span>
+  </div>
+</header>
+
+<div class="convert-box">
+  <div class="convert-box-inner">
+    <div class="convert-box-text">
+      <h2>Need advice on cladding remediation or building safety obligations?</h2>
+      <p>Speak to Wrightwood Consulting. Tell us about your building and we'll give you a clear, honest view of where you stand — and what this Bill is likely to change.</p>
+    </div>
+    <a href="/contact.html" class="btn-primary">Speak to Wrightwood</a>
+  </div>
+</div>
+
+<div class="jump-nav" aria-label="On this page">
+  <div class="jump-nav-box">
+    <p class="jump-nav-label">On this page</p>
+    <ul class="jump-list">
+      <li><a href="#what-is-the-bill"><span class="jump-num">01</span><span>What the Bill is and why it was introduced</span></a></li>
+      <li><a href="#new-duty"><span class="jump-num">02</span><span>The proposed duty to assess and remediate</span></a></li>
+      <li><a href="#which-buildings"><span class="jump-num">03</span><span>Which buildings are affected</span></a></li>
+      <li><a href="#rtm-rmc"><span class="jump-num">04</span><span>What it means for RTM companies and RMCs</span></a></li>
+      <li><a href="#managing-agents-freeholders"><span class="jump-num">05</span><span>What it means for managing agents and freeholders</span></a></li>
+      <li><a href="#register"><span class="jump-num">06</span><span>The medium-rise building register</span></a></li>
+      <li><a href="#deadlines-enforcement"><span class="jump-num">07</span><span>Deadlines, enforcement and penalties</span></a></li>
+      <li><a href="#leaseholder-protections-funding"><span class="jump-num">08</span><span>Leaseholder protections and funding</span></a></li>
+      <li><a href="#existing-projects"><span class="jump-num">09</span><span>Impact on projects already under way</span></a></li>
+      <li><a href="#checklist"><span class="jump-num">10</span><span>Checklist: what to do now</span></a></li>
+      <li><a href="#how-we-help"><span class="jump-num">11</span><span>How Wrightwood can help</span></a></li>
+      <li><a href="#faq"><span class="jump-num">12</span><span>Frequently asked questions</span></a></li>
+    </ul>
+  </div>
+</div>
+
+<main class="article-body">
+
+<div class="callout">
+  <h3>This is a Bill, not yet law</h3>
+  <p>The Building Safety (Remediation of Unsafe Cladding etc) Bill 2026-27 was introduced in the House of Commons on 14 October 2026 and had its Second Reading on 27 October 2026. It is still a Bill, not an Act — its clauses, thresholds and dates may change before, or if, it is enacted. Where this page refers to something already in force, that is the existing <strong>Building Safety Act 2022</strong>, not this Bill.</p>
+  <p>For the current, authoritative text and status, see the <a href="https://bills.parliament.uk/bills/4305" target="_blank" rel="noopener noreferrer">Bill's page on the UK Parliament website</a>. This page is general information for building managers, not legal advice.</p>
+</div>
+
+<h2 id="what-is-the-bill">What the Remediation Bill Is, and Why It Was Introduced</h2>
+
+<p>The Bill is a government proposal to speed up the identification and repair of unsafe external walls on existing residential buildings in England, and to make those legally responsible pay towards the cost rather than leaving it to leaseholders or the taxpayer.</p>
+
+<p>The Building Safety Act 2022 already regulates the tallest buildings — broadly 18 metres or seven storeys and above — through the Building Safety Regulator and named Accountable Persons. Below that, there has been no equivalent legal duty to look for, or fix, an external wall problem; government has instead relied on voluntary applications to funding schemes such as the <a href="/fraew-cladding-safety-scheme-faq.html">Building Safety Fund and Cladding Safety Scheme</a>. Ministers say remediation across this wider stock of buildings has been too slow, and that a clear legal duty — backed by new powers to recover costs from manufacturers of unsafe products — is needed.</p>
+
+<div class="article-image" style="--img-ratio: 1150 / 767">
+  <picture>
+    <source type="image/webp" srcset="/images/fibre-cement-rainscreen-cladding-panel-detail.webp">
+    <img src="/images/fibre-cement-rainscreen-cladding-panel-detail.jpg" width="1150" height="767" alt="Close-up detail of rainscreen cladding panels on a residential building facade" loading="lazy">
+  </picture>
+  <p class="article-image-caption">The Bill targets external wall systems — exactly what a FRAEW is designed to examine behind the panel.</p>
+</div>
+
+<h2 id="new-duty">The Proposed New Duty to Assess and Remediate Unsafe External Walls</h2>
+
+<p>The centrepiece of the Bill is a new duty on a building's <strong>"responsible entity"</strong> — broadly, whoever is legally responsible for maintaining or repairing the external walls — to:</p>
+
+<ul>
+  <li>Commission a fire risk assessment of the external wall system within a set period once the duty applies (reports suggest around 10–12 months, to be fixed by regulations);</li>
+  <li>Put interim safety measures in place without delay if the assessment finds an intolerable risk;</li>
+  <li>Carry out any necessary remediation "as soon as reasonably practicable" to bring the risk to a tolerable level, not necessarily an "as new" standard; and</li>
+  <li>Prepare, and keep up to date, a remediation compliance plan.</li>
+</ul>
+
+<p>This would be a direct legal duty, not a scheme application — enforceable whether or not the building ever applies for funding. Who counts as the "responsible entity" depends on your building's own legal and management arrangements; see our existing explainer on "<a href="/fraew-cladding-safety-scheme-faq.html#who-is-the-responsible-entity">who is the Responsible Entity</a>" for the Cladding Safety Scheme, a related but distinct concept.</p>
+
+<h2 id="which-buildings">Which Buildings Are Affected: Height and Storey Thresholds</h2>
+
+<p>As introduced, the new duty targets "relevant buildings" — residential buildings in England with two or more dwellings that are at least <strong>11 metres high or have at least five storeys</strong>. This mirrors the existing "relevant building" definition in the Building Safety Act 2022, rather than creating a new test.</p>
+
+<p>This sits alongside the existing "higher-risk building" regime (<strong>18 metres or seven storeys</strong> and above), already overseen by the Building Safety Regulator. In practice that leaves three broad bands: under roughly 11 metres (outside this duty, though some funding support still exists — see our guide to <a href="/cladding-safety-scheme-under-11-metres">funding for buildings under 11 metres</a>); medium-rise, roughly 11–18 metres (newly in scope, see below); and higher-risk, 18 metres/seven storeys and above. These figures reflect the Bill's current stage and may be refined — check the <a href="https://bills.parliament.uk/bills/4305" target="_blank" rel="noopener noreferrer">Bill text on the Parliament website</a>.</p>
+
+<h2 id="rtm-rmc">What This Means for RTM Companies and Resident Management Companies</h2>
+
+<p>Where an <a href="/rtm-companies-building-safety.html">RTM company</a> or resident management company holds the lease obligation to repair the external walls, it is likely to be the building's "responsible entity" once this duty is in force — meaning the board itself would carry the legal obligation to assess, act and keep a compliance plan, with real exposure if nothing is done.</p>
+
+<p>Timing matters: commissioning a FRAEW and a specialist team takes months, and the Bill proposes a fixed window for the assessment once the duty bites. Boards that start now, on a voluntary basis, avoid a scramble later.</p>
+
+<div class="scenario-grid">
+  <div class="scenario-card"><p><strong>No assessment has ever been done</strong>This is likely to become a timed legal obligation rather than a discretionary good idea. Starting now avoids a scramble later.</p></div>
+  <div class="scenario-card"><p><strong>A FRAEW exists but nothing has happened since</strong>A compliance plan duty would require showing what's being done with those findings. See <a href="/what-happens-after-a-fraew.html">what happens after a FRAEW</a>.</p></div>
+</div>
+
+<h2 id="managing-agents-freeholders">What This Means for Managing Agents, Freeholders and Responsible Entities</h2>
+
+<p><a href="/managing-agents-cladding-remediation.html">Managing agents</a> don't usually hold the repairing obligation themselves — that sits with the freeholder, RMC or RTM company instructing them — but agents will be central to discharging the duty day to day: flagging buildings in scope, briefing clients, commissioning specialists, and keeping the records a register entry or compliance plan would need.</p>
+
+<p>Freeholders who manage directly, rather than delegating to an RTM company, would usually be the responsible entity themselves, with the duty and enforcement exposure falling on them. Either way, the practical step now is a straightforward portfolio audit: which buildings meet the thresholds, and which already have a FRAEW.</p>
+
+<div class="article-image" style="--img-ratio: 924 / 867; max-width: 480px;">
+  <picture>
+    <source type="image/webp" srcset="/images/high-rise-residential-tower-exterior-cladding.webp">
+    <img src="/images/high-rise-residential-tower-exterior-cladding.jpg" width="924" height="867" alt="Tall residential tower block with vertical cladding panels, illustrating the height range the Bill's duty and register would cover" loading="lazy">
+  </picture>
+  <p class="article-image-caption">Buildings from roughly 11 metres upward sit within the proposed scope — overlapping with, but distinct from, the existing higher-risk building regime above 18 metres.</p>
+</div>
+
+<h2 id="register">The Proposed Medium-Rise Building Register</h2>
+
+<p>Alongside the duty, the Bill proposes a <strong>medium-rise building register</strong> for residential buildings with two or more dwellings broadly in the 11–18 metre band — the gap between the "relevant building" floor and the higher-risk ceiling, not currently captured on any central register. Buildings of 18 metres/seven storeys and above already register with the Building Safety Regulator under the existing regime.</p>
+
+<p>The aim is to give regulators a clearer picture of which medium-rise buildings exist, their wall construction, and who is responsible for them. Responsible entities would need to supply prescribed information, with some shared with residents; failing to register is expected to be enforceable in its own right, separately from the assessment duty itself.</p>
+
+<h2 id="deadlines-enforcement">Remediation Deadlines, Enforcement Powers and Penalties</h2>
+
+<p>The Bill sets no single, fixed national remediation deadline. Instead, a time-limited window applies to commissioning the assessment; after that, remediation must proceed "as soon as reasonably practicable" — enforceable, but dependent on each building's circumstances rather than a fixed date.</p>
+
+<p>Enforcement would sit with the Building Safety Regulator, local authorities and fire and rescue authorities. Reported sanctions include substantial financial penalties, fines of up to <strong>£500,000</strong> for serious breaches, and criminal prosecution — including potential imprisonment — in the worst cases. Where a responsible entity won't act, a regulator could apply to the First-tier Tribunal for a <strong>Remediation Management Order</strong>, taking over the project directly and recovering its costs, potentially as a charge against the owner's interest. Some existing Building Safety Act 2022 orders are also reported to be gaining stronger limitation provisions under the Bill — worth checking against the current text as it progresses.</p>
+
+<div class="callout">
+  <h3>Not legal advice</h3>
+  <p>This page explains the general position in practical terms, based on the Bill as reported at the time of writing. It is not legal advice. Whether your organisation would be a "responsible entity," what your repairing obligations are, and what personal exposure directors may have, are matters for your own legal advisers to confirm against your building's documents and the Bill's final wording.</p>
+</div>
+
+<h2 id="leaseholder-protections-funding">Leaseholder Protections and Remediation Funding Proposals</h2>
+
+<p>The Bill proposes to extend — not replace — the leaseholder protections already in the Building Safety Act 2022, in three areas government has highlighted:</p>
+
+<ul>
+  <li><strong>Raising the multi-property threshold.</strong> Leaseholders who, as at 14 February 2022, owned more than three UK properties currently fall outside the main protection from remediation costs; the Bill proposes raising that threshold to six.</li>
+  <li><strong>Collectively owned and enfranchised buildings.</strong> New funding support is proposed for remediation where there is no separate freeholder — a gap in the current regime.</li>
+  <li><strong>Later buyers caught by a previous owner.</strong> Government says it is <em>exploring</em> help for leaseholders who bought after 14 February 2022 but remain unprotected because of a previous owner's portfolio — a stated intention, not yet a confirmed clause in the Bill as introduced.</li>
+</ul>
+
+<p>The Bill is also intended to stop penalties for non-compliance being passed to leaseholders through the service charge, and to make it easier to recover remediation costs from construction product manufacturers at scale — a lower bar on causation, a wider pool of claimants including developers, and a new "inherently unsafe product" test.</p>
+
+<h2 id="existing-projects">What This Means for Remediation Projects Already Under Way</h2>
+
+<p>For buildings already mid-remediation, with a FRAEW complete and works funded or under way, the Bill is not expected to require starting again — its focus is on buildings where nothing has happened, and on tightening accountability where progress has stalled.</p>
+
+<p>Record-keeping still matters, though: the proposed register and compliance-plan duties assume a responsible entity can show what's been assessed, what's planned, and who is responsible for each part. Informally run projects should treat the Bill's progress as a prompt to formalise that paper trail now.</p>
+
+<h2 id="checklist">A Checklist: What Building Managers Can Do Now</h2>
+
+<p>None of the following requires the Bill to be law. All of it reduces risk and saves time if and when it is:</p>
+
+<ol>
+  <li>Confirm your building's height and storey count against the thresholds above.</li>
+  <li>Check whether a FRAEW already exists, and when it was carried out.</li>
+  <li>If none exists, get an initial professional view on whether one is warranted — see <a href="/do-i-need-a-fraew.html">do I need a FRAEW?</a></li>
+  <li>Identify, in writing, exactly which entity holds the legal repairing obligation for your external walls.</li>
+  <li>Gather existing records — reports, correspondence, drawings, EWS1 history — so you aren't starting from zero later.</li>
+  <li>Where a risk has already been identified, confirm interim safety measures are in place and documented.</li>
+  <li>Review funding eligibility under the Building Safety Fund or Cladding Safety Scheme now.</li>
+  <li>Keep leaseholders and residents properly informed — information duties tend to become more formal, not less.</li>
+</ol>
+
+<h2 id="how-we-help">How Wrightwood Consulting Can Help</h2>
+
+<p>Wrightwood acts as a coordinator and client-side project manager for RTM companies, managing agents, freeholders and other responsible entities working through this process. We are not the fire engineer or FRAEW assessor; we appoint and manage suitably qualified, independent specialists on our clients' behalf, and keep the project moving.</p>
+
+<div class="process-steps">
+  <div class="process-step"><div class="step-num">01</div><div class="step-content"><h4 class="step-title">Position check</h4><p class="step-desc">We review your building against the thresholds and duties above, and against what's already known about the external walls.</p></div></div>
+  <div class="process-step"><div class="step-num">02</div><div class="step-content"><h4 class="step-title">Specialist appointment</h4><p class="step-desc">Where a FRAEW or PAS 9980 appraisal is needed, we appoint a suitably qualified, independent fire engineer or facade consultant and brief them on your building.</p></div></div>
+  <div class="process-step"><div class="step-num">03</div><div class="step-content"><h4 class="step-title">Funding and procurement</h4><p class="step-desc">We help you explore Building Safety Fund and Cladding Safety Scheme eligibility, and manage procurement for any works required.</p></div></div>
+  <div class="process-step"><div class="step-num">04</div><div class="step-content"><h4 class="step-title">Delivery and records</h4><p class="step-desc">We provide <a href="/cladding-remediation-project-management.html">client-side project management</a> through to completion, keeping the kind of clear record a future register or compliance plan would require.</p></div></div>
+</div>
+
+<div class="sources-box">
+  <h3>Official sources for this page</h3>
+  <ul>
+    <li><a href="https://bills.parliament.uk/bills/4305" target="_blank" rel="noopener noreferrer">Building Safety (Remediation of Unsafe Cladding etc) Bill — UK Parliament</a></li>
+    <li><a href="https://www.gov.uk/government/publications/guide-to-the-building-safety-remediation-of-unsafe-cladding-etc-bill" target="_blank" rel="noopener noreferrer">Guide to the Bill — GOV.UK</a></li>
+    <li><a href="https://commonslibrary.parliament.uk/research-briefings/cbp-12249/" target="_blank" rel="noopener noreferrer">House of Commons Library briefing CBP-12249</a></li>
+    <li><a href="https://www.gov.uk/government/news/more-people-protected-as-government-acts-to-make-more-homes-safe" target="_blank" rel="noopener noreferrer">GOV.UK news: more people protected as government acts to make more homes safe</a></li>
+  </ul>
+</div>
+
+</main>
+
+<section id="apply-now">
+  <div class="apply-now-inner">
+    <p class="section-label">Get in touch</p>
+    <h2>Need advice on cladding remediation or building safety obligations?</h2>
+    <p class="intro">Speak to Wrightwood Consulting. Tell us about your building and where things stand, and we'll give you a clear, practical view — whether you're already mid-project or just starting to work out what this Bill means for you.</p>
+    <div class="cta-row">
+      <a href="/contact.html" class="btn-primary">Speak to Wrightwood</a>
+      <a href="/rtm-companies-building-safety.html" class="btn-secondary">RTM companies &amp; managing agents: see how we help →</a>
+    </div>
+    <p class="secondary-note">Already have a FRAEW, EWS1 or funding application in progress? We can pick up from wherever you currently are.</p>
+  </div>
+</section>
+
+<section class="faq-section" id="faq">
+  <h2 class="faq-h2">Frequently Asked Questions</h2>
+  <p class="faq-intro-p">Common questions about the Remediation Bill 2026 from RTM companies, managing agents and freeholders.</p>
+
+  <div class="faq-item">
+    <p class="faq-num">01</p>
+    <div>
+      <h3 class="faq-question" id="is-the-bill-law">Is the Remediation Bill 2026 law yet?</h3>
+      <div class="faq-answer"><p>No. As at 29 October 2026 it is a Bill before Parliament, not an Act. It was introduced in the House of Commons on 14 October 2026 and had its Second Reading on 27 October 2026. Check the <a href="https://bills.parliament.uk/bills/4305" target="_blank" rel="noopener noreferrer">Bill's page on the UK Parliament website</a> for its current stage.</p></div>
+    </div>
+  </div>
+  <div class="faq-item">
+    <p class="faq-num">02</p>
+    <div>
+      <h3 class="faq-question" id="which-buildings-does-it-apply-to">What buildings does the Remediation Bill apply to?</h3>
+      <div class="faq-answer"><p>As introduced, the new duty targets residential buildings with two or more dwellings that are at least 11 metres high or have at least five storeys. A separate, narrower register is proposed for buildings roughly in the 11–18 metre "medium-rise" band.</p></div>
+    </div>
+  </div>
+  <div class="faq-item">
+    <p class="faq-num">03</p>
+    <div>
+      <h3 class="faq-question" id="under-11-metres">Does the Remediation Bill affect buildings under 11 metres?</h3>
+      <div class="faq-answer"><p>Not directly — the new duty is aimed at buildings of 11 metres/five storeys and above. Buildings below that may still access separate funding; see our guide to <a href="/cladding-safety-scheme-under-11-metres">funding for buildings under 11 metres</a>.</p></div>
+    </div>
+  </div>
+  <div class="faq-item">
+    <p class="faq-num">04</p>
+    <div>
+      <h3 class="faq-question" id="rtm-directly-responsible">Will our RTM company be directly responsible under the new duty?</h3>
+      <div class="faq-answer"><p>Potentially, if your RTM company holds the legal obligation to repair the external walls. This depends on your own legal position and isn't something we can confirm generally; your legal advisers can confirm it for your building. See our guide for <a href="/rtm-companies-building-safety.html">RTM companies and building safety</a>.</p></div>
+    </div>
+  </div>
+  <div class="faq-item">
+    <p class="faq-num">05</p>
+    <div>
+      <h3 class="faq-question" id="what-happens-if-non-compliant">What happens if a responsible entity doesn't comply?</h3>
+      <div class="faq-answer"><p>Reported sanctions include substantial financial penalties, fines of up to £500,000 for serious breaches, and criminal prosecution in the worst cases. Regulators could also apply for a Remediation Management Order, taking over the project and recovering their costs from the responsible entity.</p></div>
+    </div>
+  </div>
+  <div class="faq-item">
+    <p class="faq-num">06</p>
+    <div>
+      <h3 class="faq-question" id="leaseholder-protection-changes">How would the Bill change leaseholder protections?</h3>
+      <div class="faq-answer"><p>It proposes to extend existing Building Safety Act 2022 protections — raising the multi-property ownership threshold from three to six UK properties, and proposing new funding support for collectively owned and enfranchised buildings without a separate freeholder.</p></div>
+    </div>
+  </div>
+  <div class="faq-item">
+    <p class="faq-num">07</p>
+    <div>
+      <h3 class="faq-question" id="what-to-do-before-it-passes">What should managing agents and boards do before the Bill becomes law?</h3>
+      <div class="faq-answer"><p>Start the groundwork now: confirm your building's height/storey position, check for an existing FRAEW, and pull together existing records. See the <a href="#checklist">full checklist</a> above, or <a href="/contact.html">get in touch</a>.</p></div>
+    </div>
+  </div>
+</section>
+
+<div class="related-links">
+  <h2>Related guides</h2>
+  <div class="related-grid">
+    <a class="related-card" href="/rtm-companies-building-safety.html"><p class="related-card-label">Audience</p><p class="related-card-title">Support for RTM companies</p></a>
+    <a class="related-card" href="/managing-agents-cladding-remediation.html"><p class="related-card-label">Audience</p><p class="related-card-title">Support for managing agents</p></a>
+    <a class="related-card" href="/building-safety.html"><p class="related-card-label">Service</p><p class="related-card-title">Building Safety Act 2022 compliance</p></a>
+    <a class="related-card" href="/fraew-cladding-safety-scheme-faq.html"><p class="related-card-label">FAQ</p><p class="related-card-title">FRAEW &amp; Cladding Safety Scheme FAQ</p></a>
+    <a class="related-card" href="/cladding-remediation-project-management.html"><p class="related-card-label">Service</p><p class="related-card-title">Client-side project management</p></a>
+    <a class="related-card" href="/contact.html"><p class="related-card-label">Get in touch</p><p class="related-card-title">Request an initial review</p></a>
+  </div>
+</div>
+
+<footer>
+  <a href="/" class="footer-logo">Wrightwood Consulting</a>
+  <ul class="footer-links">
+    <li><a href="/insights/">Insights</a></li>
+    <li><a href="/rtm-companies-building-safety.html">RTM Companies</a></li>
+    <li><a href="/managing-agents-cladding-remediation.html">Managing Agents</a></li>
+    <li><a href="/contact.html">Contact</a></li>
+    <li><a href="/privacy-policy.html">Privacy Policy</a></li>
+  </ul>
+  <span class="footer-note">© 2026 Wrightwood Consulting. All rights reserved.</span>
+</footer>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "The Remediation Bill 2026: What RTM Companies, Managing Agents and Building Owners Need to Know",
+  "description": "The Remediation Bill 2026 proposes a duty to assess and fix unsafe cladding. What it means now for RTM companies, managing agents and freeholders in England.",
+  "image": "https://wrightwoodconsulting.co.uk/images/high-rise-residential-tower-exterior-cladding.jpg",
+  "url": "https://wrightwoodconsulting.co.uk/insights/remediation-bill-2026-building-safety/",
+  "mainEntityOfPage": "https://wrightwoodconsulting.co.uk/insights/remediation-bill-2026-building-safety/",
+  "inLanguage": "en-GB",
+  "author": { "@type": "Organization", "name": "Wrightwood Consulting", "url": "https://wrightwoodconsulting.co.uk/" },
+  "publisher": { "@type": "Organization", "name": "Wrightwood Consulting", "url": "https://wrightwoodconsulting.co.uk/" },
+  "datePublished": "2026-10-29",
+  "dateModified": "2026-10-29"
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    { "@type": "Question", "name": "Is the Remediation Bill 2026 law yet?", "acceptedAnswer": { "@type": "Answer", "text": "No. As at 29 October 2026 it is a Bill before Parliament, not an Act. It was introduced in the House of Commons on 14 October 2026 and had its Second Reading on 27 October 2026, with further Commons and House of Lords stages still to come." } },
+    { "@type": "Question", "name": "What buildings does the Remediation Bill apply to?", "acceptedAnswer": { "@type": "Answer", "text": "As introduced, the new duty targets residential buildings in England with two or more dwellings that are at least 11 metres high or have at least five storeys. A separate, narrower register is proposed for buildings roughly in the 11-18 metre medium-rise band." } },
+    { "@type": "Question", "name": "Does the Remediation Bill affect buildings under 11 metres?", "acceptedAnswer": { "@type": "Answer", "text": "Not directly. The new statutory duty is aimed at buildings of 11 metres/five storeys and above, though buildings below that may still access separate government funding." } },
+    { "@type": "Question", "name": "Will our RTM company be directly responsible under the new duty?", "acceptedAnswer": { "@type": "Answer", "text": "Potentially, if the RTM company holds the legal obligation to repair and maintain the external walls, which is the test the Bill uses for who is a responsible entity. This depends on the company's own legal position." } },
+    { "@type": "Question", "name": "What happens if a responsible entity doesn't comply with the new duty?", "acceptedAnswer": { "@type": "Answer", "text": "Reported sanctions include substantial financial penalties, fines of up to £500,000 for serious breaches, and criminal prosecution in the worst cases, alongside Remediation Management Orders allowing a regulator to take over a project directly." } },
+    { "@type": "Question", "name": "How would the Bill change leaseholder protections under the Building Safety Act 2022?", "acceptedAnswer": { "@type": "Answer", "text": "The Bill proposes to extend existing protections by raising the multi-property ownership threshold from three to six UK properties, and by proposing new funding support for collectively owned and enfranchised buildings without a separate freeholder." } },
+    { "@type": "Question", "name": "What should managing agents and boards do before the Bill becomes law?", "acceptedAnswer": { "@type": "Answer", "text": "Start the groundwork now: confirm the building's height/storey position, check whether a FRAEW already exists, and pull together existing records so nothing needs to start from zero once the duty is in force." } }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://wrightwoodconsulting.co.uk/" },
+    { "@type": "ListItem", "position": 2, "name": "Insights", "item": "https://wrightwoodconsulting.co.uk/insights/" },
+    { "@type": "ListItem", "position": 3, "name": "The Remediation Bill 2026", "item": "https://wrightwoodconsulting.co.uk/insights/remediation-bill-2026-building-safety/" }
+  ]
+}
+</script>
+
+</body>
+</html>

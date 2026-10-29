@@ -11,3 +11,10 @@
 # internal links now all point at /; force a 301 from /index.html to / so only
 # one URL is ever served with 200.
 /index.html   /   301!
+
+# Canonical URL fix: avoid the literal /index.html path inside the Insights
+# article/hub folders resolving as a separate 200 alongside the canonical
+# trailing-slash directory URL used in the sitemap, internal links and
+# canonical tags.
+/insights/index.html   /insights/   301!
+/insights/remediation-bill-2026-building-safety/index.html   /insights/remediation-bill-2026-building-safety/   301!

@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+<!-- Google tag (gtag.js) with Basic Consent Mode: tag is not loaded or fired at all until consent is granted -->
+<script>
+  (function () {
+    var CONSENT_KEY = 'wrightwood_analytics_consent';
+    var MEASUREMENT_ID = 'G-NT1H3P8FXB';
+
+    function showBanner() {
+      var banner = document.getElementById('cookie-consent-banner');
+      if (!banner) return;
+      banner.style.display = 'block';
+      document.body.style.paddingBottom = banner.offsetHeight + 'px';
+    }
+    function hideBanner() {
+      var banner = document.getElementById('cookie-consent-banner');
+      if (!banner) return;
+      banner.style.display = 'none';
+      document.body.style.paddingBottom = '';
+    }
+    window.addEventListener('resize', function () {
+      var banner = document.getElementById('cookie-consent-banner');
+      if (banner && banner.style.display === 'block') {
+        document.body.style.paddingBottom = banner.offsetHeight + 'px';
+      }
+    });
+
+    function loadAnalytics() {
+      if (window.wrightwoodAnalyticsLoaded) return;
+      window.wrightwoodAnalyticsLoaded = true;
+      window.dataLayer = window.dataLayer || [];
+      window.gtag = window.gtag || function () { window.dataLayer.push(arguments); };
+      gtag('js', new Date());
+      gtag('config', MEASUREMENT_ID);
+      var s = document.createElement('script');
+      s.async = true;
+      s.src = 'https://www.googletagmanager.com/gtag/js?id=' + MEASUREMENT_ID;
+      document.head.appendChild(s);
+    }
+
+    var saved = null;
+    try { saved = localStorage.getItem(CONSENT_KEY); } catch (e) {}
+    if (saved === 'granted') {
+      loadAnalytics();
+    } else if (saved !== 'denied') {
+      document.addEventListener('DOMContentLoaded', showBanner);
+    }
+    window.wrightwoodSetConsent = function (value) {
+      try { localStorage.setItem(CONSENT_KEY, value); } catch (e) {}
+      if (value === 'granted') loadAnalytics();
+      hideBanner();
+    };
+    window.wrightwoodShowCookieBanner = showBanner;
+  })();
+</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Insights | Building Safety &amp; Cladding Remediation News</title>
+<meta name="description" content="Wrightwood Consulting's insights on building safety legislation, cladding remediation and compliance for RTM companies, managing agents and freeholders.">
+<link rel="canonical" href="https://wrightwoodconsulting.co.uk/insights/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Wrightwood Consulting">
+<meta property="og:title" content="Insights | Building Safety &amp; Cladding Remediation News">
+<meta property="og:description" content="Wrightwood Consulting's insights on building safety legislation, cladding remediation and compliance for RTM companies, managing agents and freeholders.">
+<meta property="og:url" content="https://wrightwoodconsulting.co.uk/insights/">
+<meta property="og:locale" content="en_GB">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --cream: #F7F5F0;
+    --warm-white: #FDFCFA;
+    --charcoal: #1C1C1A;
+    --mid: #5C5C58;
+    --light: #9A9A94;
+    --border: #E0DDD6;
+    --accent: #2A4A3A;
+    --accent-light: #EAF0EC;
+  }
+  html { scroll-behavior: smooth; }
+  body { font-family: 'DM Sans', sans-serif; background: var(--warm-white); color: var(--charcoal); font-size: 16px; line-height: 1.7; }
+
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    background: rgba(253,252,250,0.92); backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border);
+    padding: 0 5%; display: flex; align-items: center; justify-content: space-between; height: 68px;
+  }
+  .nav-logo { font-family: 'EB Garamond', serif; font-size: 20px; font-weight: 500; color: var(--charcoal); letter-spacing: 0.01em; text-decoration: none; }
+  .nav-links { display: flex; gap: 24px; list-style: none; }
+  .nav-links a { font-size: 12px; font-weight: 400; color: var(--mid); text-decoration: none; letter-spacing: 0.04em; text-transform: uppercase; transition: color 0.2s; }
+  .nav-links a:hover, .nav-links a.active { color: var(--charcoal); }
+  .nav-cta { font-size: 13px; font-weight: 500; color: var(--warm-white); background: var(--accent); padding: 10px 22px; border-radius: 4px; text-decoration: none; letter-spacing: 0.02em; transition: opacity 0.2s; white-space: nowrap; }
+  .nav-cta:hover { opacity: 0.85; }
+
+  .hero-eyebrow { font-size: 11px; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent); margin-bottom: 20px; display: flex; align-items: center; gap: 12px; }
+  .hero-eyebrow::before { content: ''; display: block; width: 32px; height: 1px; background: var(--accent); }
+
+  .page-hero { padding: 140px 5% 60px; background: var(--warm-white); border-bottom: 1px solid var(--border); }
+  .page-hero-inner { max-width: 900px; margin: 0 auto; }
+  .page-hero h1 { font-family: 'EB Garamond', serif; font-size: clamp(32px, 4.4vw, 50px); font-weight: 400; line-height: 1.12; color: var(--charcoal); margin-bottom: 20px; letter-spacing: -0.01em; }
+  .page-hero .lede { font-size: 17px; color: var(--mid); font-weight: 300; line-height: 1.75; max-width: 640px; }
+  .breadcrumb { font-size: 12px; color: var(--light); margin-bottom: 28px; }
+  .breadcrumb a { color: var(--light); text-decoration: none; }
+  .breadcrumb a:hover { color: var(--accent); }
+
+  .article-list { max-width: 900px; margin: 0 auto; padding: 56px 5% 90px; }
+  .article-card { display: grid; grid-template-columns: 260px 1fr; gap: 32px; border: 1px solid var(--border); background: var(--warm-white); text-decoration: none; margin-bottom: 1px; }
+  .article-card-image { overflow: hidden; }
+  .article-card-image img { display: block; width: 100%; height: 100%; aspect-ratio: 4/3; object-fit: cover; }
+  .article-card-body { padding: 28px 32px 28px 0; display: flex; flex-direction: column; justify-content: center; }
+  .article-card-label { font-size: 11px; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; color: var(--accent); margin-bottom: 10px; }
+  .article-card-title { font-family: 'EB Garamond', serif; font-size: 23px; font-weight: 500; color: var(--charcoal); line-height: 1.3; margin-bottom: 10px; }
+  .article-card-desc { font-size: 14.5px; color: var(--mid); font-weight: 300; line-height: 1.75; margin-bottom: 12px; }
+  .article-card-meta { font-size: 12px; color: var(--light); }
+  .article-card:hover .article-card-title { color: var(--accent); }
+
+  footer { background: #141412; padding: 32px 5%; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 16px; border-top: 1px solid #2e2e2c; }
+  .footer-logo { font-family: 'EB Garamond', serif; font-size: 18px; color: #F7F5F0; font-weight: 500; text-decoration: none; }
+  .footer-links { display: flex; gap: 28px; list-style: none; flex-wrap: wrap; }
+  .footer-links a { font-size: 12px; color: #555; text-decoration: none; letter-spacing: 0.04em; text-transform: uppercase; transition: color 0.2s; }
+  .footer-links a:hover { color: #9A9A94; }
+  .footer-note { font-size: 12px; color: #444; }
+
+  @media (max-width: 700px) {
+    .nav-links { display: none; }
+    .page-hero { padding: 116px 6% 40px; }
+    .article-list { padding: 40px 6% 60px; }
+    .article-card { grid-template-columns: 1fr; }
+    .article-card-image img { aspect-ratio: 16/9; }
+    .article-card-body { padding: 24px; }
+  }
+</style>
+</head>
+<body>
+
+<div id="cookie-consent-banner" role="region" aria-label="Cookie consent" style="display:none; position:fixed; left:0; right:0; bottom:0; z-index:9999; background:#1C1C1A; color:#FDFCFA; padding:18px 5%; box-shadow:0 -2px 16px rgba(0,0,0,0.18); font-family:'DM Sans', sans-serif;">
+  <div style="max-width:1100px; margin:0 auto; display:flex; flex-wrap:wrap; align-items:center; justify-content:space-between; gap:16px;">
+    <p style="font-size:13.5px; line-height:1.6; color:rgba(253,252,250,0.85); margin:0; flex:1; min-width:220px; font-weight:300;">We use analytics cookies to understand how visitors use this site. These are not set unless you accept. See our <a href="/privacy-policy.html" style="color:#8fc0a2; text-decoration:underline;">Privacy Policy</a> for details, or change your choice there at any time.</p>
+    <div style="display:flex; gap:10px; flex-shrink:0;">
+      <button type="button" onclick="wrightwoodSetConsent('denied')" style="background:none; border:1px solid rgba(253,252,250,0.3); color:#FDFCFA; font-family:'DM Sans', sans-serif; font-size:13px; font-weight:500; padding:10px 18px; border-radius:4px; cursor:pointer;">Decline</button>
+      <button type="button" onclick="wrightwoodSetConsent('granted')" style="background:#2A4A3A; border:1px solid #2A4A3A; color:#FDFCFA; font-family:'DM Sans', sans-serif; font-size:13px; font-weight:500; padding:10px 18px; border-radius:4px; cursor:pointer;">Accept analytics</button>
+    </div>
+  </div>
+</div>
+
+<nav>
+  <a href="/" class="nav-logo">Wrightwood Consulting</a>
+  <ul class="nav-links">
+    <li><a href="/#who-we-help">Who we help</a></li>
+    <li><a href="/#services">Services</a></li>
+    <li><a href="/#fraew">FRAEW</a></li>
+    <li><a href="/insights/" class="active">Insights</a></li>
+    <li><a href="/contact.html">Contact</a></li>
+  </ul>
+  <a href="/contact.html" class="nav-cta">Get a remediation review</a>
+</nav>
+
+<header class="page-hero">
+  <div class="page-hero-inner">
+    <p class="breadcrumb"><a href="/">Home</a> / Insights</p>
+    <p class="hero-eyebrow">Insights</p>
+    <h1>Building Safety &amp; Cladding Remediation Insights</h1>
+    <p class="lede">Practical guidance on building safety legislation, cladding remediation and compliance for RTM companies, resident management companies, managing agents and freeholders.</p>
+  </div>
+</header>
+
+<div class="article-list">
+  <a class="article-card" href="/insights/remediation-bill-2026-building-safety/">
+    <div class="article-card-image">
+      <picture>
+        <source type="image/webp" srcset="/images/high-rise-residential-tower-exterior-cladding.webp">
+        <img src="/images/high-rise-residential-tower-exterior-cladding.jpg" alt="Tall residential tower block with vertical cladding panels" loading="lazy">
+      </picture>
+    </div>
+    <div class="article-card-body">
+      <p class="article-card-label">Building Safety Legislation</p>
+      <h2 class="article-card-title">The Remediation Bill 2026: What RTM Companies, Managing Agents and Building Owners Need to Know</h2>
+      <p class="article-card-desc">A new Bill before Parliament proposes a legal duty to assess and fix unsafe external walls, a new medium-rise building register and tougher enforcement powers. What's proposed, what's already law, and what to do now.</p>
+      <p class="article-card-meta">Last reviewed 29 October 2026</p>
+    </div>
+  </a>
+</div>
+
+<footer>
+  <a href="/" class="footer-logo">Wrightwood Consulting</a>
+  <ul class="footer-links">
+    <li><a href="/#services">Services</a></li>
+    <li><a href="/rtm-companies-building-safety.html">RTM Companies</a></li>
+    <li><a href="/managing-agents-cladding-remediation.html">Managing Agents</a></li>
+    <li><a href="/contact.html">Contact</a></li>
+    <li><a href="/privacy-policy.html">Privacy Policy</a></li>
+  </ul>
+  <span class="footer-note">© 2026 Wrightwood Consulting. All rights reserved.</span>
+</footer>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "CollectionPage",
+  "name": "Building Safety & Cladding Remediation Insights",
+  "description": "Wrightwood Consulting's insights on building safety legislation, cladding remediation and compliance for RTM companies, managing agents and freeholders.",
+  "url": "https://wrightwoodconsulting.co.uk/insights/",
+  "inLanguage": "en-GB",
+  "publisher": { "@type": "Organization", "name": "Wrightwood Consulting" }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://wrightwoodconsulting.co.uk/" },
+    { "@type": "ListItem", "position": 2, "name": "Insights", "item": "https://wrightwoodconsulting.co.uk/insights/" }
+  ]
+}
+</script>
+
+</body>
+</html>

@@ -1,0 +1,558 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+<!-- Google tag (gtag.js) with Basic Consent Mode: tag is not loaded or fired at all until consent is granted -->
+<script>
+  (function () {
+    var CONSENT_KEY = 'wrightwood_analytics_consent';
+    var MEASUREMENT_ID = 'G-NT1H3P8FXB';
+
+    function showBanner() {
+      var banner = document.getElementById('cookie-consent-banner');
+      if (!banner) return;
+      banner.style.display = 'block';
+      document.body.style.paddingBottom = banner.offsetHeight + 'px';
+    }
+    function hideBanner() {
+      var banner = document.getElementById('cookie-consent-banner');
+      if (!banner) return;
+      banner.style.display = 'none';
+      document.body.style.paddingBottom = '';
+    }
+    window.addEventListener('resize', function () {
+      var banner = document.getElementById('cookie-consent-banner');
+      if (banner && banner.style.display === 'block') {
+        document.body.style.paddingBottom = banner.offsetHeight + 'px';
+      }
+    });
+
+    function loadAnalytics() {
+      if (window.wrightwoodAnalyticsLoaded) return;
+      window.wrightwoodAnalyticsLoaded = true;
+      window.dataLayer = window.dataLayer || [];
+      window.gtag = window.gtag || function () { window.dataLayer.push(arguments); };
+      gtag('js', new Date());
+      gtag('config', MEASUREMENT_ID);
+      var s = document.createElement('script');
+      s.async = true;
+      s.src = 'https://www.googletagmanager.com/gtag/js?id=' + MEASUREMENT_ID;
+      document.head.appendChild(s);
+    }
+
+    var saved = null;
+    try { saved = localStorage.getItem(CONSENT_KEY); } catch (e) {}
+    if (saved === 'granted') {
+      loadAnalytics();
+    } else if (saved !== 'denied') {
+      document.addEventListener('DOMContentLoaded', showBanner);
+    }
+    window.wrightwoodSetConsent = function (value) {
+      try { localStorage.setItem(CONSENT_KEY, value); } catch (e) {}
+      if (value === 'granted') loadAnalytics();
+      hideBanner();
+    };
+    window.wrightwoodShowCookieBanner = showBanner;
+  })();
+</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Who Pays for Cladding Remediation? UK Guide 2026</title>
+<meta name="description" content="Who pays for cladding remediation in the UK? A clear 2026 guide to developer, freeholder, leaseholder and government funding responsibilities for RTM companies.">
+<link rel="canonical" href="https://wrightwoodconsulting.co.uk/insights/who-pays-for-cladding-remediation/">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Wrightwood Consulting">
+<meta property="og:title" content="Who Pays for Cladding Remediation? UK Guide 2026">
+<meta property="og:description" content="Who pays for cladding remediation in the UK? A clear 2026 guide to developer, freeholder, leaseholder and government funding responsibilities for RTM companies.">
+<meta property="og:url" content="https://wrightwoodconsulting.co.uk/insights/who-pays-for-cladding-remediation/">
+<meta property="og:image" content="https://wrightwoodconsulting.co.uk/images/vertical-cladding-panels-highrise-facade-detail.jpg">
+<meta property="og:locale" content="en_GB">
+<meta property="article:published_time" content="2026-10-29">
+<meta property="article:modified_time" content="2026-10-29">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --cream: #F7F5F0;
+    --warm-white: #FDFCFA;
+    --charcoal: #1C1C1A;
+    --mid: #5C5C58;
+    --light: #9A9A94;
+    --border: #E0DDD6;
+    --accent: #2A4A3A;
+    --accent-light: #EAF0EC;
+  }
+  html { scroll-behavior: smooth; }
+  body { font-family: 'DM Sans', sans-serif; background: var(--warm-white); color: var(--charcoal); font-size: 16px; line-height: 1.7; }
+
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    background: rgba(253,252,250,0.92); backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border);
+    padding: 0 5%; display: flex; align-items: center; justify-content: space-between; height: 68px;
+  }
+  .nav-logo { font-family: 'EB Garamond', serif; font-size: 20px; font-weight: 500; color: var(--charcoal); letter-spacing: 0.01em; text-decoration: none; }
+  .nav-links { display: flex; gap: 24px; list-style: none; }
+  .nav-links a { font-size: 12px; font-weight: 400; color: var(--mid); text-decoration: none; letter-spacing: 0.04em; text-transform: uppercase; transition: color 0.2s; }
+  .nav-links a:hover, .nav-links a.active { color: var(--charcoal); }
+  .nav-cta { font-size: 13px; font-weight: 500; color: var(--warm-white); background: var(--accent); padding: 10px 22px; border-radius: 4px; text-decoration: none; letter-spacing: 0.02em; transition: opacity 0.2s; white-space: nowrap; }
+  .nav-cta:hover { opacity: 0.85; }
+
+  .hero-eyebrow { font-size: 11px; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent); margin-bottom: 20px; display: flex; align-items: center; gap: 12px; }
+  .hero-eyebrow::before { content: ''; display: block; width: 32px; height: 1px; background: var(--accent); }
+
+  .article-hero { padding: 140px 5% 40px; background: var(--warm-white); border-bottom: 1px solid var(--border); }
+  .article-hero-inner { max-width: 760px; margin: 0 auto; }
+  .article-hero h1 { font-family: 'EB Garamond', serif; font-size: clamp(30px, 4.2vw, 46px); font-weight: 400; line-height: 1.16; color: var(--charcoal); margin-bottom: 20px; letter-spacing: -0.01em; }
+  .article-hero .lede { font-size: 17px; color: var(--mid); font-weight: 300; line-height: 1.75; max-width: 660px; margin-bottom: 20px; }
+  .breadcrumb { font-size: 12px; color: var(--light); margin-bottom: 28px; }
+  .breadcrumb a { color: var(--light); text-decoration: none; }
+  .breadcrumb a:hover { color: var(--accent); }
+  .updated-badge { display: inline-flex; align-items: center; font-size: 11px; font-weight: 500; letter-spacing: 0.06em; text-transform: uppercase; color: var(--accent); background: var(--accent-light); padding: 7px 14px; border-radius: 3px; }
+
+  .article-body { max-width: 760px; padding: 32px 5% 20px; margin: 0 auto; }
+  .article-body h2 { font-family: 'EB Garamond', serif; font-size: clamp(25px, 2.8vw, 32px); font-weight: 500; color: var(--charcoal); margin: 52px 0 18px; line-height: 1.25; letter-spacing: -0.005em; scroll-margin-top: 90px; }
+  .article-body > h2:first-child { margin-top: 0; }
+  .article-body h3 { font-family: 'EB Garamond', serif; font-size: 19px; font-weight: 500; color: var(--charcoal); margin: 30px 0 12px; scroll-margin-top: 90px; }
+  .article-body p { font-size: 15.5px; color: var(--mid); font-weight: 300; line-height: 1.85; margin-bottom: 18px; }
+  .article-body ul, .article-body ol { margin: 0 0 20px; padding-left: 0; list-style: none; display: flex; flex-direction: column; gap: 10px; }
+  .article-body li { font-size: 15px; color: var(--mid); font-weight: 300; line-height: 1.7; padding-left: 22px; position: relative; }
+  .article-body ul li::before { content: ''; position: absolute; left: 0; top: 9px; width: 5px; height: 5px; border-radius: 50%; background: var(--accent); }
+  .article-body ol { counter-reset: step; }
+  .article-body ol li { counter-increment: step; padding-left: 28px; }
+  .article-body ol li::before { content: counter(step) '.'; position: absolute; left: 0; top: 0; font-family: 'EB Garamond', serif; font-size: 14px; color: var(--accent); font-weight: 500; }
+  .article-body strong { color: var(--charcoal); font-weight: 500; }
+  .article-body a { color: var(--accent); text-decoration: underline; text-decoration-color: var(--border); text-underline-offset: 2px; }
+  .article-body a:hover { text-decoration-color: var(--accent); }
+
+  .callout { margin: 8px 0 32px; padding: 28px 32px; border-left: 2px solid var(--accent); background: var(--accent-light); }
+  .callout h3 { font-family: 'EB Garamond', serif; font-size: 17px; color: var(--charcoal); margin: 0 0 10px; font-weight: 500; }
+  .callout p { font-size: 14px; margin: 0 0 10px; }
+  .callout p:last-child { margin-bottom: 0; }
+
+  .article-image { margin: 24px 0 32px; border: 1px solid var(--border); overflow: hidden; }
+  .article-image img { display: block; width: 100%; height: auto; aspect-ratio: var(--img-ratio, 4 / 3); object-fit: cover; }
+  .article-image-caption { font-size: 13px; color: var(--mid); font-weight: 300; padding: 12px 16px; background: var(--cream); margin: 0; border-top: 1px solid var(--border); }
+
+  .table-scroll { overflow-x: auto; margin: 8px 0 32px; border: 1px solid var(--border); }
+  .compare-table { width: 100%; border-collapse: collapse; font-size: 13.5px; min-width: 620px; }
+  .compare-table th, .compare-table td { border-bottom: 1px solid var(--border); border-right: 1px solid var(--border); padding: 14px 16px; text-align: left; vertical-align: top; }
+  .compare-table th:last-child, .compare-table td:last-child { border-right: none; }
+  .compare-table tr:last-child td { border-bottom: none; }
+  .compare-table th { background: var(--cream); font-family: 'EB Garamond', serif; font-weight: 500; color: var(--charcoal); font-size: 12.5px; text-transform: uppercase; letter-spacing: 0.03em; }
+  .compare-table td { color: var(--mid); font-weight: 300; line-height: 1.65; }
+  .compare-table td strong { color: var(--charcoal); font-weight: 500; }
+
+  .convert-box { margin: 8px auto 0; max-width: 760px; padding: 0 5%; }
+  .convert-box-inner { border: 1px solid var(--border); background: var(--cream); padding: 32px 36px; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 24px; }
+  .convert-box-text h2 { font-family: 'EB Garamond', serif; font-size: 22px; font-weight: 500; color: var(--charcoal); margin-bottom: 8px; }
+  .convert-box-text p { font-size: 14.5px; color: var(--mid); font-weight: 300; line-height: 1.7; max-width: 480px; margin: 0; }
+  .btn-primary { background: var(--accent); color: var(--warm-white); font-family: 'DM Sans', sans-serif; font-size: 14px; font-weight: 500; padding: 14px 30px; border-radius: 4px; text-decoration: none; letter-spacing: 0.02em; transition: opacity 0.2s; display: inline-block; white-space: nowrap; }
+  .btn-primary:hover { opacity: 0.85; }
+  .btn-secondary { border: 1px solid var(--accent); color: var(--accent); font-family: 'DM Sans', sans-serif; font-size: 14px; font-weight: 500; padding: 13px 28px; border-radius: 4px; text-decoration: none; letter-spacing: 0.02em; transition: background 0.2s, color 0.2s; display: inline-block; white-space: nowrap; }
+  .btn-secondary:hover { background: var(--accent); color: var(--warm-white); }
+
+  .jump-nav { max-width: 760px; margin: 40px auto 0; padding: 0 5%; }
+  .jump-nav-box { background: var(--cream); border: 1px solid var(--border); padding: 28px 32px; }
+  .jump-nav-label { font-size: 11px; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: var(--accent); margin-bottom: 16px; display: flex; align-items: center; gap: 10px; }
+  .jump-nav-label::before { content: ''; display: block; width: 16px; height: 1px; background: var(--accent); }
+  .jump-list { display: grid; grid-template-columns: 1fr 1fr; gap: 0 32px; list-style: none; }
+  .jump-list li { border-bottom: 1px solid var(--border); }
+  .jump-list a { display: flex; gap: 10px; padding: 9px 0; font-size: 13px; color: var(--mid); text-decoration: none; line-height: 1.4; transition: color 0.2s; }
+  .jump-list a:hover { color: var(--charcoal); }
+  .jump-list .jump-num { font-family: 'EB Garamond', serif; color: var(--light); flex-shrink: 0; }
+
+  .process-steps { border: 1px solid var(--border); margin: 24px 0 20px; }
+  .process-step { display: flex; border-bottom: 1px solid var(--border); }
+  .process-step:last-child { border-bottom: none; }
+  .step-num { font-family: 'EB Garamond', serif; font-size: 13px; color: var(--light); padding: 22px 26px; border-right: 1px solid var(--border); min-width: 70px; display: flex; align-items: flex-start; flex-shrink: 0; }
+  .step-content { padding: 22px 26px; }
+  .step-title { font-family: 'EB Garamond', serif; font-size: 16px; font-weight: 500; color: var(--charcoal); margin-bottom: 5px; }
+  .step-desc { font-size: 14px; color: var(--mid); font-weight: 300; line-height: 1.75; margin: 0; }
+
+  .sources-box { border: 1px solid var(--border); padding: 24px 28px; margin: 8px 0 32px; background: var(--cream); }
+  .sources-box h3 { font-family: 'EB Garamond', serif; font-size: 16px; font-weight: 500; margin-bottom: 10px; }
+  .sources-box ul { gap: 6px; margin-bottom: 0; }
+  .sources-box li { font-size: 13.5px; padding-left: 18px; }
+  .sources-box li::before { top: 8px; width: 4px; height: 4px; }
+
+  #apply-now { background: var(--charcoal); padding: 80px 5%; margin-top: 40px; }
+  .apply-now-inner { max-width: 700px; margin: 0 auto; }
+  #apply-now .section-label { font-size: 11px; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; color: #7aaa8a; margin-bottom: 20px; display: flex; align-items: center; gap: 12px; }
+  #apply-now .section-label::before { content: ''; display: block; width: 24px; height: 1px; background: #7aaa8a; }
+  #apply-now h2 { font-family: 'EB Garamond', serif; font-size: clamp(27px, 3.4vw, 36px); font-weight: 400; line-height: 1.18; color: #F7F5F0; margin-bottom: 18px; letter-spacing: -0.01em; }
+  #apply-now p.intro { font-size: 15.5px; color: #9A9A94; font-weight: 300; line-height: 1.8; margin-bottom: 32px; max-width: 600px; }
+  #apply-now .cta-row { display: flex; flex-wrap: wrap; gap: 14px; margin-bottom: 28px; }
+  #apply-now .secondary-note { font-size: 13.5px; color: #7a7a76; max-width: 560px; }
+  #apply-now .btn-secondary { border-color: #7aaa8a; color: #cfe3d6; }
+  #apply-now .btn-secondary:hover { background: #7aaa8a; color: #141412; }
+
+  .faq-section { max-width: 760px; margin: 0 auto; padding: 20px 5% 0; }
+  .faq-section > .faq-h2 { font-family: 'EB Garamond', serif; font-size: clamp(25px, 2.8vw, 32px); font-weight: 500; color: var(--charcoal); margin: 0 0 8px; }
+  .faq-section > .faq-intro-p { font-size: 14.5px; color: var(--mid); font-weight: 300; margin-bottom: 28px; }
+  .faq-item { display: flex; gap: 26px; padding: 28px 0; border-bottom: 1px solid var(--border); }
+  .faq-item:first-of-type { padding-top: 0; }
+  .faq-item:last-child { border-bottom: none; }
+  .faq-num { font-family: 'EB Garamond', serif; font-size: 14px; color: var(--light); flex-shrink: 0; min-width: 28px; padding-top: 3px; }
+  .faq-question { font-family: 'EB Garamond', serif; font-size: 18px; font-weight: 500; color: var(--charcoal); line-height: 1.35; margin-bottom: 9px; scroll-margin-top: 90px; }
+  .faq-answer p { font-size: 14.5px; color: var(--mid); font-weight: 300; line-height: 1.8; margin-bottom: 10px; }
+  .faq-answer p:last-child { margin-bottom: 0; }
+  .faq-answer a { color: var(--accent); text-decoration: underline; text-underline-offset: 2px; }
+  .faq-answer a:hover { color: var(--charcoal); }
+
+  .related-links { max-width: 760px; margin: 0 auto; padding: 56px 5% 80px; }
+  .related-links h2 { font-family: 'EB Garamond', serif; font-size: 22px; font-weight: 500; color: var(--charcoal); margin-bottom: 20px; }
+  .related-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1px; background: var(--border); border: 1px solid var(--border); }
+  .related-card { background: var(--warm-white); padding: 24px 26px; text-decoration: none; display: block; transition: background 0.2s; }
+  .related-card:hover { background: var(--cream); }
+  .related-card-label { font-size: 11px; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; color: var(--accent); margin-bottom: 8px; }
+  .related-card-title { font-family: 'EB Garamond', serif; font-size: 17px; font-weight: 500; color: var(--charcoal); line-height: 1.35; }
+
+  footer { background: #141412; padding: 32px 5%; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 16px; border-top: 1px solid #2e2e2c; }
+  .footer-logo { font-family: 'EB Garamond', serif; font-size: 18px; color: #F7F5F0; font-weight: 500; text-decoration: none; }
+  .footer-links { display: flex; gap: 28px; list-style: none; flex-wrap: wrap; }
+  .footer-links a { font-size: 12px; color: #555; text-decoration: none; letter-spacing: 0.04em; text-transform: uppercase; transition: color 0.2s; }
+  .footer-links a:hover { color: #9A9A94; }
+  .footer-note { font-size: 12px; color: #444; }
+
+  @media (max-width: 700px) {
+    .nav-links { display: none; }
+    .article-hero { padding: 116px 6% 32px; }
+    .article-body { padding: 28px 6% 10px; }
+    .process-step { flex-direction: column; }
+    .step-num { border-right: none; border-bottom: 1px solid var(--border); min-width: 0; padding: 14px 22px 6px; }
+    .step-content { padding: 12px 22px 20px; }
+    .jump-list { grid-template-columns: 1fr; }
+    .faq-item { flex-direction: column; gap: 8px; }
+    .faq-num { min-width: 0; padding-top: 0; }
+    .convert-box-inner { padding: 26px 24px; }
+    #apply-now { padding: 56px 6%; }
+    #apply-now .cta-row { flex-direction: column; }
+  }
+</style>
+</head>
+<body>
+
+<div id="cookie-consent-banner" role="region" aria-label="Cookie consent" style="display:none; position:fixed; left:0; right:0; bottom:0; z-index:9999; background:#1C1C1A; color:#FDFCFA; padding:18px 5%; box-shadow:0 -2px 16px rgba(0,0,0,0.18); font-family:'DM Sans', sans-serif;">
+  <div style="max-width:1100px; margin:0 auto; display:flex; flex-wrap:wrap; align-items:center; justify-content:space-between; gap:16px;">
+    <p style="font-size:13.5px; line-height:1.6; color:rgba(253,252,250,0.85); margin:0; flex:1; min-width:220px; font-weight:300;">We use analytics cookies to understand how visitors use this site. These are not set unless you accept. See our <a href="/privacy-policy.html" style="color:#8fc0a2; text-decoration:underline;">Privacy Policy</a> for details, or change your choice there at any time.</p>
+    <div style="display:flex; gap:10px; flex-shrink:0;">
+      <button type="button" onclick="wrightwoodSetConsent('denied')" style="background:none; border:1px solid rgba(253,252,250,0.3); color:#FDFCFA; font-family:'DM Sans', sans-serif; font-size:13px; font-weight:500; padding:10px 18px; border-radius:4px; cursor:pointer;">Decline</button>
+      <button type="button" onclick="wrightwoodSetConsent('granted')" style="background:#2A4A3A; border:1px solid #2A4A3A; color:#FDFCFA; font-family:'DM Sans', sans-serif; font-size:13px; font-weight:500; padding:10px 18px; border-radius:4px; cursor:pointer;">Accept analytics</button>
+    </div>
+  </div>
+</div>
+
+<nav>
+  <a href="/" class="nav-logo">Wrightwood Consulting</a>
+  <ul class="nav-links">
+    <li><a href="/#who-we-help">Who we help</a></li>
+    <li><a href="/#services">Services</a></li>
+    <li><a href="/#fraew">FRAEW</a></li>
+    <li><a href="/insights/" class="active">Insights</a></li>
+    <li><a href="/contact.html">Contact</a></li>
+  </ul>
+  <a href="/contact.html" class="nav-cta">Get a remediation review</a>
+</nav>
+
+<header class="article-hero">
+  <div class="article-hero-inner">
+    <p class="breadcrumb"><a href="/">Home</a> / <a href="/insights/">Insights</a> / Who Pays for Cladding Remediation</p>
+    <p class="hero-eyebrow">Funding &amp; Liability</p>
+    <h1>Who Pays for Cladding Remediation in 2026? A Guide for Leaseholders, RTM Companies and Building Owners</h1>
+    <p class="lede">When unsafe cladding is found, the question that matters most is rarely what needs fixing — it's who pays. This guide sets out the current legal position on developer, freeholder, leaseholder and government funding responsibility in England, and separates it clearly from what the Remediation Bill 2026 merely proposes to change.</p>
+    <span class="updated-badge">Last reviewed: 29 October 2026</span>
+  </div>
+</header>
+
+<div class="convert-box">
+  <div class="convert-box-inner">
+    <div class="convert-box-text">
+      <h2>Unsure who is responsible for your building's cladding remediation?</h2>
+      <p>Wrightwood Consulting can help you review the available information, coordinate specialist advice and establish the next practical steps.</p>
+    </div>
+    <a href="/contact.html" class="btn-primary">Speak to Wrightwood</a>
+  </div>
+</div>
+
+<div class="jump-nav" aria-label="On this page">
+  <div class="jump-nav-box">
+    <p class="jump-nav-label">On this page</p>
+    <ul class="jump-list">
+      <li><a href="#who-is-responsible"><span class="jump-num">01</span><span>Who is responsible for paying</span></a></li>
+      <li><a href="#bsa-2022"><span class="jump-num">02</span><span>Does the Building Safety Act protect leaseholders?</span></a></li>
+      <li><a href="#developer-pay"><span class="jump-num">03</span><span>When must the original developer pay?</span></a></li>
+      <li><a href="#css"><span class="jump-num">04</span><span>What is the Cladding Safety Scheme?</span></a></li>
+      <li><a href="#rtm-pay"><span class="jump-num">05</span><span>Do RTM companies have to pay?</span></a></li>
+      <li><a href="#freeholder-cannot-afford"><span class="jump-num">06</span><span>If the freeholder can't afford it</span></a></li>
+      <li><a href="#fraew-cost"><span class="jump-num">07</span><span>Who pays for a FRAEW?</span></a></li>
+      <li><a href="#under-11m"><span class="jump-num">08</span><span>Buildings under 11 metres</span></a></li>
+      <li><a href="#remediation-bill"><span class="jump-num">09</span><span>What the Remediation Bill would change</span></a></li>
+      <li><a href="#next-steps"><span class="jump-num">10</span><span>What to do next: a checklist</span></a></li>
+      <li><a href="#how-we-help"><span class="jump-num">11</span><span>How Wrightwood can help</span></a></li>
+      <li><a href="#faq"><span class="jump-num">12</span><span>Frequently asked questions</span></a></li>
+    </ul>
+  </div>
+</div>
+
+<main class="article-body">
+
+<p>When a residential building turns out to have unsafe cladding, the technical question — what needs fixing — is usually easier to answer than the financial one: who actually pays for it. The answer depends on when the lease was granted, who developed the building, the building's height, and whether government funding applies. For many qualifying leaseholders, the Building Safety Act 2022 already provides strong leaseholder cladding protection, capping or removing cladding remediation costs for leaseholders entirely. For RTM companies, freeholders and managing agents, the issue is often less about personal financial exposure and more about who organises, funds upfront and ultimately recovers the cost of the works. This guide sets out who is responsible for cladding replacement and cladding remediation funding across England under current law, and is clear throughout about what is settled versus what the Remediation Bill 2026 merely proposes.</p>
+
+<h2 id="who-is-responsible">Who Is Responsible for Paying for Cladding Remediation?</h2>
+
+<p>Liability generally follows a rough hierarchy, though the detail depends on each building's history and documentation. In broad order: the original developer, where traceable and in scope; the freeholder or landlord, who may face direct liability or need to fund works upfront; qualifying leaseholders, who are protected from cladding costs under the <a href="/building-safety.html">Building Safety Act 2022</a>; and government funding, which can step in to get stalled projects moving. RTM companies and resident management companies usually take on the coordination role rather than personal financial liability — though, as explained below, the position depends on the building's specific structure.</p>
+
+<div class="table-scroll">
+  <table class="compare-table">
+    <thead>
+      <tr><th>Party</th><th>Typical role</th><th>Pays for cladding remediation?</th></tr>
+    </thead>
+    <tbody>
+      <tr><td><strong>Original developer</strong></td><td>Built or refurbished the building</td><td>Primary liability where traceable, solvent and in scope (e.g. signed the Developer Remediation Contract)</td></tr>
+      <tr><td><strong>Freeholder / landlord</strong></td><td>Owns the building's structure</td><td>Secondary liability; often funds works upfront, but cannot recover cladding costs from qualifying leaseholders</td></tr>
+      <tr><td><strong>RTM company / RMC</strong></td><td>Manages the building for leaseholders</td><td>Organises and coordinates remediation; not usually personally liable unless also acting as the landlord</td></tr>
+      <tr><td><strong>Qualifying leaseholder</strong></td><td>Long lease granted before 14 Feb 2022, meets ownership test</td><td>Protected — no service charge for cladding remediation</td></tr>
+      <tr><td><strong>Non-qualifying leaseholder</strong></td><td>Doesn't meet the qualifying conditions</td><td>May be charged, subject to lease terms</td></tr>
+      <tr><td><strong>Government funding (CSS / BSF)</strong></td><td>Public funding schemes</td><td>Funds or part-funds works where private liability can't be established or recovered in time</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<div class="article-image" style="--img-ratio: 1100 / 985">
+  <picture>
+    <source type="image/webp" srcset="/images/non-combustible-cladding-panel-certification-detail.webp">
+    <img src="/images/non-combustible-cladding-panel-certification-detail.jpg" width="1100" height="985" alt="Close-up of non-combustible cladding panel certification markings on a building facade" loading="lazy">
+  </picture>
+  <p class="article-image-caption">Establishing who is responsible often starts with establishing exactly what was installed, by whom, and when.</p>
+</div>
+
+<h2 id="bsa-2022">Does the Building Safety Act 2022 Protect Leaseholders?</h2>
+
+<p>Yes, for leaseholders who meet the statutory "qualifying lease" test in section 119 of the Act. Broadly, a lease qualifies if it is a long lease of a single dwelling in a <strong>relevant building</strong> (11 metres or more / five storeys or more, with two or more dwellings), was granted before <strong>14 February 2022</strong>, carries a service charge, and — at that date — the dwelling was the tenant's only or principal home, or the tenant owned no more than two other UK dwellings.</p>
+
+<p>Where a lease qualifies, Schedule 8 of the Act is unconditional on one point: no service charge is payable for cladding remediation at all. For non-cladding defects and interim measures such as waking watch, contributions are instead capped — broadly £10,000 outside London or £15,000 in Greater London for lower-value flats, rising to £50,000 (£1–2 million properties) or £100,000 (over £2 million), spread over a maximum of ten years. Leaseholders who don't meet the qualifying conditions are not automatically protected, so lease terms and individual circumstances still matter.</p>
+
+<h2 id="developer-pay">When Must the Original Developer Pay?</h2>
+
+<p>Most major UK developers have signed the government's <strong>Developer Remediation Contract</strong> — a legally binding commitment to fix life-critical fire-safety defects in buildings of 11 metres or more that they developed or refurbished in England within the last 30 years, and to reimburse public funds already spent on their buildings through the Building Safety Fund or Cladding Safety Scheme.</p>
+
+<p>The limits matter in practice: the contract only binds signatories, only covers buildings that can be shown to have been developed or refurbished by that company, and depends on the developer still existing and being solvent. Where a developer is insolvent, untraceable, or never signed, responsibility shifts to the freeholder, to recovery action such as a Remediation Contribution Order, or to government funding — covered in the next two sections.</p>
+
+<h2 id="css">What Is the Cladding Safety Scheme?</h2>
+
+<p>The <a href="/fraew-cladding-safety-scheme-faq.html">Cladding Safety Scheme (CSS)</a> is government funding, administered through Homes England, for eligible cladding remediation on residential buildings that fall outside other funding routes. A <a href="/pas-9980-explained.html">PAS 9980 fire risk appraisal of external walls</a> is generally needed first to confirm the risk and define the scope of eligible works; the Responsible Entity — typically the freeholder, RMC or RTM company — applies and usually pays upfront, with costs potentially reimbursed if the building is confirmed eligible. Our dedicated <a href="/fraew-cladding-safety-scheme-faq.html">FRAEW &amp; Cladding Safety Scheme FAQ</a> covers eligibility and the application process in full.</p>
+
+<h2 id="rtm-pay">Do RTM Companies Have to Pay for Cladding Remediation?</h2>
+
+<p>It's important to separate <strong>organisational</strong> responsibility from <strong>financial</strong> liability. An <a href="/rtm-companies-building-safety.html">RTM company</a> commissioning a FRAEW, running a funding application or coordinating a contractor is doing its management job — that isn't the same as the company being personally out of pocket for the works.</p>
+
+<p>Because an RTM company typically didn't develop the building, it doesn't usually carry the original developer's primary liability. It can, however, be treated as "the landlord" for service-charge purposes, meaning it cannot pass cladding costs to qualifying leaseholders and instead has to look to the developer, government funding, or other recovery routes to fund the work — which is a genuine cash-flow and timing issue for volunteer boards even where the company isn't ultimately liable for the cost itself. Whether your RTM company's specific structure creates any direct liability is a question for your own legal advisers, not something to assume either way.</p>
+
+<h2 id="freeholder-cannot-afford">What Happens When the Freeholder Cannot Afford Remediation?</h2>
+
+<p>The Building Safety Act 2022 already gives the First-tier Tribunal (Property Chamber) two relevant powers. A <strong>Remediation Order</strong> compels a landlord to carry out specified remediation work. A <strong>Remediation Contribution Order (RCO)</strong> compels a landlord, former landlord, developer, or an "associated" company or individual to pay towards the cost. Either can be applied for by an "interested person" — which can include a resident, leaseholder or enforcement authority — and the Tribunal decides on a "just and equitable" basis. RCOs exist specifically to stop a freeholder sheltering behind an insolvent or shell company.</p>
+
+<p>Government funding through the CSS or BSF can also get a stalled project moving where recovery action would otherwise take too long, though using it doesn't resolve the underlying question of who is ultimately liable.</p>
+
+<h2 id="fraew-cost">Who Pays for a Fire Risk Appraisal of External Walls (FRAEW)?</h2>
+
+<p>In practice, the Responsible Entity usually commissions and initially pays for the <a href="/fraew-cost.html">FRAEW</a>, with costs potentially reimbursed later if the building is confirmed eligible for CSS or BSF funding. Whether that upfront cost can be passed to leaseholders through the service charge depends on the lease and the leaseholder's qualifying status — and Schedule 8 also blocks qualifying leaseholders being charged for the legal or professional costs of establishing who is liable for a defect, not just the remediation itself.</p>
+
+<h2 id="under-11m">What About Buildings Under 11 Metres?</h2>
+
+<p>Buildings below roughly 11 metres or five storeys generally fall outside the Act's "relevant building" definition, so Schedule 8's leaseholder protections and the main CSS/BSF routes don't automatically apply. A separate, narrower government fund exists for buildings under 11 metres with a confirmed cladding risk — see our dedicated guide to <a href="/cladding-safety-scheme-under-11-metres">funding for buildings under 11 metres</a>. With less statutory protection in place, getting early, building-specific advice matters more for these buildings, not less.</p>
+
+<h2 id="remediation-bill">What Does the Remediation Bill 2026 Mean for Building Owners?</h2>
+
+<p>The Building Safety (Remediation of Unsafe Cladding etc) Bill 2026-27 is <strong>not yet law</strong> — see our full guide to <a href="/insights/remediation-bill-2026-building-safety/">the Remediation Bill 2026</a> for its status and detail. On funding specifically, it proposes to raise the leaseholder-protection ownership threshold from three to six UK properties, add funding support for collectively owned buildings without a separate freeholder, expand powers to recover costs from construction product manufacturers, and let a regulator take over a stalled project through a Remediation Management Order and recover its costs from the responsible entity. These would add to, not replace, the funding and liability picture described above — and may change before, or if, the Bill is enacted.</p>
+
+<div class="callout">
+  <h3>Not legal advice</h3>
+  <p>This page explains the general funding and liability position in practical terms. It is not legal advice and does not tell you who is responsible for costs on your specific building. Whether a lease qualifies, who counts as a responsible entity, and whether any costs can lawfully be charged to leaseholders are all matters for your own legal and financial advisers.</p>
+</div>
+
+<h2 id="next-steps">What Should RTM Companies and Managing Agents Do Next?</h2>
+
+<ol>
+  <li>Confirm whether the building is a "relevant building" — 11 metres or more, or five storeys or more, with two or more dwellings.</li>
+  <li>Work out which leaseholders are likely to meet the qualifying lease conditions under section 119.</li>
+  <li>Check whether the original developer is known, traceable, and a signatory to the Developer Remediation Contract.</li>
+  <li>Confirm whether a FRAEW already exists, and who commissioned and paid for it.</li>
+  <li>Review CSS or BSF eligibility before assuming leaseholders or the service charge must fund the works.</li>
+  <li>Keep clear records of decisions, correspondence and costs — useful for funding applications and any future Tribunal application.</li>
+  <li>Take independent legal advice before billing any leaseholder for remediation-related costs.</li>
+</ol>
+
+<h2 id="how-we-help">How Wrightwood Consulting Can Help</h2>
+
+<p>Wrightwood is an independent building safety consultant and cladding remediation project manager, not a law firm. We help RTM companies, managing agents and freeholders work through the practical funding picture: reviewing what's already known, coordinating independent fire engineers and legal advisers where needed, managing CSS and BSF applications, and providing <a href="/cladding-remediation-project-management.html">client-side project management</a> through to completion. We appoint and manage specialists on our clients' behalf rather than carrying out assessments ourselves.</p>
+
+<div class="process-steps">
+  <div class="process-step"><div class="step-num">01</div><div class="step-content"><h4 class="step-title">Review your position</h4><p class="step-desc">We review what's known about the building, its developer, and any existing reports, so you understand where things stand before committing to anything.</p></div></div>
+  <div class="process-step"><div class="step-num">02</div><div class="step-content"><h4 class="step-title">Coordinate specialist advice</h4><p class="step-desc">Where legal or technical advice is needed, we help you identify and brief the right independent advisers — and keep their input joined up.</p></div></div>
+  <div class="process-step"><div class="step-num">03</div><div class="step-content"><h4 class="step-title">Manage funding applications</h4><p class="step-desc">We handle CSS and BSF applications and the supporting evidence, giving your building the best chance of a successful outcome.</p></div></div>
+  <div class="process-step"><div class="step-num">04</div><div class="step-content"><h4 class="step-title">Deliver the project</h4><p class="step-desc">Once funding and responsibility are clear, we project-manage remediation through to EWS1 sign-off.</p></div></div>
+</div>
+
+<div class="sources-box">
+  <h3>Official sources for this page</h3>
+  <ul>
+    <li><a href="https://www.legislation.gov.uk/ukpga/2022/30/schedule/8" target="_blank" rel="noopener noreferrer">Building Safety Act 2022, Schedule 8 — legislation.gov.uk</a></li>
+    <li><a href="https://www.legislation.gov.uk/ukpga/2022/30/section/119" target="_blank" rel="noopener noreferrer">Building Safety Act 2022, Section 119 — legislation.gov.uk</a></li>
+    <li><a href="https://www.gov.uk/guidance/the-developer-remediation-contract" target="_blank" rel="noopener noreferrer">The Developer Remediation Contract — GOV.UK</a></li>
+    <li><a href="https://www.gov.uk/government/publications/cladding-safety-scheme/cladding-safety-scheme-overview" target="_blank" rel="noopener noreferrer">Cladding Safety Scheme overview — GOV.UK</a></li>
+    <li><a href="https://www.lease-advice.org/" target="_blank" rel="noopener noreferrer">Leasehold Advisory Service (LEASE)</a></li>
+    <li><a href="https://bills.parliament.uk/bills/4305" target="_blank" rel="noopener noreferrer">Building Safety (Remediation of Unsafe Cladding etc) Bill — UK Parliament</a></li>
+  </ul>
+</div>
+
+</main>
+
+<section id="apply-now">
+  <div class="apply-now-inner">
+    <p class="section-label">Get in touch</p>
+    <h2>Work Out Who Pays for Your Building's Remediation</h2>
+    <p class="intro">Unsure who is responsible for your building's cladding remediation? Wrightwood Consulting can help you review the available information, coordinate specialist advice and establish the next practical steps.</p>
+    <div class="cta-row">
+      <a href="/contact.html" class="btn-primary">Speak to Wrightwood</a>
+      <a href="/rtm-companies-building-safety.html" class="btn-secondary">RTM directors &amp; managing agents: see how we help →</a>
+    </div>
+    <p class="secondary-note">Already know your funding route? We can also help you deliver the project from here.</p>
+  </div>
+</section>
+
+<section class="faq-section" id="faq">
+  <h2 class="faq-h2">Frequently Asked Questions</h2>
+  <p class="faq-intro-p">Common questions about who pays for cladding remediation in England.</p>
+
+  <div class="faq-item">
+    <p class="faq-num">01</p>
+    <div>
+      <h3 class="faq-question" id="can-leaseholders-be-charged">Can leaseholders be charged for cladding replacement?</h3>
+      <div class="faq-answer"><p>Qualifying leaseholders cannot be charged for cladding remediation under Schedule 8 of the Building Safety Act 2022. Leaseholders who don't meet the qualifying conditions are not automatically protected, so this depends on individual circumstances and lease terms.</p></div>
+    </div>
+  </div>
+  <div class="faq-item">
+    <p class="faq-num">02</p>
+    <div>
+      <h3 class="faq-question" id="does-government-pay-for-all">Does the government pay for all cladding remediation?</h3>
+      <div class="faq-answer"><p>No. Government funding through the Cladding Safety Scheme and Building Safety Fund is available for eligible buildings and works, but it is not automatic or unlimited, and developers and freeholders are expected to pay where they are able to.</p></div>
+    </div>
+  </div>
+  <div class="faq-item">
+    <p class="faq-num">03</p>
+    <div>
+      <h3 class="faq-question" id="can-rtm-apply-for-funding">Can an RTM company apply for funding?</h3>
+      <div class="faq-answer"><p>Yes, potentially. An RTM company can act as the Responsible Entity for a Cladding Safety Scheme or Building Safety Fund application where it holds the relevant legal responsibility for the building. See our <a href="/fraew-cladding-safety-scheme-faq.html#rtm-company-apply-for-css">FRAEW &amp; Cladding Safety Scheme FAQ</a> for detail.</p></div>
+    </div>
+  </div>
+  <div class="faq-item">
+    <p class="faq-num">04</p>
+    <div>
+      <h3 class="faq-question" id="ews1-mean-replacement">Does an EWS1 form mean cladding must be replaced?</h3>
+      <div class="faq-answer"><p>Not necessarily. An EWS1 form confirms whether an external wall assessment has been carried out and what it found; remediation is only required where the assessment identifies an unacceptable risk. See our guide to <a href="/fraew-vs-ews1.html">FRAEW vs EWS1</a>.</p></div>
+    </div>
+  </div>
+  <div class="faq-item">
+    <p class="faq-num">05</p>
+    <div>
+      <h3 class="faq-question" id="developer-gone-out-of-business">Who pays if the original developer has gone out of business?</h3>
+      <div class="faq-answer"><p>Responsibility typically shifts to the freeholder, to a Remediation Contribution Order against another responsible party where one exists, or to government funding such as the Cladding Safety Scheme. Qualifying leaseholders remain protected from cladding costs regardless.</p></div>
+    </div>
+  </div>
+  <div class="faq-item">
+    <p class="faq-num">06</p>
+    <div>
+      <h3 class="faq-question" id="managing-agent-organise-works">Can a managing agent organise remediation works?</h3>
+      <div class="faq-answer"><p>Yes. A <a href="/managing-agents-cladding-remediation.html">managing agent</a> can coordinate assessments, procurement and funding applications on behalf of the freeholder or RMC client, though the agent does not usually hold personal financial liability for the works itself.</p></div>
+    </div>
+  </div>
+  <div class="faq-item">
+    <p class="faq-num">07</p>
+    <div>
+      <h3 class="faq-question" id="building-below-11-metres">What if my building is below 11 metres?</h3>
+      <div class="faq-answer"><p>The Building Safety Act's main leaseholder protections and funding routes are built around an 11-metre/five-storey threshold. A separate, narrower fund exists for buildings under 11 metres — see our <a href="/cladding-safety-scheme-under-11-metres">under-11m funding guide</a>.</p></div>
+    </div>
+  </div>
+  <div class="faq-item">
+    <p class="faq-num">08</p>
+    <div>
+      <h3 class="faq-question" id="should-we-wait-for-the-bill">Should we wait for the Remediation Bill?</h3>
+      <div class="faq-answer"><p>No — the Bill is not yet law and its final form may change. Establishing your building's current funding and liability position under existing rules is worthwhile now, regardless of how the Bill progresses. See our <a href="/insights/remediation-bill-2026-building-safety/">full guide to the Remediation Bill 2026</a>.</p></div>
+    </div>
+  </div>
+</section>
+
+<div class="related-links">
+  <h2>Related guides</h2>
+  <div class="related-grid">
+    <a class="related-card" href="/insights/remediation-bill-2026-building-safety/"><p class="related-card-label">Insights</p><p class="related-card-title">The Remediation Bill 2026 explained</p></a>
+    <a class="related-card" href="/rtm-companies-building-safety.html"><p class="related-card-label">Audience</p><p class="related-card-title">Support for RTM companies</p></a>
+    <a class="related-card" href="/managing-agents-cladding-remediation.html"><p class="related-card-label">Audience</p><p class="related-card-title">Support for managing agents</p></a>
+    <a class="related-card" href="/fraew-cladding-safety-scheme-faq.html"><p class="related-card-label">FAQ</p><p class="related-card-title">FRAEW &amp; Cladding Safety Scheme FAQ</p></a>
+    <a class="related-card" href="/cladding-remediation-project-management.html"><p class="related-card-label">Service</p><p class="related-card-title">Client-side project management</p></a>
+    <a class="related-card" href="/contact.html"><p class="related-card-label">Get in touch</p><p class="related-card-title">Request an initial review</p></a>
+  </div>
+</div>
+
+<footer>
+  <a href="/" class="footer-logo">Wrightwood Consulting</a>
+  <ul class="footer-links">
+    <li><a href="/insights/">Insights</a></li>
+    <li><a href="/rtm-companies-building-safety.html">RTM Companies</a></li>
+    <li><a href="/managing-agents-cladding-remediation.html">Managing Agents</a></li>
+    <li><a href="/contact.html">Contact</a></li>
+    <li><a href="/privacy-policy.html">Privacy Policy</a></li>
+  </ul>
+  <span class="footer-note">© 2026 Wrightwood Consulting. All rights reserved.</span>
+</footer>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Who Pays for Cladding Remediation in 2026? A Guide for Leaseholders, RTM Companies and Building Owners",
+  "description": "Who pays for cladding remediation in the UK? A clear 2026 guide to developer, freeholder, leaseholder and government funding responsibilities for RTM companies.",
+  "image": "https://wrightwoodconsulting.co.uk/images/vertical-cladding-panels-highrise-facade-detail.jpg",
+  "url": "https://wrightwoodconsulting.co.uk/insights/who-pays-for-cladding-remediation/",
+  "mainEntityOfPage": "https://wrightwoodconsulting.co.uk/insights/who-pays-for-cladding-remediation/",
+  "inLanguage": "en-GB",
+  "author": { "@type": "Organization", "name": "Wrightwood Consulting", "url": "https://wrightwoodconsulting.co.uk/" },
+  "publisher": { "@type": "Organization", "name": "Wrightwood Consulting", "url": "https://wrightwoodconsulting.co.uk/" },
+  "datePublished": "2026-10-29",
+  "dateModified": "2026-10-29"
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    { "@type": "Question", "name": "Can leaseholders be charged for cladding replacement?", "acceptedAnswer": { "@type": "Answer", "text": "Qualifying leaseholders cannot be charged for cladding remediation under Schedule 8 of the Building Safety Act 2022. Leaseholders who don't meet the qualifying conditions are not automatically protected, so this depends on individual circumstances and lease terms." } },
+    { "@type": "Question", "name": "Does the government pay for all cladding remediation?", "acceptedAnswer": { "@type": "Answer", "text": "No. Government funding through the Cladding Safety Scheme and Building Safety Fund is available for eligible buildings and works, but it is not automatic or unlimited, and developers and freeholders are expected to pay where they are able to." } },
+    { "@type": "Question", "name": "Can an RTM company apply for funding?", "acceptedAnswer": { "@type": "Answer", "text": "Yes, potentially. An RTM company can act as the Responsible Entity for a Cladding Safety Scheme or Building Safety Fund application where it holds the relevant legal responsibility for the building. See our FRAEW & Cladding Safety Scheme FAQ for detail." } },
+    { "@type": "Question", "name": "Does an EWS1 form mean cladding must be replaced?", "acceptedAnswer": { "@type": "Answer", "text": "Not necessarily. An EWS1 form confirms whether an external wall assessment has been carried out and what it found; remediation is only required where the assessment identifies an unacceptable risk. See our guide to FRAEW vs EWS1." } },
+    { "@type": "Question", "name": "Who pays if the original developer has gone out of business?", "acceptedAnswer": { "@type": "Answer", "text": "Responsibility typically shifts to the freeholder, to a Remediation Contribution Order against another responsible party where one exists, or to government funding such as the Cladding Safety Scheme. Qualifying leaseholders remain protected from cladding costs regardless." } },
+    { "@type": "Question", "name": "Can a managing agent organise remediation works?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. A managing agent can coordinate assessments, procurement and funding applications on behalf of the freeholder or RMC client, though the agent does not usually hold personal financial liability for the works itself." } },
+    { "@type": "Question", "name": "What if my building is below 11 metres?", "acceptedAnswer": { "@type": "Answer", "text": "The Building Safety Act's main leaseholder protections and funding routes are built around an 11-metre/five-storey threshold. A separate, narrower fund exists for buildings under 11 metres — see our under-11m funding guide." } },
+    { "@type": "Question", "name": "Should we wait for the Remediation Bill?", "acceptedAnswer": { "@type": "Answer", "text": "No — the Bill is not yet law and its final form may change. Establishing your building's current funding and liability position under existing rules is worthwhile now, regardless of how the Bill progresses. See our full guide to the Remediation Bill 2026." } }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://wrightwoodconsulting.co.uk/" },
+    { "@type": "ListItem", "position": 2, "name": "Insights", "item": "https://wrightwoodconsulting.co.uk/insights/" },
+    { "@type": "ListItem", "position": 3, "name": "Who Pays for Cladding Remediation", "item": "https://wrightwoodconsulting.co.uk/insights/who-pays-for-cladding-remediation/" }
+  ]
+}
+</script>
+
+</body>
+</html>

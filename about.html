@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+<!-- Google tag (gtag.js) with Basic Consent Mode: tag is not loaded or fired at all until consent is granted -->
+<script>
+  (function () {
+    var CONSENT_KEY = 'wrightwood_analytics_consent';
+    var MEASUREMENT_ID = 'G-NT1H3P8FXB';
+
+    function showBanner() {
+      var banner = document.getElementById('cookie-consent-banner');
+      if (!banner) return;
+      banner.style.display = 'block';
+      document.body.style.paddingBottom = banner.offsetHeight + 'px';
+    }
+    function hideBanner() {
+      var banner = document.getElementById('cookie-consent-banner');
+      if (!banner) return;
+      banner.style.display = 'none';
+      document.body.style.paddingBottom = '';
+    }
+    window.addEventListener('resize', function () {
+      var banner = document.getElementById('cookie-consent-banner');
+      if (banner && banner.style.display === 'block') {
+        document.body.style.paddingBottom = banner.offsetHeight + 'px';
+      }
+    });
+
+    function loadAnalytics() {
+      if (window.wrightwoodAnalyticsLoaded) return;
+      window.wrightwoodAnalyticsLoaded = true;
+      window.dataLayer = window.dataLayer || [];
+      window.gtag = window.gtag || function () { window.dataLayer.push(arguments); };
+      gtag('js', new Date());
+      gtag('config', MEASUREMENT_ID);
+      var s = document.createElement('script');
+      s.async = true;
+      s.src = 'https://www.googletagmanager.com/gtag/js?id=' + MEASUREMENT_ID;
+      document.head.appendChild(s);
+    }
+
+    var saved = null;
+    try { saved = localStorage.getItem(CONSENT_KEY); } catch (e) {}
+    if (saved === 'granted') {
+      loadAnalytics();
+    } else if (saved !== 'denied') {
+      document.addEventListener('DOMContentLoaded', showBanner);
+    }
+    window.wrightwoodSetConsent = function (value) {
+      try { localStorage.setItem(CONSENT_KEY, value); } catch (e) {}
+      if (value === 'granted') loadAnalytics();
+      hideBanner();
+    };
+    window.wrightwoodShowCookieBanner = showBanner;
+  })();
+</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Gateway 2 &amp; Building Safety Act Consultancy | Wrightwood Consulting</title>
+<meta name="description" content="Building Safety Act and Gateway 2 consultancy led by hands-on Building Safety Regulator approval experience. External wall remediation specialists, London &amp; South East.">
+<link rel="canonical" href="https://wrightwoodconsulting.co.uk/about.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Wrightwood Consulting">
+<meta property="og:title" content="Gateway 2 &amp; Building Safety Act Consultancy | Wrightwood Consulting">
+<meta property="og:description" content="Building Safety Act and Gateway 2 consultancy led by hands-on Building Safety Regulator approval experience. External wall remediation specialists, London &amp; South East.">
+<meta property="og:url" content="https://wrightwoodconsulting.co.uk/about.html">
+<meta property="og:locale" content="en_GB">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --cream: #F7F5F0;
+    --warm-white: #FDFCFA;
+    --charcoal: #1C1C1A;
+    --mid: #5C5C58;
+    --light: #9A9A94;
+    --border: #E0DDD6;
+    --accent: #2A4A3A;
+    --accent-light: #EAF0EC;
+  }
+  html { scroll-behavior: smooth; }
+  body { font-family: 'DM Sans', sans-serif; background: var(--warm-white); color: var(--charcoal); font-size: 16px; line-height: 1.7; }
+
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    background: rgba(253,252,250,0.92); backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border);
+    padding: 0 5%; display: flex; align-items: center; justify-content: space-between; height: 68px;
+  }
+  .nav-logo { font-family: 'EB Garamond', serif; font-size: 20px; font-weight: 500; color: var(--charcoal); letter-spacing: 0.01em; text-decoration: none; }
+  .nav-links { display: flex; gap: 24px; list-style: none; }
+  .nav-links a { font-size: 12px; font-weight: 400; color: var(--mid); text-decoration: none; letter-spacing: 0.04em; text-transform: uppercase; transition: color 0.2s; }
+  .nav-links a:hover, .nav-links a.active { color: var(--charcoal); }
+  .nav-cta { font-size: 13px; font-weight: 500; color: var(--warm-white); background: var(--accent); padding: 10px 22px; border-radius: 4px; text-decoration: none; letter-spacing: 0.02em; transition: opacity 0.2s; white-space: nowrap; }
+  .nav-cta:hover { opacity: 0.85; }
+
+  .hero-eyebrow { font-size: 11px; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent); margin-bottom: 20px; display: flex; align-items: center; gap: 12px; }
+  .hero-eyebrow::before { content: ''; display: block; width: 32px; height: 1px; background: var(--accent); }
+
+  .article-hero { padding: 140px 5% 40px; background: var(--warm-white); border-bottom: 1px solid var(--border); }
+  .article-hero-inner { max-width: 760px; margin: 0 auto; }
+  .article-hero h1 { font-family: 'EB Garamond', serif; font-size: clamp(32px, 4.4vw, 50px); font-weight: 400; line-height: 1.12; color: var(--charcoal); margin-bottom: 20px; letter-spacing: -0.01em; }
+  .article-hero .lede { font-size: 17px; color: var(--mid); font-weight: 300; line-height: 1.75; max-width: 640px; margin-bottom: 24px; }
+  .breadcrumb { font-size: 12px; color: var(--light); margin-bottom: 28px; }
+  .breadcrumb a { color: var(--light); text-decoration: none; }
+  .breadcrumb a:hover { color: var(--accent); }
+
+  .article-body { max-width: 760px; padding: 40px 5% 20px; margin: 0 auto; }
+  .article-body h2 { font-family: 'EB Garamond', serif; font-size: clamp(25px, 2.8vw, 32px); font-weight: 500; color: var(--charcoal); margin: 52px 0 18px; line-height: 1.25; letter-spacing: -0.005em; scroll-margin-top: 90px; }
+  .article-body > h2:first-child { margin-top: 0; }
+  .article-body h3 { font-family: 'EB Garamond', serif; font-size: 19px; font-weight: 500; color: var(--charcoal); margin: 30px 0 12px; scroll-margin-top: 90px; }
+  .article-body p { font-size: 15.5px; color: var(--mid); font-weight: 300; line-height: 1.85; margin-bottom: 18px; }
+  .article-body ul, .article-body ol { margin: 0 0 20px; padding-left: 0; list-style: none; display: flex; flex-direction: column; gap: 10px; }
+  .article-body li { font-size: 15px; color: var(--mid); font-weight: 300; line-height: 1.7; padding-left: 22px; position: relative; }
+  .article-body ul li::before { content: ''; position: absolute; left: 0; top: 9px; width: 5px; height: 5px; border-radius: 50%; background: var(--accent); }
+  .article-body strong { color: var(--charcoal); font-weight: 500; }
+  .article-body a { color: var(--accent); text-decoration: underline; text-decoration-color: var(--border); text-underline-offset: 2px; }
+  .article-body a:hover { text-decoration-color: var(--accent); }
+
+  .callout { margin: 8px 0 32px; padding: 28px 32px; border-left: 2px solid var(--accent); background: var(--accent-light); }
+  .callout h3 { font-family: 'EB Garamond', serif; font-size: 17px; color: var(--charcoal); margin: 0 0 10px; font-weight: 500; }
+  .callout p { font-size: 14px; margin: 0 0 10px; }
+  .callout p:last-child { margin-bottom: 0; }
+
+  .convert-box { margin: 8px auto 0; max-width: 760px; padding: 0 5%; }
+  .convert-box-inner { border: 1px solid var(--border); background: var(--cream); padding: 32px 36px; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 24px; }
+  .convert-box-text h2 { font-family: 'EB Garamond', serif; font-size: 22px; font-weight: 500; color: var(--charcoal); margin-bottom: 8px; }
+  .convert-box-text p { font-size: 14.5px; color: var(--mid); font-weight: 300; line-height: 1.7; max-width: 480px; margin: 0; }
+  .btn-primary { background: var(--accent); color: var(--warm-white); font-family: 'DM Sans', sans-serif; font-size: 14px; font-weight: 500; padding: 14px 30px; border-radius: 4px; text-decoration: none; letter-spacing: 0.02em; transition: opacity 0.2s; display: inline-block; white-space: nowrap; }
+  .btn-primary:hover { opacity: 0.85; }
+
+  .jump-nav { max-width: 760px; margin: 40px auto 0; padding: 0 5%; }
+  .jump-nav-box { background: var(--cream); border: 1px solid var(--border); padding: 28px 32px; }
+  .jump-nav-label { font-size: 11px; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: var(--accent); margin-bottom: 16px; display: flex; align-items: center; gap: 10px; }
+  .jump-nav-label::before { content: ''; display: block; width: 16px; height: 1px; background: var(--accent); }
+  .jump-list { display: grid; grid-template-columns: 1fr 1fr; gap: 0 32px; list-style: none; }
+  .jump-list li { border-bottom: 1px solid var(--border); }
+  .jump-list li:nth-last-child(-n+1) { border-bottom: none; }
+  .jump-list a { display: flex; gap: 10px; padding: 9px 0; font-size: 13px; color: var(--mid); text-decoration: none; line-height: 1.4; transition: color 0.2s; }
+  .jump-list a:hover { color: var(--charcoal); }
+  .jump-list .jump-num { font-family: 'EB Garamond', serif; color: var(--light); flex-shrink: 0; }
+
+  .stat-row { display: flex; gap: 1px; background: var(--border); border: 1px solid var(--border); margin: 8px 0 32px; }
+  .stat-item { flex: 1; background: var(--warm-white); padding: 26px 24px; text-align: center; }
+  .stat-number { display: block; font-family: 'EB Garamond', serif; font-size: clamp(26px, 3vw, 34px); font-weight: 500; color: var(--accent); margin-bottom: 6px; }
+  .stat-label { display: block; font-size: 12.5px; color: var(--mid); font-weight: 400; line-height: 1.4; }
+
+  .process-steps { border: 1px solid var(--border); margin: 24px 0 20px; }
+  .process-step { display: flex; border-bottom: 1px solid var(--border); }
+  .process-step:last-child { border-bottom: none; }
+  .step-num { font-family: 'EB Garamond', serif; font-size: 13px; color: var(--light); padding: 22px 26px; border-right: 1px solid var(--border); min-width: 70px; display: flex; align-items: flex-start; flex-shrink: 0; }
+  .step-content { padding: 22px 26px; }
+  .step-title { font-family: 'EB Garamond', serif; font-size: 16px; font-weight: 500; color: var(--charcoal); margin-bottom: 5px; }
+  .step-desc { font-size: 14px; color: var(--mid); font-weight: 300; line-height: 1.75; margin: 0; }
+
+  #apply-now { background: var(--charcoal); padding: 80px 5%; margin-top: 40px; }
+  .apply-now-inner { max-width: 700px; margin: 0 auto; }
+  #apply-now .section-label { font-size: 11px; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; color: #7aaa8a; margin-bottom: 20px; display: flex; align-items: center; gap: 12px; }
+  #apply-now .section-label::before { content: ''; display: block; width: 24px; height: 1px; background: #7aaa8a; }
+  #apply-now h2 { font-family: 'EB Garamond', serif; font-size: clamp(27px, 3.4vw, 36px); font-weight: 400; line-height: 1.18; color: #F7F5F0; margin-bottom: 18px; letter-spacing: -0.01em; }
+  #apply-now p.intro { font-size: 15.5px; color: #9A9A94; font-weight: 300; line-height: 1.8; margin-bottom: 32px; max-width: 600px; }
+
+  .faq-section { max-width: 760px; margin: 0 auto; padding: 20px 5% 0; }
+  .faq-section > .faq-h2 { font-family: 'EB Garamond', serif; font-size: clamp(25px, 2.8vw, 32px); font-weight: 500; color: var(--charcoal); margin: 0 0 8px; }
+  .faq-section > .faq-intro-p { font-size: 14.5px; color: var(--mid); font-weight: 300; margin-bottom: 28px; }
+  .faq-item { display: flex; gap: 26px; padding: 28px 0; border-bottom: 1px solid var(--border); }
+  .faq-item:first-of-type { padding-top: 0; }
+  .faq-item:last-child { border-bottom: none; }
+  .faq-num { font-family: 'EB Garamond', serif; font-size: 14px; color: var(--light); flex-shrink: 0; min-width: 28px; padding-top: 3px; }
+  .faq-question { font-family: 'EB Garamond', serif; font-size: 18px; font-weight: 500; color: var(--charcoal); line-height: 1.35; margin-bottom: 9px; scroll-margin-top: 90px; }
+  .faq-answer p { font-size: 14.5px; color: var(--mid); font-weight: 300; line-height: 1.8; margin-bottom: 10px; }
+  .faq-answer p:last-child { margin-bottom: 0; }
+  .faq-answer a { color: var(--accent); text-decoration: underline; text-underline-offset: 2px; }
+  .faq-answer a:hover { color: var(--charcoal); }
+
+  .related-links { max-width: 760px; margin: 0 auto; padding: 56px 5% 80px; }
+  .related-links h2 { font-family: 'EB Garamond', serif; font-size: 22px; font-weight: 500; color: var(--charcoal); margin-bottom: 20px; }
+  .related-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1px; background: var(--border); border: 1px solid var(--border); }
+  .related-card { background: var(--warm-white); padding: 24px 26px; text-decoration: none; display: block; transition: background 0.2s; }
+  .related-card:hover { background: var(--cream); }
+  .related-card-label { font-size: 11px; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; color: var(--accent); margin-bottom: 8px; }
+  .related-card-title { font-family: 'EB Garamond', serif; font-size: 17px; font-weight: 500; color: var(--charcoal); line-height: 1.35; }
+
+  footer { background: #141412; padding: 32px 5%; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 16px; border-top: 1px solid #2e2e2c; }
+  .footer-logo { font-family: 'EB Garamond', serif; font-size: 18px; color: #F7F5F0; font-weight: 500; text-decoration: none; }
+  .footer-links { display: flex; gap: 28px; list-style: none; flex-wrap: wrap; }
+  .footer-links a { font-size: 12px; color: #555; text-decoration: none; letter-spacing: 0.04em; text-transform: uppercase; transition: color 0.2s; }
+  .footer-links a:hover { color: #9A9A94; }
+  .footer-note { font-size: 12px; color: #444; }
+
+  @media (max-width: 700px) {
+    .nav-links { display: none; }
+    .article-hero { padding: 116px 6% 32px; }
+    .article-body { padding: 32px 6% 10px; }
+    .stat-row { flex-direction: column; }
+    .process-step { flex-direction: column; }
+    .step-num { border-right: none; border-bottom: 1px solid var(--border); min-width: 0; padding: 14px 22px 6px; }
+    .step-content { padding: 12px 22px 20px; }
+    .jump-list { grid-template-columns: 1fr; }
+    .faq-item { flex-direction: column; gap: 8px; }
+    .faq-num { min-width: 0; padding-top: 0; }
+    .convert-box-inner { padding: 26px 24px; }
+    #apply-now { padding: 56px 6%; }
+  }
+</style>
+</head>
+<body>
+
+<div id="cookie-consent-banner" role="region" aria-label="Cookie consent" style="display:none; position:fixed; left:0; right:0; bottom:0; z-index:9999; background:#1C1C1A; color:#FDFCFA; padding:18px 5%; box-shadow:0 -2px 16px rgba(0,0,0,0.18); font-family:'DM Sans', sans-serif;">
+  <div style="max-width:1100px; margin:0 auto; display:flex; flex-wrap:wrap; align-items:center; justify-content:space-between; gap:16px;">
+    <p style="font-size:13.5px; line-height:1.6; color:rgba(253,252,250,0.85); margin:0; flex:1; min-width:220px; font-weight:300;">We use analytics cookies to understand how visitors use this site. These are not set unless you accept. See our <a href="privacy-policy.html" style="color:#8fc0a2; text-decoration:underline;">Privacy Policy</a> for details, or change your choice there at any time.</p>
+    <div style="display:flex; gap:10px; flex-shrink:0;">
+      <button type="button" onclick="wrightwoodSetConsent('denied')" style="background:none; border:1px solid rgba(253,252,250,0.3); color:#FDFCFA; font-family:'DM Sans', sans-serif; font-size:13px; font-weight:500; padding:10px 18px; border-radius:4px; cursor:pointer;">Decline</button>
+      <button type="button" onclick="wrightwoodSetConsent('granted')" style="background:#2A4A3A; border:1px solid #2A4A3A; color:#FDFCFA; font-family:'DM Sans', sans-serif; font-size:13px; font-weight:500; padding:10px 18px; border-radius:4px; cursor:pointer;">Accept analytics</button>
+    </div>
+  </div>
+</div>
+
+
+<nav>
+  <a href="/" class="nav-logo">Wrightwood Consulting</a>
+  <ul class="nav-links">
+    <li><a href="/#services">Services</a></li>
+    <li><a href="about.html" class="active">About</a></li>
+    <li><a href="insights/">Insights</a></li>
+    <li><a href="contact.html">Contact</a></li>
+  </ul>
+  <a href="contact.html" class="nav-cta">Get a remediation review</a>
+</nav>
+
+<header class="article-hero">
+  <div class="article-hero-inner">
+    <p class="breadcrumb"><a href="/">Home</a> / About</p>
+    <p class="hero-eyebrow">About Wrightwood Consulting</p>
+    <h1>Gateway 2 &amp; Building Safety Act Consultancy, Built on First-Hand Experience</h1>
+    <p class="lede">Wrightwood Consulting is led by technical leadership with more than 15 years' experience in construction and engineering — including direct, practical experience taking higher-risk building projects through Gateway 2 and the Building Safety Regulator's approval process. Here's what that experience means for your project.</p>
+  </div>
+</header>
+
+<div class="convert-box">
+  <div class="convert-box-inner">
+    <div class="convert-box-text">
+      <h2>Working through Gateway 2, or a wider remediation project?</h2>
+      <p>Tell us about your building and where things stand. We'll give you a straight view of what's involved, informed by having actually been through the process.</p>
+    </div>
+    <a href="contact.html" class="btn-primary">Discuss Your Project</a>
+  </div>
+</div>
+
+<div class="jump-nav" aria-label="On this page">
+  <div class="jump-nav-box">
+    <p class="jump-nav-label">On this page</p>
+    <ul class="jump-list">
+      <li><a href="#technical-leadership"><span class="jump-num">01</span><span>Technical leadership &amp; experience</span></a></li>
+      <li><a href="#gateway-2"><span class="jump-num">02</span><span>Direct experience of Gateway 2 approval</span></a></li>
+      <li><a href="#specialisms"><span class="jump-num">03</span><span>What we specialise in</span></a></li>
+      <li><a href="#how-we-work"><span class="jump-num">04</span><span>How Wrightwood works</span></a></li>
+      <li><a href="#faq"><span class="jump-num">05</span><span>Frequently asked questions</span></a></li>
+    </ul>
+  </div>
+</div>
+
+<main class="article-body">
+
+<h2 id="technical-leadership">Technical Leadership &amp; Experience</h2>
+
+<p>Wrightwood Consulting is led by an experienced construction professional and engineer with more than 15 years' experience across construction, engineering and the delivery of complex, technically demanding projects. That background sits behind every piece of advice Wrightwood gives and every project it coordinates.</p>
+
+<p>Rather than entering building safety consultancy from a purely advisory or compliance background, Wrightwood's technical leadership comes from the construction industry itself — time spent on technically challenging construction and refurbishment schemes, working alongside design teams, contractors and specialist subcontractors, and seeing projects through from early design to practical completion. That's a different starting point from a desk-based compliance review, and it shapes how Wrightwood approaches every instruction: as something that has to actually get built, not just signed off on paper.</p>
+
+<ul>
+<li><strong>Over 15 years' experience</strong> in construction, engineering and complex project delivery, across both new-build and refurbishment work.</li>
+<li><strong>Extensive experience on technically challenging construction and refurbishment projects</strong>, including buildings with constrained access, occupied residents, and complex existing structures.</li>
+<li><strong>Significant practical experience navigating the Building Safety Act and the Building Safety Regulator's approval processes</strong>, gained by working through them directly rather than advising from the outside.</li>
+<li><strong>Specialist knowledge of external wall remediation, façade construction, fire safety coordination and higher-risk buildings</strong>, built up across multiple live projects rather than a single engagement.</li>
+<li><strong>A practical understanding of construction delivery, regulatory compliance and the real challenges of progressing a project through the Gateway approval process</strong> — including the kind of delays, information gaps and coordination problems that only become visible once you're inside a live submission.</li>
+</ul>
+
+<div class="callout">
+<h3>Why we don't name individuals on this page</h3>
+<p>Wrightwood Consulting is a small, specialist practice, and we've chosen not to publish the name or photograph of our technical lead on this website. What matters to a prospective client is the depth and relevance of the experience behind the advice — which is what this page sets out — rather than a biography. We're happy to discuss our technical lead's background directly with any client as part of an initial conversation.</p>
+</div>
+
+<h2 id="gateway-2">Direct Experience of Gateway 2 Approval</h2>
+
+<p>Gateway 2 is the hardest practical obstacle most higher-risk building projects face. It's a hard stop: the Building Safety Regulator will not allow construction to begin until it is satisfied that the design, the building's fire and structural safety, and the competence of those responsible for delivering it, have all been properly demonstrated. Plenty of consultancies can explain what Gateway 2 requires in theory. Fewer have actually sat inside a live submission, responded to BSR queries under time pressure, and got a project through to approval.</p>
+
+<div class="stat-row">
+  <div class="stat-item"><span class="stat-number">15+</span><span class="stat-label">Years in construction &amp; engineering</span></div>
+  <div class="stat-item"><span class="stat-number">2</span><span class="stat-label">Gateway 2 approvals our technical lead has been directly involved in securing</span></div>
+</div>
+
+<p>Wrightwood's technical lead has been directly involved in securing Gateway 2 approval on two higher-risk building projects — work that involved coordinating the technical documentation, design information, consultant submissions and regulatory responses required to satisfy the Building Safety Regulator. That included:</p>
+
+<ul>
+<li>Pulling together and quality-checking the technical documentation a Gateway 2 submission depends on, so it reflects the design and construction approach actually being taken.</li>
+<li>Coordinating design information across architects, structural engineers, fire engineers and other specialist consultants so the submission tells one consistent story, rather than a set of documents that don't quite agree with each other.</li>
+<li>Managing the practical business of getting consultant submissions finalised, reviewed and issued to a timetable, which is very often where Gateway 2 programmes actually slip.</li>
+<li>Preparing and coordinating responses to the Building Safety Regulator's queries and requests for further information — the stage where many submissions stall if no one is driving it.</li>
+</ul>
+
+<div class="callout">
+<h3>What this means for your project</h3>
+<p>This isn't generic Building Safety Act advice. It's experience of what a Gateway 2 submission actually looks like from the inside — where the real risks to programme sit, what the Building Safety Regulator typically pushes back on, and how to keep a multidisciplinary team's information moving in the same direction. If your project is heading towards Gateway 2, or is already inside the process and has stalled, that's precisely the kind of problem this experience is suited to.</p>
+</div>
+
+<h2 id="specialisms">What We Specialise In</h2>
+
+<p>Wrightwood focuses on a deliberately narrow set of services, built around where this experience adds the most value:</p>
+
+<div class="process-steps">
+  <div class="process-step"><div class="step-num">01</div><div class="step-content"><h3 class="step-title">Building Safety Act consultancy &amp; Gateway 2 support</h3><p class="step-desc">Practical, hands-on support getting a <a href="building-safety.html">Building Safety Act</a>-regulated project ready for and through Gateway 2 — not just an explanation of what the Act requires.</p></div></div>
+  <div class="process-step"><div class="step-num">02</div><div class="step-content"><h3 class="step-title">Building Safety Regulator submissions &amp; approval coordination</h3><p class="step-desc">Coordinating the documentation, consultant input and regulatory correspondence a BSR submission depends on, and keeping it moving once it's in.</p></div></div>
+  <div class="process-step"><div class="step-num">03</div><div class="step-content"><h3 class="step-title">Higher-risk building refurbishment &amp; remediation</h3><p class="step-desc">Supporting owners, <a href="rtm-companies-building-safety.html">RTM companies</a> and <a href="managing-agents-cladding-remediation.html">managing agents</a> through refurbishment and remediation work on higher-risk buildings, where the regulatory process is as demanding as the construction itself.</p></div></div>
+  <div class="process-step"><div class="step-num">04</div><div class="step-content"><h3 class="step-title">External wall &amp; façade remediation</h3><p class="step-desc">Coordinating <a href="pas-9980-explained.html">PAS 9980</a> and <a href="fraew-cost.html">FRAEW</a> assessments through to full façade remediation, appointing and managing the specialist consultants involved.</p></div></div>
+  <div class="process-step"><div class="step-num">05</div><div class="step-content"><h3 class="step-title">Construction-stage technical &amp; regulatory coordination</h3><p class="step-desc">Keeping the technical, design and regulatory threads of a project together once construction is under way, including the design-management input that supports a live build — not a standalone service, but part of keeping a project moving.</p></div></div>
+</div>
+
+<h2 id="how-we-work">How Wrightwood Works</h2>
+
+<p>Wrightwood works exclusively client-side — for the building owner, RTM company, managing agent or housing provider, not for a contractor or design firm. We appoint and coordinate suitably qualified, independent fire engineers, facade consultants and other specialists on our clients' behalf; we don't carry out FRAEW, PAS 9980 or other technical assessments ourselves. That split matters: it means our advice is shaped by what's actually needed to get a project through to completion, not by a commercial interest in any one piece of the work.</p>
+
+<p>Our focus is London and the South East, with reach across England where a project needs it. If you're dealing with a Gateway 2 submission, a stalled Building Safety Regulator approval, or an external wall or remediation project that needs someone who has actually been through this process before, that's the conversation we're best placed to have.</p>
+
+</main>
+
+<section id="apply-now">
+  <div class="apply-now-inner">
+    <p class="section-label">Get in touch</p>
+    <h2>Talk to Wrightwood about your project</h2>
+    <p class="intro">Whether you're preparing for Gateway 2, stuck partway through a Building Safety Regulator submission, or scoping an external wall remediation project, we can give you a straight view based on direct experience of the process.</p>
+    <a href="contact.html" class="btn-primary">Discuss Your Project</a>
+  </div>
+</section>
+
+<section class="faq-section" id="faq">
+  <h2 class="faq-h2">Frequently Asked Questions</h2>
+  <p class="faq-intro-p">Common questions about Wrightwood's experience and how we work.</p>
+
+  <div class="faq-item">
+    <p class="faq-num">01</p>
+    <div>
+      <h3 class="faq-question" id="what-does-gateway-2-experience-mean">What does "Gateway 2 experience" actually mean in practice?</h3>
+      <div class="faq-answer"><p>It means having coordinated the technical documentation, design information, consultant submissions and Building Safety Regulator correspondence a real Gateway 2 application depends on — not just advising on the Building Safety Act in general terms. Wrightwood's technical lead has been directly involved in securing Gateway 2 approval on two higher-risk building projects, and brings that first-hand understanding of where submissions typically stall to every project we support.</p></div>
+    </div>
+  </div>
+  <div class="faq-item">
+    <p class="faq-num">02</p>
+    <div>
+      <h3 class="faq-question" id="do-you-carry-out-assessments-yourselves">Does Wrightwood carry out FRAEW, PAS 9980 or fire safety assessments directly?</h3>
+      <div class="faq-answer"><p>No. Wrightwood appoints and coordinates suitably qualified, independent fire engineers and facade consultants to carry out <a href="pas-9980-explained.html">PAS 9980</a> and FRAEW assessments, and uses the findings to inform the wider project. See our guide to <a href="fraew-cost.html">how a FRAEW works and what it costs</a> for more on this.</p></div>
+    </div>
+  </div>
+  <div class="faq-item">
+    <p class="faq-num">03</p>
+    <div>
+      <h3 class="faq-question" id="only-higher-risk-buildings">Do you only work on higher-risk buildings (18m+ or 7+ storeys)?</h3>
+      <div class="faq-answer"><p>No. While Gateway 2 and Building Safety Regulator approval only apply to higher-risk buildings, Wrightwood also supports external wall remediation and funding applications on lower-rise buildings, including the Cladding Safety Scheme route now open to some <a href="cladding-safety-scheme-under-11-metres">buildings under 11 metres</a>.</p></div>
+    </div>
+  </div>
+  <div class="faq-item">
+    <p class="faq-num">04</p>
+    <div>
+      <h3 class="faq-question" id="areas-covered">Do you work outside London and the South East?</h3>
+      <div class="faq-answer"><p>London and the South East are our primary focus, but we work with clients across England where a project calls for it. <a href="contact.html">Get in touch</a> with details of your building and location and we'll let you know whether we're a good fit.</p></div>
+    </div>
+  </div>
+</section>
+
+<div class="related-links">
+  <h2>Related guides</h2>
+  <div class="related-grid">
+    <a class="related-card" href="building-safety.html"><p class="related-card-label">Service</p><p class="related-card-title">Building Safety Act &amp; Gateway 2 services</p></a>
+    <a class="related-card" href="rtm-companies-building-safety.html"><p class="related-card-label">Audience</p><p class="related-card-title">Support for RTM companies</p></a>
+    <a class="related-card" href="managing-agents-cladding-remediation.html"><p class="related-card-label">Audience</p><p class="related-card-title">Support for managing agents</p></a>
+    <a class="related-card" href="cladding-remediation-project-management.html"><p class="related-card-label">Service</p><p class="related-card-title">Client-side project management</p></a>
+    <a class="related-card" href="pas-9980-explained.html"><p class="related-card-label">Guide</p><p class="related-card-title">PAS 9980 explained</p></a>
+    <a class="related-card" href="insights/remediation-bill-2026-building-safety/"><p class="related-card-label">Insights</p><p class="related-card-title">The Remediation Bill 2026: what it means</p></a>
+    <a class="related-card" href="contact.html"><p class="related-card-label">Get in touch</p><p class="related-card-title">Request an initial review</p></a>
+  </div>
+</div>
+
+<footer>
+  <a href="/" class="footer-logo">Wrightwood Consulting</a>
+  <ul class="footer-links">
+    <li><a href="/#services">Services</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="rtm-companies-building-safety.html">RTM Companies</a></li>
+    <li><a href="managing-agents-cladding-remediation.html">Managing Agents</a></li>
+    <li><a href="contact.html">Contact</a></li>
+    <li><a href="privacy-policy.html">Privacy Policy</a></li>
+  </ul>
+  <span class="footer-note">© 2026 Wrightwood Consulting. All rights reserved.</span>
+</footer>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "name": "Gateway 2 & Building Safety Act Consultancy | Wrightwood Consulting",
+  "description": "Building Safety Act and Gateway 2 consultancy led by hands-on Building Safety Regulator approval experience. External wall remediation specialists, London & South East.",
+  "url": "https://wrightwoodconsulting.co.uk/about.html",
+  "inLanguage": "en-GB",
+  "publisher": {
+    "@type": "Organization",
+    "name": "Wrightwood Consulting",
+    "url": "https://wrightwoodconsulting.co.uk/",
+    "description": "Client-side building safety and cladding remediation consultancy led by technical leadership with over 15 years' experience in construction and engineering, including direct involvement in securing Gateway 2 approval for higher-risk building projects. Wrightwood appoints and coordinates specialist fire engineers, surveyors and contractors on behalf of RTM companies, resident management companies, managing agents and building owners.",
+    "areaServed": [
+      { "@type": "AdministrativeArea", "name": "London" },
+      { "@type": "AdministrativeArea", "name": "Surrey" },
+      { "@type": "AdministrativeArea", "name": "South East England" },
+      { "@type": "Country", "name": "England" }
+    ],
+    "knowsAbout": ["Building Safety Act 2022", "Gateway 2", "Gateway 3", "Building Safety Regulator", "FRAEW", "PAS 9980", "EWS1", "Higher-risk buildings", "External wall remediation", "Golden thread"]
+  },
+  "datePublished": "2026-11-19",
+  "dateModified": "2026-11-19"
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    { "@type": "Question", "name": "What does \"Gateway 2 experience\" actually mean in practice?", "acceptedAnswer": { "@type": "Answer", "text": "It means having coordinated the technical documentation, design information, consultant submissions and Building Safety Regulator correspondence a real Gateway 2 application depends on, not just advising on the Building Safety Act in general terms. Wrightwood's technical lead has been directly involved in securing Gateway 2 approval on two higher-risk building projects." } },
+    { "@type": "Question", "name": "Does Wrightwood carry out FRAEW, PAS 9980 or fire safety assessments directly?", "acceptedAnswer": { "@type": "Answer", "text": "No. Wrightwood appoints and coordinates suitably qualified, independent fire engineers and facade consultants to carry out PAS 9980 and FRAEW assessments, and uses the findings to inform the wider project." } },
+    { "@type": "Question", "name": "Do you only work on higher-risk buildings (18m+ or 7+ storeys)?", "acceptedAnswer": { "@type": "Answer", "text": "No. While Gateway 2 and Building Safety Regulator approval only apply to higher-risk buildings, Wrightwood also supports external wall remediation and funding applications on lower-rise buildings, including the Cladding Safety Scheme route now open to some buildings under 11 metres." } },
+    { "@type": "Question", "name": "Do you work outside London and the South East?", "acceptedAnswer": { "@type": "Answer", "text": "London and the South East are our primary focus, but we work with clients across England where a project calls for it." } }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://wrightwoodconsulting.co.uk/" },
+    { "@type": "ListItem", "position": 2, "name": "About", "item": "https://wrightwoodconsulting.co.uk/about.html" }
+  ]
+}
+</script>
+
+</body>
+</html>
